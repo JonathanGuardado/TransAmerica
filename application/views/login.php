@@ -28,7 +28,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
             
             
-        <input type="submit"  value="Sign In" name="signin"/>
+        <input type="submit" class="btn btn-inverse" value="Sign In" name="signin"/>
             
             <br />            
             
@@ -38,5 +38,6 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-2  hidden-xs"></div>
+    
 </body>
 </html>

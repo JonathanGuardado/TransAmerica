@@ -1,0 +1,38 @@
+Clientes
+	Agregar
+	Modificar
+	Eliminar
+	Buscar
+
+Flota (unidad)
+	Chasis
+	Conductor
+	Contenedor
+		Agregar
+		Modificar
+		Eliminar
+		Buscar
+
+Ruta
+	Agregar
+	Modificar
+	Eliminar
+	Buscar
+
+Llantas
+	Agregar
+	Modificar
+	Eliminar
+	Buscar
+
+Mantenimiento
+	Reencauche		
+		Agregar
+		Modificar
+		Buscar
+	Desechar
+	Compras
+	Asignacion
+
+
+
