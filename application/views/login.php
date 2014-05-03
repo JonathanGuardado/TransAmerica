@@ -7,9 +7,10 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>    
 </head>
 <body>
-	    <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
+        <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
     <div class="row jumbotron text-center" style="font-size:16px;">
+    <form method="post" action="index.php/login/checkUser">
     <fieldset>
         <legend class="text-center">Login</legend>
 
@@ -33,6 +34,7 @@
             
         </div>
     </fieldset>
+    </form>
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-2  hidden-xs"></div>
