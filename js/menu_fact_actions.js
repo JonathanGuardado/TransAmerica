@@ -5,5 +5,98 @@ $("#addClient").click(function()
       $("#searchClient").removeClass("active");
       $("#deleteClient").removeClass("active");
       $("#addClient").addClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
       
    });
+$("#editClient").click(function()
+    {
+      $("#content_fact").load("../administrador/editClient");
+      $("#addClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#editClient").addClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+
+   });
+$("#deleteClient").click(function()
+    {
+      $("#content_fact").load("../administrador/deleteClient");
+      $("#editClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").addClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+
+   });
+$("#searchClient").click(function()
+    {
+      $("#content_fact").load("../administrador/searchClient");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").addClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+
+   });
+
+$("#addRoute").click(function()
+    {
+      $("#content_fact").load("../administrador/newRoute");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#addRoute").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+   });
+$("#editRoute").click(function()
+    {
+      $("#content_fact").load("../administrador/editRoute");
+      $("#addRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#editRoute").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+   });
+$("#deleteRoute").click(function()
+    {
+      $("#content_fact").load("../administrador/deleteRoute");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+   });
+$("#searchRoute").click(function()
+    {
+      $("#content_fact").load("../administrador/searchRoute");
+      $("#editRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#searchRoute").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+   });
+

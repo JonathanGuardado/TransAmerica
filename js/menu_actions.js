@@ -2,7 +2,7 @@ $("#fleet").click(function()
     {
       $("#content").load("../administrador/showFleet");
       $("#fact").removeClass();
-      $("#users").removeClass();
+      $("#mantain").removeClass();
       $("#fleet").addClass("active");
       
    });
@@ -10,15 +10,15 @@ $("#fact").click(function()
     {
       $("#content").load("../administrador/showFact");
       $("#fleet").removeClass();
-      $("#users").removeClass();
+      $("#mantain").removeClass();
       $("#fact").addClass("active");
       
    });
-$("#users").click(function()
+$("#mantain").click(function()
     {
-      $("#content").load("../administrador/showUsers");
+      $("#content").load("../administrador/showMantain");
       $("#fleet").removeClass();
       $("#fact").removeClass();
-      $("#users").addClass("active");
+      $("#mantain").addClass("active");
       
    });
