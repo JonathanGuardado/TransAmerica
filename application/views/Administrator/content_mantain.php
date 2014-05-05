@@ -17,11 +17,12 @@
 			</div>
 			<a id="Desechar" class="list-group-item" >Desechar</a>
 			<a id="Compra" class="list-group-item" >Compra</a>
-			<a id="Asignaci&oacute;" class="list-group-item" >Asignaci&oacute;n</a>
+			<a id="Asignacion" class="list-group-item" >Asignaci&oacute;n</a>
 		  	
 		</div>
 	</div>
-	<div id="content_users" class="col-lg-10">
+	<div id="content_mantain" class="col-lg-10">
 		<h1>Mantenimiento Llantas</h1>
 	</div>
 </div>
+<script type="text/javascript" src="../../js/menu_mantain_actions.js"></script>

@@ -1,4 +1,4 @@
-<form method="post" action="../administrador/editClient2" id="buscar">
+<form method="post" action="../client/editClient2" id="buscar">
 	<fieldset>
 		<legend>Modificar Cliente</legend>
 		<div class="row">

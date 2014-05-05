@@ -1,12 +1,12 @@
-<form id="searchForm" method="post" action="../administrador/searchClient2">
+<form id="searchFormChofer" method="post" action="../chofer/searchChofer2">
 	<fieldset>
-		<legend>Buscar Cliente</legend>
+		<legend>Buscar Chofer</legend>
 		<div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs form-group"  style="text-align:right"><label>Nombre Empresa</label></div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 form-group"  style="text-align:left"><input type="text" name="nameClient" class="form-control" placeholder="Nombre Empresa"/>            
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 form-group"  style="text-align:left"><input type="text" name="nameChofer" class="form-control" placeholder="Nombre Empresa"/>            
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-        <input type="button" class="btn btn-primary" value="Buscar Cliente" name="search" id="searchBtn"/>            
+        <input type="button" class="btn btn-primary" value="Buscar Chofer" name="searchBtnChofer" id="searchBtnChofer"/>            
         </div>
         </div>        
 
@@ -17,10 +17,10 @@
 
 </div>
 <script type="text/javascript">
-$("#searchBtn").click(function(){
-    var $form=$("#searchForm"), url=$form.attr("action");
+$("#searchBtnChofer").click(function(){
+    var $form=$("#searchFormChofer"), url=$form.attr("action");
     var posting= $.post(url,{
-                nameClient:$form.find("input[name='nameClient']").val()
+                nameChofer:$form.find("input[name='nameChofer']").val()
     });
     posting.done(function(data){
         $("#content_busqueda").html(data);

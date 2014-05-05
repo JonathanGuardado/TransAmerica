@@ -1,4 +1,4 @@
-<form id="newRoute" method="post" action="../administrador/storeNewRoute">
+<form id="newRoute" method="post" action="../route/storeNewRoute">
 	<fieldset>
 		<legend>Nueva Ruta</legend>
 		<div class="row">

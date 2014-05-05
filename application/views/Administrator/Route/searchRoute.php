@@ -1,4 +1,4 @@
-<form id="searchRouteForm" method="post" action="../administrador/searchRoute2">
+<form id="searchRouteForm" method="post" action="../route/searchRoute2">
 	<fieldset>
 		<legend>Buscar Ruta</legend>
 		<div class="row">

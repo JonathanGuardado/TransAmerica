@@ -21,10 +21,10 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseWheel">
 					  	<div class="list-group accordion-inner">
-						  <a id="addClient" class="list-group-item">Agregar Llantas</a>
-						  <a id="editClient" class="list-group-item">Modificar Llantas</a>
-						  <a id="searchClient" class="list-group-item">Buscar Llantas</a>
-						  <a id="deleteClient" class="list-group-item">Eliminar Llantas</a>
+						  <a id="addWheel" class="list-group-item">Agregar Llantas</a>
+						  <a id="editWheel" class="list-group-item">Modificar Llantas</a>
+						  <a id="searchWheel" class="list-group-item">Buscar Llantas</a>
+						  <a id="deleteWheel" class="list-group-item">Eliminar Llantas</a>
 						</div>
 			</div>
 				
@@ -78,3 +78,4 @@
 		<h1>Flota</h1>
 	</div>
 </div>
+<script type="text/javascript" src="../../js/menu_flotas_actions.js"></script>

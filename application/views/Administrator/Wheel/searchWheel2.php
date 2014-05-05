@@ -1,1 +1,1 @@
-<h1>Datos de la empresa</h1>
+<h1>Datos de la Llanta</h1>

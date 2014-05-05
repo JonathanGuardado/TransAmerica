@@ -1,22 +1,22 @@
-<form method="post" action="../administrador/editClient2" id="buscar">
+<form method="post" action="../contenedor/editContenedor2" id="buscarFormContenedor">
 	<fieldset>
-		<legend>Modificar Cliente</legend>
+		<legend>Modificar Contenedor</legend>
 		<div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs form-group"  style="text-align:right"><label>Nombre Empresa</label></div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 form-group"  style="text-align:left"><input type="text" name="nameClient" class="form-control" placeholder="Nombre Empresa"/>            
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 form-group"  style="text-align:left"><input type="text" name="nameContenedor" class="form-control" placeholder="Nombre Empresa"/>            
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-        <input type="button" class="btn btn-primary" value="Buscar Cliente" name="newClient" id="buscarCliente"/>            
+        <input type="button" class="btn btn-primary" value="Buscar Contenedor" name="buscarBtnContenedor" id="buscarBtnContenedor"/>            
         </div>
         </div>        
 
 	</fieldset>
 </form>
 <script type="text/javascript">
-$("#buscarCliente").click(function(){
-    var $form=$("#buscar"), url=$form.attr("action");
+$("#buscarBtnContenedor").click(function(){
+    var $form=$("#buscarFormContenedor"), url=$form.attr("action");
     var posting= $.post(url,{
-                nameClient:$form.find("input[name='nameClient']").val()
+                nameContenedor:$form.find("input[name='nameContenedor']").val()
     });
     posting.done(function(data){
         $("#content_busqueda").html(data);

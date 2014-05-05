@@ -1,13 +1,37 @@
+Viaje
+	Agregar
+		nombre cliente
+		nombre ruta
+		id flota
+		fecha
+		tipo
+	Modificar
+	Buscar
+	Eliminar
 Clientes
 	Agregar
+		Nombre cliente
+		No flota
+		Nombre Ruta
+		Fecha
+		Tipo	
 	Modificar
 	Eliminar
 	Buscar
 
 Flota (unidad)
-	Chasis
+	Chasis		
 	Conductor
+		nombre
+		apellido
+		dui
+		nit
+		fecha nacimiento
+		estado
 	Contenedor
+		descripcion
+		tipo
+	Para los 3:
 		Agregar
 		Modificar
 		Eliminar
@@ -15,12 +39,23 @@ Flota (unidad)
 
 Ruta
 	Agregar
+		origen
+		destino
+		tiempo estimado
+		distancia km
+		gasolina estimada
 	Modificar
 	Eliminar
 	Buscar
 
 Llantas
 	Agregar
+		descripcion
+		serie
+		tamaño
+		marca
+		estado
+		fecha compra
 	Modificar
 	Eliminar
 	Buscar
@@ -28,6 +63,9 @@ Llantas
 Mantenimiento
 	Reencauche		
 		Agregar
+			fecha
+			idllanta
+			descripcion
 		Modificar
 		Buscar
 	Desechar
