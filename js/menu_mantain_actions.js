@@ -5,7 +5,12 @@ $("#addReencauche").click(function()
       $("#searchReencauche").removeClass("active");
       $("#deleteReencauche").removeClass("active");
       $("#addReencauche").addClass("active");
-      
+      $("#editWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
    });
 $("#editReencauche").click(function()
     {
@@ -14,7 +19,12 @@ $("#editReencauche").click(function()
       $("#searchReencauche").removeClass("active");
       $("#deleteReencauche").removeClass("active");
       $("#editReencauche").addClass("active");
-      
+      $("#editWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
    });
 $("#deleteReencauche").click(function()
     {
@@ -23,7 +33,12 @@ $("#deleteReencauche").click(function()
       $("#searchReencauche").removeClass("active");
       $("#addReencauche").removeClass("active");
       $("#deleteReencauche").addClass("active");
-      
+      $("#editWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
    });
 $("#searchReencauche").click(function()
     {
@@ -32,5 +47,101 @@ $("#searchReencauche").click(function()
       $("#addReencauche").removeClass("active");
       $("#deleteReencauche").removeClass("active");
       $("#searchReencauche").addClass("active");
+      $("#editWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
       
    });
+
+$("#addWheel").click(function()
+    {
+      $("#content_mantain").load("../wheel/newWheel");
+      $("#editWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#addWheel").addClass("active");      
+      $("#editReencauche").removeClass("active");
+      $("#searchReencauche").removeClass("active");
+      $("#addReencauche").removeClass("active");
+      $("#deleteReencauche").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
+   });
+$("#editWheel").click(function()
+    {
+      $("#content_mantain").load("../wheel/editWheel");
+      $("#addWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#editWheel").addClass("active");      
+      $("#editReencauche").removeClass("active");
+      $("#searchReencauche").removeClass("active");
+      $("#addReencauche").removeClass("active");
+      $("#deleteReencauche").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
+   });
+$("#deleteWheel").click(function()
+    {
+      $("#content_mantain").load("../wheel/deleteWheel");
+      $("#editWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").addClass("active");      
+      $("#editReencauche").removeClass("active");
+      $("#searchReencauche").removeClass("active");
+      $("#addReencauche").removeClass("active");
+      $("#deleteReencauche").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
+   });
+$("#searchWheel").click(function()
+    {
+      $("#content_mantain").load("../wheel/searchWheel");
+      $("#editWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#searchWheel").addClass("active");      
+      $("#editReencauche").removeClass("active");
+      $("#searchReencauche").removeClass("active");
+      $("#addReencauche").removeClass("active");
+      $("#deleteReencauche").removeClass("active");
+      $("#Asignacion").removeClass("active");
+      $("#Desechar").removeClass("active");
+   });
+
+$("#Asignacion").click(function()
+    {
+      $("#content_mantain").load("../asignacion/");
+      $("#Asignacion").addClass("active");
+      $("#editWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");      
+      $("#editReencauche").removeClass("active");
+      $("#searchReencauche").removeClass("active");
+      $("#addReencauche").removeClass("active");
+      $("#deleteReencauche").removeClass("active");
+      $("#Desechar").removeClass("active");
+   });
+
+$("#Desechar").click(function()
+    {
+      $("#content_mantain").load("../desechar/");
+      $("#Desechar").addClass("active");
+      $("#editWheel").removeClass("active");
+      $("#addWheel").removeClass("active");
+      $("#deleteWheel").removeClass("active");
+      $("#searchWheel").removeClass("active");      
+      $("#editReencauche").removeClass("active");
+      $("#searchReencauche").removeClass("active");
+      $("#addReencauche").removeClass("active");
+      $("#deleteReencauche").removeClass("active");
+      $("#Asignacion").removeClass("active");
+   });
+
+
+

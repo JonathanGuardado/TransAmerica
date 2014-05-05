@@ -2,23 +2,32 @@
 	<fieldset>
 		<legend>Editar Viaje</legend>
 		<div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre Empresa</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="nameViaje" class="form-control" placeholder="Nombre Empresa"/>            
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre Cliente</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="nameClient" class="form-control" placeholder="Nombre Cliente"/>            
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre Contacto</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="nameContact" placeholder="Nombre Contacto" />
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre Ruta</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="nameRoute" placeholder="Nombre Ruta" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Telefono Contacto</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="phoneContact" placeholder="Telefono Contacto" />
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>No. Flota</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="idFlota" placeholder="No. Flota" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Tarifa</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="tarifa" placeholder="Tarifa" />
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Fecha de viaje</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="date" class="form-control" name="fechaViaje" placeholder="Fecha de viaje" />
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Tipo de Viaje</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left">
+            <select type="text" class="form-control" name="tipoViaje" placeholder="Tipo de Viaje" >
+                <option>A</option>
+                <option>B</option>
+            </select>
         </div>
         </div>
         
@@ -37,10 +46,11 @@
 $("#editBtnViaje").click(function(){
     var $form=$("#editViajeForm"), url=$form.attr("action");
     var posting= $.post(url,{
-                nameViaje:$form.find("input[name='nameViaje']").val(),
-                nameContact:$form.find("input[name='nameContact']").val(),
-                phoneContact:$form.find("input[name='phoneContact']").val(),
-                tarifa:$form.find("input[name='tarifa']").val()
+                nameClient:$form.find("input[name='nameClient']").val(),
+                nameRoute:$form.find("input[name='nameRoute']").val(),
+                idFlota:$form.find("input[name='idFlota']").val(),
+                fechaViaje:$form.find("input[name='fechaViaje']").val(),
+                tipoViaje:$form.find("select[name='tipoViaje']").val()
     });
     posting.done(function(data){
         $("#content_fact").html(data);

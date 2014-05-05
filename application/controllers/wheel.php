@@ -44,10 +44,12 @@ class Wheel extends CI_Controller {
 	}
 	public function storeNewWheel()
 	{
-		$nameWheel=$this->input->post("nameWheel",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$noSerie=$this->input->post("noSerie",true);
+		$marca=$this->input->post("marca",true);
+		$size=$this->input->post("size",true);
+		$estado=$this->input->post("estado",true);
+		$fechaCompra=$this->input->post("fechaCompra",true);
+		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
 
@@ -56,10 +58,12 @@ class Wheel extends CI_Controller {
 	}
 	public function storeEditWheel()
 	{
-		$nameWheel=$this->input->post("nameWheel",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$noSerie=$this->input->post("noSerie",true);
+		$marca=$this->input->post("marca",true);
+		$size=$this->input->post("size",true);
+		$estado=$this->input->post("estado",true);
+		$fechaCompra=$this->input->post("fechaCompra",true);
+		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
 

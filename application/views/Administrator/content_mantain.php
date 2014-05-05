@@ -3,21 +3,34 @@
 		<div class="list-group accordion" id="accordion">
 			<div class="accordion-group">
 				<div class="accordion-heading">
-		  		<a id="Reencauche" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseReencauche">Reencauche</a>
+		  		<a id="Wheel" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseWheel">Compra</a>
 				</div>
-			<div class="accordion-body collapse" id="collapseReencauche">
+			<div class="accordion-body collapse" id="collapseWheel">
 					  	<div class="list-group accordion-inner">
-						  <a id="addReencauche" class="list-group-item">Agregar Reencauche</a>
-						  <a id="editReencauche" class="list-group-item">Modificar Reencauche</a>
-						  <a id="searchReencauche" class="list-group-item">Buscar Reencauche</a>
-						  <a id="deleteReencauche" class="list-group-item">Eliminar Reencauche</a>
+						  <a id="addWheel" class="list-group-item badge">Agregar Compra</a>
+						  <a id="editWheel" class="list-group-item badge">Modificar Compra</a>
+						  <a id="searchWheel" class="list-group-item badge">Buscar Compra</a>
+						  <a id="deleteWheel" class="list-group-item badge">Eliminar Compra</a>
 						</div>
 			</div>
 				
 			</div>
-			<a id="Desechar" class="list-group-item" >Desechar</a>
-			<a id="Compra" class="list-group-item" >Compra</a>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+		  		<a id="Reencauche" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseReencauche">Reencauche</a>
+				</div>
+			<div class="accordion-body collapse" id="collapseReencauche">
+					  	<div class="list-group accordion-inner">
+						  <a id="addReencauche" class="list-group-item badge">Agregar Reencauche</a>
+						  <a id="editReencauche" class="list-group-item badge">Modificar Reencauche</a>
+						  <a id="searchReencauche" class="list-group-item badge">Buscar Reencauche</a>
+						  <a id="deleteReencauche" class="list-group-item badge">Eliminar Reencauche</a>
+						</div>
+			</div>
+				
+			</div>
 			<a id="Asignacion" class="list-group-item" >Asignaci&oacute;n</a>
+			<a id="Desechar" class="list-group-item" >Desechar</a>
 		  	
 		</div>
 	</div>

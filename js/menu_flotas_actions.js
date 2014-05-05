@@ -5,10 +5,6 @@ $("#addUnit").click(function()
       $("#searchUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#addUnit").addClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -30,10 +26,6 @@ $("#editUnit").click(function()
       $("#searchUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#editUnit").addClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -55,10 +47,6 @@ $("#deleteUnit").click(function()
       $("#searchUnit").removeClass("active");
       $("#addUnit").removeClass("active");
       $("#deleteUnit").addClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -80,10 +68,6 @@ $("#searchUnit").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").addClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -97,103 +81,6 @@ $("#searchUnit").click(function()
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
 
-   });
-
-$("#addWheel").click(function()
-    {
-      $("#content_flotas").load("../wheel/newWheel");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
-      $("#addWheel").addClass("active");
-      $("#editUnit").removeClass("active");
-      $("#addUnit").removeClass("active");
-      $("#deleteUnit").removeClass("active");
-      $("#searchUnit").removeClass("active");
-      $("#editChofer").removeClass("active");
-      $("#searchChofer").removeClass("active");
-      $("#addChofer").removeClass("active");
-      $("#deleteChofer").removeClass("active");
-      $("#editChasis").removeClass("active");
-      $("#searchChasis").removeClass("active");
-      $("#addChasis").removeClass("active");
-      $("#deleteChasis").removeClass("active");
-      $("#editContenedor").removeClass("active");
-      $("#searchContenedor").removeClass("active");
-      $("#addContenedor").removeClass("active");
-      $("#deleteContenedor").removeClass("active");
-   });
-$("#editWheel").click(function()
-    {
-      $("#content_flotas").load("../wheel/editWheel");
-      $("#addWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
-      $("#editWheel").addClass("active");
-      $("#editUnit").removeClass("active");
-      $("#addUnit").removeClass("active");
-      $("#deleteUnit").removeClass("active");
-      $("#searchUnit").removeClass("active");
-      $("#editChofer").removeClass("active");
-      $("#searchChofer").removeClass("active");
-      $("#addChofer").removeClass("active");
-      $("#deleteChofer").removeClass("active");
-      $("#editChasis").removeClass("active");
-      $("#searchChasis").removeClass("active");
-      $("#addChasis").removeClass("active");
-      $("#deleteChasis").removeClass("active");
-      $("#editContenedor").removeClass("active");
-      $("#searchContenedor").removeClass("active");
-      $("#addContenedor").removeClass("active");
-      $("#deleteContenedor").removeClass("active");
-   });
-$("#deleteWheel").click(function()
-    {
-      $("#content_flotas").load("../wheel/deleteWheel");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").addClass("active");
-      $("#editUnit").removeClass("active");
-      $("#addUnit").removeClass("active");
-      $("#deleteUnit").removeClass("active");
-      $("#searchUnit").removeClass("active");
-      $("#editChofer").removeClass("active");
-      $("#searchChofer").removeClass("active");
-      $("#addChofer").removeClass("active");
-      $("#deleteChofer").removeClass("active");
-      $("#editChasis").removeClass("active");
-      $("#searchChasis").removeClass("active");
-      $("#addChasis").removeClass("active");
-      $("#deleteChasis").removeClass("active");
-      $("#editContenedor").removeClass("active");
-      $("#searchContenedor").removeClass("active");
-      $("#addContenedor").removeClass("active");
-      $("#deleteContenedor").removeClass("active");
-   });
-$("#searchWheel").click(function()
-    {
-      $("#content_flotas").load("../wheel/searchWheel");
-      $("#editWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
-      $("#searchWheel").addClass("active");
-      $("#editUnit").removeClass("active");
-      $("#addUnit").removeClass("active");
-      $("#deleteUnit").removeClass("active");
-      $("#searchUnit").removeClass("active");
-      $("#editChofer").removeClass("active");
-      $("#searchChofer").removeClass("active");
-      $("#addChofer").removeClass("active");
-      $("#deleteChofer").removeClass("active");
-      $("#editChasis").removeClass("active");
-      $("#searchChasis").removeClass("active");
-      $("#addChasis").removeClass("active");
-      $("#deleteChasis").removeClass("active");
-      $("#editContenedor").removeClass("active");
-      $("#searchContenedor").removeClass("active");
-      $("#addContenedor").removeClass("active");
-      $("#deleteContenedor").removeClass("active");
    });
 
 
@@ -208,10 +95,6 @@ $("#addChofer").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
@@ -232,10 +115,6 @@ $("#editChofer").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
@@ -256,10 +135,6 @@ $("#deleteChofer").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
@@ -280,10 +155,6 @@ $("#searchChofer").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
@@ -306,10 +177,6 @@ $("#addChasis").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -330,10 +197,6 @@ $("#editChasis").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -354,10 +217,6 @@ $("#deleteChasis").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -378,10 +237,6 @@ $("#searchChasis").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -404,10 +259,6 @@ $("#addContenedor").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -429,10 +280,6 @@ $("#editContenedor").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -453,10 +300,6 @@ $("#deleteContenedor").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -477,10 +320,6 @@ $("#searchContenedor").click(function()
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
-      $("#editWheel").removeClass("active");
-      $("#searchWheel").removeClass("active");
-      $("#addWheel").removeClass("active");
-      $("#deleteWheel").removeClass("active");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");

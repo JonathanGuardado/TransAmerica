@@ -7,38 +7,25 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseUnit">
 					  	<div class="list-group accordion-inner">
-						  <a id="addUnit" class="list-group-item">Agregar Unidad</a>
-						  <a id="editUnit" class="list-group-item">Modificar Unidad</a>
-						  <a id="searchUnit" class="list-group-item">Buscar Unidad</a>
-						  <a id="deleteUnit" class="list-group-item">Eliminar Unidad</a>
+						  <a id="addUnit" class="list-group-item badge">Agregar Unidad</a>
+						  <a id="editUnit" class="list-group-item badge">Modificar Unidad</a>
+						  <a id="searchUnit" class="list-group-item badge">Buscar Unidad</a>
+						  <a id="deleteUnit" class="list-group-item badge">Eliminar Unidad</a>
 						</div>
 			</div>
 				
 			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-		  		<a id="Wheel" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseWheel">Llantas</a>
-				</div>
-			<div class="accordion-body collapse" id="collapseWheel">
-					  	<div class="list-group accordion-inner">
-						  <a id="addWheel" class="list-group-item">Agregar Llantas</a>
-						  <a id="editWheel" class="list-group-item">Modificar Llantas</a>
-						  <a id="searchWheel" class="list-group-item">Buscar Llantas</a>
-						  <a id="deleteWheel" class="list-group-item">Eliminar Llantas</a>
-						</div>
-			</div>
-				
-			</div>
+			
 		  	<div class="accordion-group">
 				<div class="accordion-heading">
 		  		<a id="Chofer" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseChofer">Chofer</a>
 				</div>
 			<div class="accordion-body collapse" id="collapseChofer">
 					  	<div class="list-group accordion-inner">
-						  <a id="addChofer" class="list-group-item">Agregar Chofer</a>
-						  <a id="editChofer" class="list-group-item">Modificar Chofer</a>
-						  <a id="searchChofer" class="list-group-item">Buscar Chofer</a>
-						  <a id="deleteChofer" class="list-group-item">Eliminar Chofer</a>
+						  <a id="addChofer" class="list-group-item badge">Agregar Chofer</a>
+						  <a id="editChofer" class="list-group-item badge">Modificar Chofer</a>
+						  <a id="searchChofer" class="list-group-item badge">Buscar Chofer</a>
+						  <a id="deleteChofer" class="list-group-item badge">Eliminar Chofer</a>
 						</div>
 			</div>
 				
@@ -49,10 +36,10 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseChasis">
 					  	<div class="list-group accordion-inner">
-						  <a id="addChasis" class="list-group-item">Agregar Chasis</a>
-						  <a id="editChasis" class="list-group-item">Modificar Chasis</a>
-						  <a id="searchChasis" class="list-group-item">Buscar Chasis</a>
-						  <a id="deleteChasis" class="list-group-item">Eliminar Chasis</a>
+						  <a id="addChasis" class="list-group-item badge">Agregar Chasis</a>
+						  <a id="editChasis" class="list-group-item badge">Modificar Chasis</a>
+						  <a id="searchChasis" class="list-group-item badge">Buscar Chasis</a>
+						  <a id="deleteChasis" class="list-group-item badge">Eliminar Chasis</a>
 						</div>
 			</div>
 				
@@ -63,10 +50,10 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseContenedor">
 					  	<div class="list-group accordion-inner">
-						  <a id="addContenedor" class="list-group-item">Agregar Contenedor</a>
-						  <a id="editContenedor" class="list-group-item">Modificar Contenedor</a>
-						  <a id="searchContenedor" class="list-group-item">Buscar Contenedor</a>
-						  <a id="deleteContenedor" class="list-group-item">Eliminar Contenedor</a>
+						  <a id="addContenedor" class="list-group-item badge">Agregar Contenedor</a>
+						  <a id="editContenedor" class="list-group-item badge">Modificar Contenedor</a>
+						  <a id="searchContenedor" class="list-group-item badge">Buscar Contenedor</a>
+						  <a id="deleteContenedor" class="list-group-item badge">Eliminar Contenedor</a>
 						</div>
 			</div>
 				

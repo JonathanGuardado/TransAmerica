@@ -7,10 +7,10 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseViaje">
 					  	<div class="list-group accordion-inner">
-						  <a id="addViaje" class="list-group-item">Agregar Viaje</a>
-						  <a id="editViaje" class="list-group-item">Modificar Viaje</a>
-						  <a id="searchViaje" class="list-group-item">Buscar Viaje</a>
-						  <a id="deleteViaje" class="list-group-item">Eliminar Viaje</a>
+						  <a id="addViaje" class="list-group-item badge">Agregar Viaje</a>
+						  <a id="editViaje" class="list-group-item badge">Modificar Viaje</a>
+						  <a id="searchViaje" class="list-group-item badge">Buscar Viaje</a>
+						  <a id="deleteViaje" class="list-group-item badge">Eliminar Viaje</a>
 						</div>
 			</div>
 				
@@ -21,10 +21,10 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseClient">
 					  	<div class="list-group accordion-inner">
-						  <a id="addClient" class="list-group-item">Agregar Cliente</a>
-						  <a id="editClient" class="list-group-item">Modificar Cliente</a>
-						  <a id="searchClient" class="list-group-item">Buscar Cliente</a>
-						  <a id="deleteClient" class="list-group-item">Eliminar Cliente</a>
+						  <a id="addClient" class="list-group-item badge">Agregar Cliente</a>
+						  <a id="editClient" class="list-group-item badge">Modificar Cliente</a>
+						  <a id="searchClient" class="list-group-item badge">Buscar Cliente</a>
+						  <a id="deleteClient" class="list-group-item badge">Eliminar Cliente</a>
 						</div>
 			</div>
 				
@@ -35,10 +35,10 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseRoute">
 					  	<div class="list-group accordion-inner">
-						  <a id="addRoute" class="list-group-item">Agregar Ruta</a>
-						  <a id="editRoute" class="list-group-item">Modificar Ruta</a>
-						  <a id="searchRoute" class="list-group-item">Buscar Ruta</a>
-						  <a id="deleteRoute" class="list-group-item">Eliminar Ruta</a>
+						  <a id="addRoute" class="list-group-item badge">Agregar Ruta</a>
+						  <a id="editRoute" class="list-group-item badge">Modificar Ruta</a>
+						  <a id="searchRoute" class="list-group-item badge">Buscar Ruta</a>
+						  <a id="deleteRoute" class="list-group-item badge">Eliminar Ruta</a>
 						</div>
 			</div>
 				

@@ -44,10 +44,8 @@ class Contenedor extends CI_Controller {
 	}
 	public function storeNewContenedor()
 	{
-		$nameContenedor=$this->input->post("nameContenedor",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$tipoContenedor=$this->input->post("tipoContenedor",true);
+		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
 
@@ -56,10 +54,8 @@ class Contenedor extends CI_Controller {
 	}
 	public function storeEditContenedor()
 	{
-		$nameContenedor=$this->input->post("nameContenedor",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$tipoContenedor=$this->input->post("tipoContenedor",true);
+		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
 

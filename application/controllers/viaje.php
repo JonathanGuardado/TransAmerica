@@ -44,10 +44,11 @@ class Viaje extends CI_Controller {
 	}
 	public function storeNewViaje()
 	{
-		$nameViaje=$this->input->post("nameViaje",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$nameClient=$this->input->post("nameClient",true);
+		$nameRoute=$this->input->post("nameRoute",true);
+		$idFlota=$this->input->post("idFlota",true);
+		$fechaViaje=$this->input->post("fechaViaje",true);;
+		$tipoViaje=$this->input->post("tipoViaje",true);
 
 		//Se almacena en la base de datos
 
@@ -56,10 +57,11 @@ class Viaje extends CI_Controller {
 	}
 	public function storeEditViaje()
 	{
-		$nameViaje=$this->input->post("nameViaje",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$nameClient=$this->input->post("nameClient",true);
+		$nameRoute=$this->input->post("nameRoute",true);
+		$idFlota=$this->input->post("idFlota",true);
+		$fechaViaje=$this->input->post("fechaViaje",true);;
+		$tipoViaje=$this->input->post("tipoViaje",true);
 
 		//Se almacena en la base de datos
 

@@ -44,10 +44,10 @@ class Reencauche extends CI_Controller {
 	}
 	public function storeNewReencauche()
 	{
-		$nameReencauche=$this->input->post("nameReencauche",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$fechaReencauche=$this->input->post("fechaReencauche",true);
+		$noWheel=$this->input->post("noWheel",true);
+		$descripcion=$this->input->post("descripcion",true);
+		
 
 		//Se almacena en la base de datos
 
@@ -56,10 +56,9 @@ class Reencauche extends CI_Controller {
 	}
 	public function storeEditReencauche()
 	{
-		$nameReencauche=$this->input->post("nameReencauche",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$fechaReencauche=$this->input->post("fechaReencauche",true);
+		$noWheel=$this->input->post("noWheel",true);
+		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
 

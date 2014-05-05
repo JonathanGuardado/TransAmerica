@@ -44,10 +44,9 @@ class Unit extends CI_Controller {
 	}
 	public function storeNewUnit()
 	{
-		$nameUnit=$this->input->post("nameUnit",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$noChasis=$this->input->post("noChasis",true);
+		$noContenedor=$this->input->post("noContenedor",true);
+		$nameChofer=$this->input->post("nameChofer",true);
 
 		//Se almacena en la base de datos
 
@@ -56,11 +55,9 @@ class Unit extends CI_Controller {
 	}
 	public function storeEditUnit()
 	{
-		$nameUnit=$this->input->post("nameUnit",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
-
+		$noChasis=$this->input->post("noChasis",true);
+		$noContenedor=$this->input->post("noContenedor",true);
+		$nameChofer=$this->input->post("nameChofer",true);
 		//Se almacena en la base de datos
 
 		$data['message']="<div class='text-center'><h4>Unidad Editada Exitosamente!</h4></div>";

@@ -45,9 +45,11 @@ class Chofer extends CI_Controller {
 	public function storeNewChofer()
 	{
 		$nameChofer=$this->input->post("nameChofer",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$surnameChofer=$this->input->post("surnameChofer",true);
+		$dui=$this->input->post("dui",true);
+		$nit=$this->input->post("nit",true);
+		$fechaNac=$this->input->post("fechaNac",true);
+		$estado=$this->input->post("estado",true);
 
 		//Se almacena en la base de datos
 
@@ -57,9 +59,11 @@ class Chofer extends CI_Controller {
 	public function storeEditChofer()
 	{
 		$nameChofer=$this->input->post("nameChofer",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		$surnameChofer=$this->input->post("surnameChofer",true);
+		$dui=$this->input->post("dui",true);
+		$nit=$this->input->post("nit",true);
+		$fechaNac=$this->input->post("fechaNac",true);
+		$estado=$this->input->post("estado",true);
 
 		//Se almacena en la base de datos
 
