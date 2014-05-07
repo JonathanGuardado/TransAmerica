@@ -35,4 +35,13 @@ class Login extends CI_Controller {
    echo json_encode($jsondata);
 
 	}
+	public function logout()
+       {
+           $this->load->helper('url');
+           $this->load->library('session');
+           $data=array('USER_NAME'=>'','USER_ID'=>'','USER_TYPE_ID'=>'','PASSWORD'=>'');
+           $this->session->unset_userdata($data);
+           $this->session->sess_destroy();
+           redirect("");
+       }
 }
