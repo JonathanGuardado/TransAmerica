@@ -1,333 +1,274 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2014 a las 20:54:37
--- Versión del servidor: 5.6.17
--- Versión de PHP: 5.5.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     07/05/2014 04:54:09 p.m.                     */
+/*==============================================================*/
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*==============================================================*/
+/* Table: cabezal                                               */
+/*==============================================================*/
+create table cabezal
+(
+   idcabezal            int(11) not null auto_increment,
+   identificador        int not null,
+   marca                varchar(100),
+   kilometraje_actual   float,
+   primary key (idcabezal)
+);
+INSERT INTO `cabezal` (`idcabezal`, `identificador`, `marca`, `kilometraje_actual`) VALUES
+(1, 1, 'mercedez', 1234);
+/*==============================================================*/
+/* Table: chasis                                                */
+/*==============================================================*/
+create table chasis
+(
+   idchasis             int(11) not null auto_increment,
+   placa                varchar(100),
+   marca                varchar(100),
+   descripcion          varchar(100),
+   primary key (idchasis)
+);
+INSERT INTO `chasis` (`idchasis`, `placa`, `marca`, `descripcion`) VALUES
+(1, 'mercerdez', 'mercedez', 'color rojo año 2000');
 
---
--- Base de datos: `db_transamerica`
---
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Table: cliente                                               */
+/*==============================================================*/
+create table cliente
+(
+   idcliente            int(11) not null auto_increment,
+   nombre_empresa       varchar(300) not null,
+   nombre_contacto      varchar(450),
+   telefono_contacto    varchar(16) not null,
+   tarifa               float not null,
+   fecha_ingreso_cliente date,
+   primary key (idcliente)
+);
+INSERT INTO `cliente` (`idcliente`, `nombre_empresa`, `nombre_contacto`, `telefono_contacto`, `tarifa`, `fecha_ingreso_cliente`) VALUES
+(1, 'Siman', 'jose', '23', 12.5, '2014-05-04'),
+(2, 'tigo', 'torrea', '12345678', 12.98, '2014-05-08');
 
---
--- Estructura de tabla para la tabla `cabezal`
---
+/*==============================================================*/
+/* Table: conductor                                             */
+/*==============================================================*/
+create table conductor
+(
+   idconductor          int(11) not null auto_increment,
+   nombre_conductor     varchar(150) not null,
+   apellido_conductor   varchar(150) not null,
+   dui                  varchar(10) not null,
+   nit                  varchar(17) not null,
+   fecha_nacimiento     date,
+   fecha_ingreso_cond   date not null,
+   fecha_fin_cond       date,
+   estado_conductor     varchar(45) not null,
+   primary key (idconductor)
+);
+INSERT INTO `conductor` (`idconductor`, `nombre_conductor`, `apellido_conductor`, `dui`, `nit`, `fecha_nacimiento`, `fecha_ingreso_cond`, `fecha_fin_cond`, `estado_conductor`) VALUES
+(1, 'xfsdfsdf', 'vsdasd', '111', '111', '2014-05-07', '2014-05-07', NULL, 't');
 
-CREATE TABLE IF NOT EXISTS `cabezal` (
-  `idcabezal` int(11) NOT NULL AUTO_INCREMENT,
-  `identificador` int(11) NOT NULL,
-  `marca` varchar(100) DEFAULT NULL,
-  `kilometraje_actual` float DEFAULT NULL,
-  PRIMARY KEY (`idcabezal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+/*==============================================================*/
+/* Table: contenedor                                            */
+/*==============================================================*/
+create table contenedor
+(
+   idcontenedor         int(11) not null auto_increment,
+   descripcion_contenedor varchar(500) not null,
+   tipo_contenedor      varchar(200),
+   primary key (idcontenedor)
+);
+INSERT INTO `contenedor` (`idcontenedor`, `descripcion_contenedor`, `tipo_contenedor`) VALUES
+(1, 'carga de camisa', 'ropa');
+/*==============================================================*/
+/* Table: flota                                                 */
+/*==============================================================*/
+create table flota
+(
+   idflota              int(11) not null auto_increment,
+   idchasis             int(11),
+   idcontenedor         int(11),
+   idcabezal            int(11),
+   idconductor          int(11),
+   primary key (idflota)
+);
+INSERT INTO `flota` (`idflota`, `idchasis`, `idcontenedor`, `idcabezal`) VALUES
+(1, 1, 1, 1);
+/*==============================================================*/
+/* Table: flota_llanta                                          */
+/*==============================================================*/
+create table flota_llanta
+(
+   idflotallanta        int not null auto_increment,
+   idflota              int(11),
+   idllanta             varchar(15),
+   primary key (idflotallanta)
+);
 
--- --------------------------------------------------------
+/*==============================================================*/
+/* Table: guia                                                  */
+/*==============================================================*/
+create table guia
+(
+   idguia               int(11) not null auto_increment,
+   id_ruta              int(11),
+   idcliente            int(11),
+   idconductor          int(11),
+   idflota              int(11),
+   fecha_viaje          date not null,
+   tipo_viaje           varchar(100) not null,
+   gasolina_asignada    float,
+   marchamos            varchar(10),
+   primary key (idguia)
+);
+INSERT INTO `guia` (`idguia`, `id_ruta`, `idcliente`, `idconductor`, `idflota`, `fecha_viaje`, `tipo_viaje`, `gasolina_asignada`, `marchamos`) VALUES
+(1, 1, 1, 1, 1, '2014-05-04', 'A', 100, 'no se'),
+(4, 2, 1, 1, 1, '2014-05-07', 'B', 100, 'no se'),
+(5, 2, 1, 1, 1, '2014-05-23', 'A', 100, 'no se');
+/*==============================================================*/
+/* Table: llanta                                                */
+/*==============================================================*/
+create table llanta
+(
+   idllanta             varchar(15) not null,
+   descripcion_llanta   varchar(150) not null,
+   serie_llanta         varchar(6) not null,
+   ubicacion_llanta     varchar(45) not null,
+   tamanio_llanta       float not null,
+   marca_llanta         varchar(45) not null,
+   estado_llanta        varchar(45) not null,
+   fecha_asignacion     date,
+   fecha_compra         date not null,
+   fecha_desecho        date,
+   primary key (idllanta)
+);
 
---
--- Estructura de tabla para la tabla `chasis`
---
+/*==============================================================*/
+/* Table: lugar                                                 */
+/*==============================================================*/
+create table lugar
+(
+   idlugar              int(11) not null auto_increment,
+   nombre               varchar(100) not null,
+   primary key (idlugar)
+);
+INSERT INTO `lugar` (`idlugar`, `nombre`) VALUES
+(1, 'Guatemala'),
+(2, 'El Salvador'),
+(3, 'Costa Rica');
+/*==============================================================*/
+/* Table: mantenimiento                                         */
+/*==============================================================*/
+create table mantenimiento
+(
+   idmantenimiento      int(11) not null auto_increment,
+   idllanta             varchar(15),
+   fecha_mantenimiento  date not null,
+   descripcion_mtto     varchar(200) not null,
+   primary key (idmantenimiento)
+);
 
-CREATE TABLE IF NOT EXISTS `chasis` (
-  `idchasis` int(11) NOT NULL AUTO_INCREMENT,
-  `placa` varchar(100) DEFAULT NULL,
-  `marca` varchar(100) DEFAULT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`idchasis`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE IF NOT EXISTS `cliente` (
-  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_empresa` varchar(300) NOT NULL,
-  `nombre_contacto` varchar(450) DEFAULT NULL,
-  `telefono_contacto` varchar(16) NOT NULL,
-  `tarifa` float NOT NULL,
-  `fecha_ingreso_cliente` date DEFAULT NULL,
-  PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `conductor`
---
-
-CREATE TABLE IF NOT EXISTS `conductor` (
-  `idconductor` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_conductor` varchar(150) NOT NULL,
-  `apellido_conductor` varchar(150) NOT NULL,
-  `dui` varchar(10) NOT NULL,
-  `nit` varchar(17) NOT NULL,
-  `fecha_nacimiento` date DEFAULT NULL,
-  `fecha_ingreso_cond` date NOT NULL,
-  `fecha_fin_cond` date DEFAULT NULL,
-  `estado_conductor` varchar(45) NOT NULL,
-  PRIMARY KEY (`idconductor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `contenedor`
---
-
-CREATE TABLE IF NOT EXISTS `contenedor` (
-  `idcontenedor` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion_contenedor` varchar(500) NOT NULL,
-  `tipo_contenedor` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`idcontenedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `flota`
---
-
-CREATE TABLE IF NOT EXISTS `flota` (
-  `idflota` int(11) NOT NULL AUTO_INCREMENT,
-  `idchasis` int(11) DEFAULT NULL,
-  `idcontenedor` int(11) DEFAULT NULL,
-  `idcabezal` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idflota`),
-  KEY `FK_RELATIONSHIP_5` (`idchasis`),
-  KEY `FK_RELATIONSHIP_6` (`idcabezal`),
-  KEY `FK_RELATIONSHIP_7` (`idcontenedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `flota_llanta`
---
-
-CREATE TABLE IF NOT EXISTS `flota_llanta` (
-  `idflotallanta` int(11) NOT NULL AUTO_INCREMENT,
-  `idflota` int(11) DEFAULT NULL,
-  `idllanta` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`idflotallanta`),
-  KEY `FK_RELATIONSHIP_16` (`idflota`),
-  KEY `FK_RELATIONSHIP_17` (`idllanta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `guia`
---
-
-CREATE TABLE IF NOT EXISTS `guia` (
-  `idguia` int(11) NOT NULL AUTO_INCREMENT,
-  `id_ruta` int(11) DEFAULT NULL,
-  `idcliente` int(11) DEFAULT NULL,
-  `idconductor` int(11) DEFAULT NULL,
-  `idflota` int(11) DEFAULT NULL,
-  `fecha_viaje` date NOT NULL,
-  `tipo_viaje` varchar(100) NOT NULL,
-  `gasolina_asignada` float DEFAULT NULL,
-  `marchamos` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`idguia`),
-  KEY `FK_RELATIONSHIP_10` (`idcliente`),
-  KEY `FK_RELATIONSHIP_11` (`id_ruta`),
-  KEY `FK_RELATIONSHIP_12` (`idconductor`),
-  KEY `FK_RELATIONSHIP_9` (`idflota`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `llanta`
---
-
-CREATE TABLE IF NOT EXISTS `llanta` (
-  `idllanta` varchar(15) NOT NULL,
-  `descripcion_llanta` varchar(150) NOT NULL,
-  `serie_llanta` varchar(6) NOT NULL,
-  `ubicacion_llanta` varchar(45) NOT NULL,
-  `tamanio_llanta` float NOT NULL,
-  `marca_llanta` varchar(45) NOT NULL,
-  `estado_llanta` varchar(45) NOT NULL,
-  `fecha_asignacion` date DEFAULT NULL,
-  `fecha_compra` date NOT NULL,
-  `fecha_desecho` date DEFAULT NULL,
-  PRIMARY KEY (`idllanta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `lugar`
---
-
-CREATE TABLE IF NOT EXISTS `lugar` (
-  `idlugar` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  PRIMARY KEY (`idlugar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `mantenimiento`
---
-
-CREATE TABLE IF NOT EXISTS `mantenimiento` (
-  `idmantenimiento` int(11) NOT NULL AUTO_INCREMENT,
-  `idllanta` varchar(15) DEFAULT NULL,
-  `fecha_mantenimiento` date NOT NULL,
-  `descripcion_mtto` varchar(200) NOT NULL,
-  PRIMARY KEY (`idmantenimiento`),
-  KEY `FK_RELATIONSHIP_8` (`idllanta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ruta`
---
-
-CREATE TABLE IF NOT EXISTS `ruta` (
-  `id_ruta` int(11) NOT NULL AUTO_INCREMENT,
-  `idrutalugar` int(11) DEFAULT NULL,
-  `descripcion` varchar(200) NOT NULL,
-  `tiempo_estimado` time NOT NULL,
-  `distancia_km` float NOT NULL,
-  `gasolina_estimada` float NOT NULL,
-  PRIMARY KEY (`id_ruta`),
-  KEY `FK_RELATIONSHIP_14` (`idrutalugar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ruta_lugar`
---
-
-CREATE TABLE IF NOT EXISTS `ruta_lugar` (
-  `idrutalugar` int(11) NOT NULL AUTO_INCREMENT,
-  `idlugar` int(11) DEFAULT NULL,
-  `opcionruta` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idrutalugar`),
-  KEY `FK_RELATIONSHIP_15` (`idlugar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipo_usuario`
---
-
-CREATE TABLE IF NOT EXISTS `tipo_usuario` (
-  `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_usuario` varchar(45) NOT NULL,
-  `nivel_acceso` varchar(45) NOT NULL,
-  PRIMARY KEY (`idtipousuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `tipo_usuario`
---
-
+/*==============================================================*/
+/* Table: ruta                                                  */
+/*==============================================================*/
+create table ruta
+(
+   id_ruta              int(11) not null auto_increment,
+   descripcion          varchar(200) not null,
+   tiempo_estimado      time not null,
+   distancia_km         float not null,
+   gasolina_estimada    float not null,
+   primary key (id_ruta)
+);
+INSERT INTO `ruta` (`id_ruta`, `descripcion`, `tiempo_estimado`, `distancia_km`, `gasolina_estimada`) VALUES
+(1, 'guate to el salvador', '72:00:00', 300, 50),
+(2, 'el salvador to costa', '48:00:00', 200, 40);
+/*==============================================================*/
+/* Table: ruta_lugar                                            */
+/*==============================================================*/
+create table ruta_lugar
+(
+   idrutalugar          int not null auto_increment,
+   idlugar              int(11),
+   id_ruta              int(11),
+   opcionruta           varchar(1),
+   primary key (idrutalugar)
+);
+INSERT INTO `ruta_lugar` (`idrutalugar`, `idlugar`, `id_ruta`, `opcionruta`) VALUES
+(1, 1, 1, 'O'),
+(2, 2, 1, 'D'),
+(3, 2, 2, 'O'),
+(4, 3, 2, 'D');
+/*==============================================================*/
+/* Table: tipo_usuario                                          */
+/*==============================================================*/
+create table tipo_usuario
+(
+   idtipousuario        int(11) not null auto_increment,
+   tipo_usuario         varchar(45) not null,
+   nivel_acceso         varchar(45) not null,
+   primary key (idtipousuario)
+);
 INSERT INTO `tipo_usuario` (`idtipousuario`, `tipo_usuario`, `nivel_acceso`) VALUES
 (1, 'administrador', ''),
 (2, 'gerente', '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
-  `idtipousuario` int(11) DEFAULT NULL,
-  `nombre_usuario` varchar(150) NOT NULL,
-  `usuario` varchar(45) NOT NULL,
-  `clave` varchar(250) NOT NULL,
-  `fecha_ingreso_user` date NOT NULL,
-  `estado_usuario` varchar(45) NOT NULL,
-  PRIMARY KEY (`idusuario`),
-  KEY `FK_RELATIONSHIP_13` (`idtipousuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
+/*==============================================================*/
+/* Table: usuario                                               */
+/*==============================================================*/
+create table usuario
+(
+   idusuario            int(11) not null auto_increment,
+   idtipousuario        int(11),
+   nombre_usuario       varchar(150) not null,
+   usuario              varchar(45) not null,
+   clave                varchar(250) not null,
+   fecha_ingreso_user   date not null,
+   estado_usuario       varchar(45) not null,
+   primary key (idusuario)
+);
 INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `nombre_usuario`, `usuario`, `clave`, `fecha_ingreso_user`, `estado_usuario`) VALUES
 (1, 1, 'administrador', 'admin', 'fbc71ce36cc20790f2eeed2197898e71', '2014-05-05', 'V'),
 (2, 2, 'gerente', 'gerente', 'fbc71ce36cc20790f2eeed2197898e71', '2014-05-06', 'V');
 
---
--- Restricciones para tablas volcadas
---
+alter table flota add constraint FK_REFERENCE_14 foreign key (idconductor)
+      references conductor (idconductor) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `flota`
---
-ALTER TABLE `flota`
-  ADD CONSTRAINT `FK_RELATIONSHIP_7` FOREIGN KEY (`idcontenedor`) REFERENCES `contenedor` (`idcontenedor`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_5` FOREIGN KEY (`idchasis`) REFERENCES `chasis` (`idchasis`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_6` FOREIGN KEY (`idcabezal`) REFERENCES `cabezal` (`idcabezal`);
+alter table flota add constraint FK_RELATIONSHIP_5 foreign key (idchasis)
+      references chasis (idchasis) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `flota_llanta`
---
-ALTER TABLE `flota_llanta`
-  ADD CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_16` FOREIGN KEY (`idflota`) REFERENCES `flota` (`idflota`);
+alter table flota add constraint FK_RELATIONSHIP_6 foreign key (idcabezal)
+      references cabezal (idcabezal) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `guia`
---
-ALTER TABLE `guia`
-  ADD CONSTRAINT `FK_RELATIONSHIP_9` FOREIGN KEY (`idflota`) REFERENCES `flota` (`idflota`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_10` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_11` FOREIGN KEY (`id_ruta`) REFERENCES `ruta` (`id_ruta`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_12` FOREIGN KEY (`idconductor`) REFERENCES `conductor` (`idconductor`);
+alter table flota add constraint FK_RELATIONSHIP_7 foreign key (idcontenedor)
+      references contenedor (idcontenedor) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `mantenimiento`
---
-ALTER TABLE `mantenimiento`
-  ADD CONSTRAINT `FK_RELATIONSHIP_8` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`);
+alter table flota_llanta add constraint FK_RELATIONSHIP_16 foreign key (idflota)
+      references flota (idflota) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `ruta`
---
-ALTER TABLE `ruta`
-  ADD CONSTRAINT `FK_RELATIONSHIP_14` FOREIGN KEY (`idrutalugar`) REFERENCES `ruta_lugar` (`idrutalugar`);
+alter table flota_llanta add constraint FK_RELATIONSHIP_17 foreign key (idllanta)
+      references llanta (idllanta) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `ruta_lugar`
---
-ALTER TABLE `ruta_lugar`
-  ADD CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`idlugar`) REFERENCES `lugar` (`idlugar`);
+alter table guia add constraint FK_RELATIONSHIP_10 foreign key (idcliente)
+      references cliente (idcliente) on delete restrict on update restrict;
 
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `FK_RELATIONSHIP_13` FOREIGN KEY (`idtipousuario`) REFERENCES `tipo_usuario` (`idtipousuario`);
+alter table guia add constraint FK_RELATIONSHIP_11 foreign key (id_ruta)
+      references ruta (id_ruta) on delete restrict on update restrict;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+alter table guia add constraint FK_RELATIONSHIP_12 foreign key (idconductor)
+      references conductor (idconductor) on delete restrict on update restrict;
+
+alter table guia add constraint FK_RELATIONSHIP_9 foreign key (idflota)
+      references flota (idflota) on delete restrict on update restrict;
+
+alter table mantenimiento add constraint FK_RELATIONSHIP_8 foreign key (idllanta)
+      references llanta (idllanta) on delete restrict on update restrict;
+
+alter table ruta_lugar add constraint FK_RELATIONSHIP_14 foreign key (id_ruta)
+      references ruta (id_ruta) on delete restrict on update restrict;
+
+alter table ruta_lugar add constraint FK_RELATIONSHIP_15 foreign key (idlugar)
+      references lugar (idlugar) on delete restrict on update restrict;
+
+alter table usuario add constraint FK_RELATIONSHIP_13 foreign key (idtipousuario)
+      references tipo_usuario (idtipousuario) on delete restrict on update restrict;
+
