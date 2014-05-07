@@ -8,6 +8,7 @@ class Administrador extends CI_Controller {
 		$this->load->view("Administrator/menu");
 		$this->load->view("Administrator/content_flotas");
 		$this->load->view("Templates/footer");
+	
 		
 	}
 	public function showFleet()
