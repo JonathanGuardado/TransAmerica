@@ -19,18 +19,16 @@
             switch(bandera)
             {
                 case 1:
-                alert("a");
                     var modulo = obj.nivel;
                     location.href = modulo;
                     break;
                     
                case 4:
-               alert("b");
                document.getElementById('mensaje_error_form_login').style.visibility='visible';         
                     break;
 
                default:
-               alert("c"); 
+               document.getElementById('mensaje_error_form_login').style.visibility='visible'; 
                break;
                     
                 }
