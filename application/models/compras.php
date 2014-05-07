@@ -22,14 +22,7 @@ class Compras extends CI_Model
     
     $this->db->insert('llanta');
  }
- public function eliminar_compra()
- {
-
-  public function update_compra()
-  {
-    
-  }
- }
+ 
 }	
 ?>
-?> 
+ 
