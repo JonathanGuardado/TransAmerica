@@ -50,8 +50,11 @@ class Chofer extends CI_Controller {
 		$nit=$this->input->post("nit",true);
 		$fechaNac=$this->input->post("fechaNac",true);
 		$estado=$this->input->post("estado",true);
+		$time = time();
+		$fechaIngreso = date('Y-m-d',$time);
 
-		//Se almacena en la base de datos
+		$this->load->model("chofer_model");
+		$this->chofer_model->agregar_chofer($nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$fechaIngreso,$estado);
 
 		$data['message']="<div class='text-center'><h4>Chofer Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chofer/newChofer",$data);
