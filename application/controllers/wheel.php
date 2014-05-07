@@ -2,6 +2,12 @@
 
 class Wheel extends CI_Controller {
 
+	public function __construct()
+   {
+      parent::__construct();
+      $this->load->model("buy_model");
+   }
+
 	public function index()
 	{
 		
@@ -16,14 +22,16 @@ class Wheel extends CI_Controller {
 	{
 		//Jala de la base todos los Llantas para llenarlos en un autocomplete
 
-		$data="";
-		$this->load->view("Administrator/Wheel/editWheel",$data);		
+		//$data="";
+		$this->load->view("Administrator/Wheel/editWheel");		
 	}
 	public function editWheel2()
 	{
 		$nameWheel=$this->input->post("nameWheel",true);
 		//Jala de la base los campos del Llanta para llenar el formulario
-		$data="";
+
+
+		$data= $this->buy_model->load_wheels_id($nameWheel);
 		$this->load->view("Administrator/Wheel/editWheel2",$data);		
 	}
 	public function deleteWheel()
@@ -52,14 +60,13 @@ class Wheel extends CI_Controller {
 		$size=$this->input->post("size",true);
 		$estado=$this->input->post("estado",true);
 		$fechaCompra=$this->input->post("fechaCompra",true);
-		$descripcion=$this->input->post("descripcion",true);
-		$idflota = 1;
+		$descripcion=$this->input->post("descripcion",true);		
 
 		$no_llanta='';
 		//Se almacena en la base de datos
 		
-		$this->load->model("compras");
-		$this->compras->agregar_compra($idflota,$noSerie,$marca,$size,$estado,$fechaCompra,$descripcion);
+		
+		$this->buy_model->agregar_compra($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Llanta Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Wheel/newWheel",$data);
@@ -74,6 +81,7 @@ class Wheel extends CI_Controller {
 		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
+		$this->buy_model->updating_wheel($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Llanta Editada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Wheel/editWheel",$data);
