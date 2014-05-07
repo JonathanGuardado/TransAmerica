@@ -1,4 +1,4 @@
-<form id="searchFormWheel" method="post" action="../wheel/searchWheel2">
+<form id="searchFormWheel" method="post" action="wheel/searchWheel2">
 	<fieldset>
 		<legend>Buscar Llanta</legend>
 		<div class="row">

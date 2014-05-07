@@ -1,4 +1,4 @@
-<form id="newClient" method="post" action="../client/storeNewClient">
+<form id="newClient" method="post" action="client/storeNewClient">
 	<fieldset>
 		<legend>Nuevo Cliente</legend>
 		<div class="row">

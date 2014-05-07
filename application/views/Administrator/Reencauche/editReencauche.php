@@ -1,4 +1,4 @@
-<form method="post" action="../reencauche/editReencauche2" id="buscarFormReencauche">
+<form method="post" action="reencauche/editReencauche2" id="buscarFormReencauche">
 	<fieldset>
 		<legend>Modificar Reencauche</legend>
 		<div class="row">

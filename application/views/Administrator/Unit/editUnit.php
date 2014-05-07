@@ -1,4 +1,4 @@
-<form method="post" action="../unit/editUnit2" id="buscarUnitForm">
+<form method="post" action="unit/editUnit2" id="buscarUnitForm">
 	<fieldset>
 		<legend>Modificar Unidad</legend>
 		<div class="row">

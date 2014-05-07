@@ -1,4 +1,4 @@
-<form id="searchFormUnit" method="post" action="../unit/searchUnit2">
+<form id="searchFormUnit" method="post" action="unit/searchUnit2">
 	<fieldset>
 		<legend>Buscar Unidad</legend>
 		<div class="row">

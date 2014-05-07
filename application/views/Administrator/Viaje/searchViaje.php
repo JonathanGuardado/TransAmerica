@@ -1,4 +1,4 @@
-<form id="searchFormViaje" method="post" action="../viaje/searchViaje2">
+<form id="searchFormViaje" method="post" action="viaje/searchViaje2">
 	<fieldset>
 		<legend>Buscar Viaje</legend>
 		<div class="row">

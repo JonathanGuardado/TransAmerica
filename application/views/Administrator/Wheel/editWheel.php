@@ -1,4 +1,4 @@
-<form method="post" action="../wheel/editWheel2" id="buscarFormWheel">
+<form method="post" action="wheel/editWheel2" id="buscarFormWheel">
 	<fieldset>
 		<legend>Modificar Llanta</legend>
 		<div class="row">

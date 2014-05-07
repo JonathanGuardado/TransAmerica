@@ -1,4 +1,4 @@
-<form id="newFormUnit" method="post" action="../unit/storeNewUnit">
+<form id="newFormUnit" method="post" action="unit/storeNewUnit">
 	<fieldset>
 		<legend>Nueva Unidad</legend>
 		<div class="row">

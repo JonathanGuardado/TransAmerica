@@ -1,4 +1,4 @@
-<form id="searchFormChasis" method="post" action="../chasis/searchChasis2">
+<form id="searchFormChasis" method="post" action="chasis/searchChasis2">
 	<fieldset>
 		<legend>Buscar Chasis</legend>
 		<div class="row">

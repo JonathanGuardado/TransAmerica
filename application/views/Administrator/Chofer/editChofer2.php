@@ -1,4 +1,4 @@
-<form id="editChoferForm" method="post" action="../chofer/storeEditChofer">
+<form id="editChoferForm" method="post" action="chofer/storeEditChofer">
 	<fieldset>
 		<legend>Editar Chofer</legend>
 		<div class="row">

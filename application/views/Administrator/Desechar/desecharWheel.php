@@ -1,4 +1,4 @@
-<form id="newFormDesechar" method="post" action="../desechar/storeNewDesechar">
+<form id="newFormDesechar" method="post" action="desechar/storeNewDesechar">
 	<fieldset>
 		<legend>Nuevo Desecho</legend>
 		<div class="row">

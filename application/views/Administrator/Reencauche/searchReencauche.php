@@ -1,4 +1,4 @@
-<form id="searchFormReencauche" method="post" action="../reencauche/searchReencauche2">
+<form id="searchFormReencauche" method="post" action="reencauche/searchReencauche2">
 	<fieldset>
 		<legend>Buscar Reencauche</legend>
 		<div class="row">

@@ -1,4 +1,4 @@
-<form id="searchForm" method="post" action="../client/searchClient2">
+<form id="searchForm" method="post" action="client/searchClient2">
 	<fieldset>
 		<legend>Buscar Cliente</legend>
 		<div class="row">

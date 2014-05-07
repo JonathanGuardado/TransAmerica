@@ -1,4 +1,4 @@
-<form id="editContenedorForm" method="post" action="../contenedor/storeEditContenedor">
+<form id="editContenedorForm" method="post" action="contenedor/storeEditContenedor">
 	<fieldset>
 		<legend>Editar Contenedor</legend>
 		<div class="row">

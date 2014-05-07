@@ -1,4 +1,4 @@
-<form id="newFormWheel" method="post" action="../wheel/storeNewWheel">
+<form id="newFormWheel" method="post" action="wheel/storeNewWheel">
 	<fieldset>
 		<legend>Nueva Llanta</legend>
 		<div class="row">

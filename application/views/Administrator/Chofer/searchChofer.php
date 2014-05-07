@@ -1,4 +1,4 @@
-<form id="searchFormChofer" method="post" action="../chofer/searchChofer2">
+<form id="searchFormChofer" method="post" action="chofer/searchChofer2">
 	<fieldset>
 		<legend>Buscar Chofer</legend>
 		<div class="row">

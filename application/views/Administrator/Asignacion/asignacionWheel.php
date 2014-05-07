@@ -1,4 +1,4 @@
-<form id="newFormAsignacion" method="post" action="../asignacion/storeNewAsignacion">
+<form id="newFormAsignacion" method="post" action="asignacion/storeNewAsignacion">
 	<fieldset>
 		<legend>Nuevo Asignaci&oacute;n</legend>
 		<div class="row">

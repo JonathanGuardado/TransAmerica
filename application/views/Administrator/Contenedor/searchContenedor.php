@@ -1,4 +1,4 @@
-<form id="searchFormContenedor" method="post" action="../contenedor/searchContenedor2">
+<form id="searchFormContenedor" method="post" action="contenedor/searchContenedor2">
 	<fieldset>
 		<legend>Buscar Contenedor</legend>
 		<div class="row">

@@ -1,4 +1,4 @@
-<form id="newViaje" method="post" action="../viaje/storeNewViaje">
+<form id="newViaje" method="post" action="viaje/storeNewViaje">
 	<fieldset>
 		<legend>Nuevo Viaje</legend>
 		<div class="row">

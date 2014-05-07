@@ -1,4 +1,4 @@
-<form id="editClientForm" method="post" action="../client/storeEditClient">
+<form id="editClientForm" method="post" action="client/storeEditClient">
 	<fieldset>
 		<legend>Editar Cliente</legend>
 		<div class="row">

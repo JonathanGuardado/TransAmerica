@@ -1,4 +1,4 @@
-<form id="editRouteForm" method="post" action="../route/storeEditRoute">
+<form id="editRouteForm" method="post" action="route/storeEditRoute">
 	<fieldset>
 		<legend>Editar Ruta</legend>
 		<div class="row">

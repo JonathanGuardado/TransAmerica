@@ -1,4 +1,4 @@
-<form id="editChasisForm" method="post" action="../chasis/storeEditChasis">
+<form id="editChasisForm" method="post" action="chasis/storeEditChasis">
 	<fieldset>
 		<legend>Editar Chasis</legend>
 		<div class="row">
