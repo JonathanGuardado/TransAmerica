@@ -19,7 +19,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nuevo Chasis" id="newBtnChasis" name="newBtnChasis"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nuevo Chasis" id="newBtnChasis" name="newBtnChasis"/>
             
             <br />            
             
@@ -29,16 +29,16 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-
+  <script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#newBtnChasis").click(function(){
-    var $form=$("#newFormChasis"), url=$form.attr("action");
-    var posting= $.post(url,{
-                estado:$form.find("input[name='estado']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#newBtnChasis").click(function(){
+//    var $form=$("#newFormChasis"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                estado:$form.find("input[name='estado']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>

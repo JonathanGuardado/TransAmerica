@@ -19,7 +19,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nuevo Contenedor" id="newBtnContenedor" name="newBtnContenedor"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nuevo Contenedor" id="newBtnContenedor" name="newBtnContenedor"/>
             
             <br />            
             
@@ -29,17 +29,17 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-
+  <script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#newBtnContenedor").click(function(){
-    var $form=$("#newFormContenedor"), url=$form.attr("action");
-    var posting= $.post(url,{
-                tipoContenedor:$form.find("input[name='tipoContenedor']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#newBtnContenedor").click(function(){
+//    var $form=$("#newFormContenedor"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                tipoContenedor:$form.find("input[name='tipoContenedor']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left">

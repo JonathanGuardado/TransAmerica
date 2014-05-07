@@ -25,7 +25,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nuevo Cliente" id="new" name="newClient"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nuevo Cliente" id="new" name="newClient"/>
             
             <br />            
             
@@ -35,18 +35,18 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-
+  <script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#new").click(function(){
-    var $form=$("#newClient"), url=$form.attr("action");
-    var posting= $.post(url,{
-                nameClient:$form.find("input[name='nameClient']").val(),
-                nameContact:$form.find("input[name='nameContact']").val(),
-                phoneContact:$form.find("input[name='phoneContact']").val(),
-                tarifa:$form.find("input[name='tarifa']").val()
-    });
-    posting.done(function(data){
-        $("#content_fact").html(data);
-    });
-});
+//$("#new").click(function(){
+//    var $form=$("#newClient"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                nameClient:$form.find("input[name='nameClient']").val(),
+//                nameContact:$form.find("input[name='nameContact']").val(),
+//                phoneContact:$form.find("input[name='phoneContact']").val(),
+//                tarifa:$form.find("input[name='tarifa']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_fact").html(data);
+//    });
+//});
 </script>

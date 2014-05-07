@@ -20,7 +20,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nueva Unidad" id="newBtnUnit" name="newBtnUnit"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nueva Unidad" id="newBtnUnit" name="newBtnUnit"/>
             
             <br />            
             
@@ -30,17 +30,17 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-
+  <script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#newBtnUnit").click(function(){
-    var $form=$("#newFormUnit"), url=$form.attr("action");
-    var posting= $.post(url,{
-                noChasis:$form.find("input[name='noChasis']").val(),
-                noContenedor:$form.find("input[name='noContenedor']").val(),
-                nameChofer:$form.find("input[name='nameChofer']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#newBtnUnit").click(function(){
+//    var $form=$("#newFormUnit"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                noChasis:$form.find("input[name='noChasis']").val(),
+//                noContenedor:$form.find("input[name='noContenedor']").val(),
+//                nameChofer:$form.find("input[name='nameChofer']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>

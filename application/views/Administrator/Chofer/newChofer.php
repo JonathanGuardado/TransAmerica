@@ -35,7 +35,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nuevo Chofer" id="newBtnChofer" name="newBtnChofer"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nuevo Chofer" id="newBtnChofer" name="newBtnChofer"/>
             
             <br />            
             
@@ -45,20 +45,20 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-
+  <script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#newBtnChofer").click(function(){
-    var $form=$("#newFormChofer"), url=$form.attr("action");
-    var posting= $.post(url,{
-                nameChofer:$form.find("input[name='nameChofer']").val(),
-                surnameChofer:$form.find("input[name='surnameChofer']").val(),
-                dui:$form.find("input[name='dui']").val(),
-                nit:$form.find("input[name='nit']").val(),
-                fechaNac:$form.find("input[name='fechaNac']").val(),
-                estado:$form.find("input[name='estado']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#newBtnChofer").click(function(){
+//    var $form=$("#newFormChofer"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                nameChofer:$form.find("input[name='nameChofer']").val(),
+//                surnameChofer:$form.find("input[name='surnameChofer']").val(),
+//                dui:$form.find("input[name='dui']").val(),
+//                nit:$form.find("input[name='nit']").val(),
+//                fechaNac:$form.find("input[name='fechaNac']").val(),
+//                estado:$form.find("input[name='estado']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>
