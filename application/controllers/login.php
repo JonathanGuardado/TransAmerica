@@ -25,7 +25,7 @@ class Login extends CI_Controller {
              	$this->load->library('session');
                 $this->session->set_userdata($data);
                 $jsondata['bandera']    = 1;
-                $jsondata['nivel']    = "index.php/".$data['nivel_privilegio']."";          	
+                $jsondata['nivel']    = "index.php/".$data['idtipousuario']."";          	
              }
         else
         {
