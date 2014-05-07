@@ -19,23 +19,23 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Chasis" id="editBtnChasis" name="editBtnChasis"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Chasis" id="editBtnChasis" name="editBtnChasis"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtnChasis").click(function(){
-    var $form=$("#editChasisForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                estado:$form.find("input[name='estado']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#editBtnChasis").click(function(){
+//    var $form=$("#editChasisForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                estado:$form.find("input[name='estado']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>

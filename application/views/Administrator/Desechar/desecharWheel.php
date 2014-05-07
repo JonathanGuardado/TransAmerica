@@ -20,7 +20,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nuevo Desecho" id="newBtnDesechar" name="newBtnDesechar"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nuevo Desecho" id="newBtnDesechar" name="newBtnDesechar"/>
             
             <br />            
             
@@ -30,17 +30,17 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#newBtnDesechar").click(function(){
-    var $form=$("#newFormDesechar"), url=$form.attr("action");
-    var posting= $.post(url,{
-                fechaDesechar:$form.find("input[name='fechaDesechar']").val(),
-                noWheel:$form.find("input[name='noWheel']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_mantain").html(data);
-    });
-});
+//$("#newBtnDesechar").click(function(){
+//    var $form=$("#newFormDesechar"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                fechaDesechar:$form.find("input[name='fechaDesechar']").val(),
+//                noWheel:$form.find("input[name='noWheel']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_mantain").html(data);
+//    });
+//});
 </script>

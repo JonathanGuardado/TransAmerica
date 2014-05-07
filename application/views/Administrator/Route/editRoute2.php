@@ -34,27 +34,27 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Ruta" id="editRouteBtn" name="editRoute"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Ruta" id="editRouteBtn" name="editRoute"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editRouteBtn").click(function(){
-    var $form=$("#editRouteForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                nameRoute:$form.find("input[name='nameRoute']").val(),
-                origen:$form.find("input[name='origen']").val(),
-                destino:$form.find("input[name='destino']").val(),
-                tiempo:$form.find("input[name='tiempo']").val(),
-                distancia:$form.find("input[name='distancia']").val(),
-                gasolina:$form.find("input[name='gasolina']").val()
-    });
-    posting.done(function(data){
-        $("#content_fact").html(data);
-    });
-});
+//$("#editRouteBtn").click(function(){
+//    var $form=$("#editRouteForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                nameRoute:$form.find("input[name='nameRoute']").val(),
+//                origen:$form.find("input[name='origen']").val(),
+//                destino:$form.find("input[name='destino']").val(),
+//                tiempo:$form.find("input[name='tiempo']").val(),
+//                distancia:$form.find("input[name='distancia']").val(),
+//                gasolina:$form.find("input[name='gasolina']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_fact").html(data);
+//    });
+//});
 </script>

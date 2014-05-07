@@ -6,7 +6,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9 form-group"  style="text-align:left"><input type="text" name="nameRuta" class="form-control" placeholder="Nombre Ruta"/>            
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-        <input type="button" class="btn btn-primary" value="Buscar Ruta" name="newRuta"/>            
+        <input type="button" class="btn btn-primary " value="Buscar Ruta" name="newRuta"/>            
         </div>
         </div>        
 

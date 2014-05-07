@@ -35,27 +35,27 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Llanta" id="editBtnWheel" name="editBtnWheel"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Llanta" id="editBtnWheel" name="editBtnWheel"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtnWheel").click(function(){
-    var $form=$("#editWheelForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                noSerie:$form.find("input[name='noSerie']").val(),
-                marca:$form.find("input[name='marca']").val(),
-                size:$form.find("input[name='size']").val(),
-                estado:$form.find("input[name='estado']").val(),
-                fechaCompra:$form.find("input[name='fechaCompra']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_mantain").html(data);
-    });
-});
+//$("#editBtnWheel").click(function(){
+//    var $form=$("#editWheelForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                noSerie:$form.find("input[name='noSerie']").val(),
+//                marca:$form.find("input[name='marca']").val(),
+//                size:$form.find("input[name='size']").val(),
+//                estado:$form.find("input[name='estado']").val(),
+//                fechaCompra:$form.find("input[name='fechaCompra']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_mantain").html(data);
+//    });
+//});
 </script>

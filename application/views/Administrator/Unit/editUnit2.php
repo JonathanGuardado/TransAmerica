@@ -20,24 +20,24 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Unidad" id="editBtnUnit" name="editBtnUnit"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Unidad" id="editBtnUnit" name="editBtnUnit"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtnUnit").click(function(){
-    var $form=$("#editUnitForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                noChasis:$form.find("input[name='noChasis']").val(),
-                noContenedor:$form.find("input[name='noContenedor']").val(),
-                nameChofer:$form.find("input[name='nameChofer']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#editBtnUnit").click(function(){
+//    var $form=$("#editUnitForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                noChasis:$form.find("input[name='noChasis']").val(),
+//                noContenedor:$form.find("input[name='noContenedor']").val(),
+//                nameChofer:$form.find("input[name='nameChofer']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>

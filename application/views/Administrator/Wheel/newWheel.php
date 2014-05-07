@@ -35,7 +35,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary sendBtn" value="Nueva Llanta" id="newBtnWheel" name="newBtnWheel"/>
+        <input type="button" class="btn btn-primary sendBtn " value="Nueva Llanta" id="newBtnWheel" name="newBtnWheel"/>
             
             <br />            
             

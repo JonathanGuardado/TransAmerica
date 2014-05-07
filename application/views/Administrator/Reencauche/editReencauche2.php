@@ -20,24 +20,24 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Reencauche" id="editBtnReencauche" name="editBtnReencauche"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Reencauche" id="editBtnReencauche" name="editBtnReencauche"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtnReencauche").click(function(){
-    var $form=$("#editReencaucheForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                fechaReencauche:$form.find("input[name='fechaReencauche']").val(),
-                noWheel:$form.find("input[name='noWheel']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_mantain").html(data);
-    });
-});
+//$("#editBtnReencauche").click(function(){
+//    var $form=$("#editReencaucheForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                fechaReencauche:$form.find("input[name='fechaReencauche']").val(),
+//                noWheel:$form.find("input[name='noWheel']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_mantain").html(data);
+//    });
+//});
 </script>

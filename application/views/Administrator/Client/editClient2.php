@@ -25,25 +25,25 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Cliente" id="editBtn" name="editClient"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Cliente" id="editBtn" name="editClient"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtn").click(function(){
-    var $form=$("#editClientForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                nameClient:$form.find("input[name='nameClient']").val(),
-                nameContact:$form.find("input[name='nameContact']").val(),
-                phoneContact:$form.find("input[name='phoneContact']").val(),
-                tarifa:$form.find("input[name='tarifa']").val()
-    });
-    posting.done(function(data){
-        $("#content_fact").html(data);
-    });
-});
+//$("#editBtn").click(function(){
+//    var $form=$("#editClientForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                nameClient:$form.find("input[name='nameClient']").val(),
+//                nameContact:$form.find("input[name='nameContact']").val(),
+//                phoneContact:$form.find("input[name='phoneContact']").val(),
+//                tarifa:$form.find("input[name='tarifa']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_fact").html(data);
+//    });
+//});
 </script>

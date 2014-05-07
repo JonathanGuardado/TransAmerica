@@ -25,7 +25,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Nuevo Asignaci&oacute;n" id="newBtnAsignacion" name="newBtnAsignacion"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Nuevo Asignaci&oacute;n" id="newBtnAsignacion" name="newBtnAsignacion"/>
             
             <br />            
             
@@ -37,16 +37,16 @@
 </div>
 
 <script type="text/javascript">
-$("#newBtnAsignacion").click(function(){
-    var $form=$("#newFormAsignacion"), url=$form.attr("action");
-    var posting= $.post(url,{
-                fechaAsignacion:$form.find("input[name='fechaAsignacion']").val(),
-                noUnit:$form.find("input[name='noUnit']").val(),
-                noWheel:$form.find("input[name='noWheel']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_mantain").html(data);
-    });
-});
+//$("#newBtnAsignacion").click(function(){
+//    var $form=$("#newFormAsignacion"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                fechaAsignacion:$form.find("input[name='fechaAsignacion']").val(),
+//                noUnit:$form.find("input[name='noUnit']").val(),
+//                noWheel:$form.find("input[name='noWheel']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_mantain").html(data);
+//    });
+//});
 </script>

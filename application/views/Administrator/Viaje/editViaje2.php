@@ -34,26 +34,26 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Viaje" id="editBtnViaje" name="editBtnViaje"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Viaje" id="editBtnViaje" name="editBtnViaje"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtnViaje").click(function(){
-    var $form=$("#editViajeForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                nameClient:$form.find("input[name='nameClient']").val(),
-                nameRoute:$form.find("input[name='nameRoute']").val(),
-                idFlota:$form.find("input[name='idFlota']").val(),
-                fechaViaje:$form.find("input[name='fechaViaje']").val(),
-                tipoViaje:$form.find("select[name='tipoViaje']").val()
-    });
-    posting.done(function(data){
-        $("#content_fact").html(data);
-    });
-});
+//$("#editBtnViaje").click(function(){
+//    var $form=$("#editViajeForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                nameClient:$form.find("input[name='nameClient']").val(),
+//                nameRoute:$form.find("input[name='nameRoute']").val(),
+//                idFlota:$form.find("input[name='idFlota']").val(),
+//                fechaViaje:$form.find("input[name='fechaViaje']").val(),
+//                tipoViaje:$form.find("select[name='tipoViaje']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_fact").html(data);
+//    });
+//});
 </script>

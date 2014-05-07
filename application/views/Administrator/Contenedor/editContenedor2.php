@@ -19,23 +19,23 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary" value="Editar Contenedor" id="editBtnContenedor" name="editBtnContenedor"/>
+        <input type="button" class="btn btn-primary sendBtn" value="Editar Contenedor" id="editBtnContenedor" name="editBtnContenedor"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-
+<script src="../js/envio_datos.js"></script>
 <script type="text/javascript">
-$("#editBtnContenedor").click(function(){
-    var $form=$("#editContenedorForm"), url=$form.attr("action");
-    var posting= $.post(url,{
-                tipoContenedor:$form.find("input[name='tipoContenedor']").val(),
-                descripcion:$form.find("input[name='descripcion']").val()
-    });
-    posting.done(function(data){
-        $("#content_flotas").html(data);
-    });
-});
+//$("#editBtnContenedor").click(function(){
+//    var $form=$("#editContenedorForm"), url=$form.attr("action");
+//    var posting= $.post(url,{
+//                tipoContenedor:$form.find("input[name='tipoContenedor']").val(),
+//                descripcion:$form.find("input[name='descripcion']").val()
+//    });
+//    posting.done(function(data){
+//        $("#content_flotas").html(data);
+//    });
+//});
 </script>

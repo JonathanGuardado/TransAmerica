@@ -8,8 +8,11 @@ jQuery(document).ready(function(){
             data: data,
             type: 'POST',
             success:function(resp){
-                
-            }     
+                jQuery(form).parent("div").html(resp);
+            },
+            error:function (e,estado,descripcion){
+                alert(descripcion);
+            }
         })
 	})
 })
