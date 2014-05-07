@@ -13,15 +13,34 @@ class Chofer extends CI_Controller {
 	public function editChofer()
 	{
 		//Jala de la base todos los Chofers para llenarlos en un autocomplete
-		$data="";
+		$this->load->model("chofer_model");
+		$data=$this->chofer_model->load_choferes();
 		$this->load->view("Administrator/Chofer/editChofer",$data);		
 	}
 	public function editChofer2()
 	{
 		$nameChofer=$this->input->post("nameChofer",true);
 		//Jala de la base los campos del Chofer para llenar el formulario
-		$data="";
+		$this->load->model("chofer_model");
+		$data=$data=$this->chofer_model->load_chofer($nameChofer);
 		$this->load->view("Administrator/Chofer/editChofer2",$data);		
+	}
+	public function updateChofer()
+	{
+		//llamada del formulario cargado
+		$nameChofer=$this->input->post("nameChofer",true);
+		$surnameChofer=$this->input->post("surnameChofer",true);
+		$dui=$this->input->post("dui",true);
+		$nit=$this->input->post("nit",true);
+		$fechaNac=$this->input->post("fechaNac",true);
+		$estado=$this->input->post("estado",true);
+		$this->load->model("chofer_model");
+		$this->chofer_model->updating_chofer($nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$fechaIngreso,$estado);
+
+		//div que muestre actualizacion
+
+
+
 	}
 	public function deleteChofer()
 	{
