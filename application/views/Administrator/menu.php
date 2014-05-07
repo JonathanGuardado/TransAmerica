@@ -7,6 +7,6 @@
   <li id="mantain"><a href="#">Mantenimiento Llantas</a></li>
   <li id="logOut" class="pull-right" ><a href="#">Cerrar Sesi&oacute;n</a></li>
 </ul>
-<script type="text/javascript" src="../../js/menu_actions.js"></script>
+<script type="text/javascript" src="../js/menu_actions.js"></script>
 <div id="content">
 

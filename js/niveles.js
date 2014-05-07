@@ -6,7 +6,6 @@
 {
     var user = $("#user").val();
     var pass = $("#password").val();
-    
     $.ajax
     ({ 
         type: "POST",
@@ -17,7 +16,6 @@
             var obj = jQuery.parseJSON(data);
             var bandera = obj.bandera;
             var msj     = obj.mensaje;
-            alert(msj);
             switch(bandera)
             {
                 case 1:

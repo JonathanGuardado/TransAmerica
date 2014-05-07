@@ -50,4 +50,4 @@
 		<h1>Facturaci&oacute;n</h1>
 	</div>
 </div>
-<script type="text/javascript" src="../../js/menu_fact_actions.js"></script>
+<script type="text/javascript" src="../js/menu_fact_actions.js"></script>

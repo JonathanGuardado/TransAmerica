@@ -1,6 +1,6 @@
 $("#addReencauche").click(function()
     {
-      $("#content_mantain").load("../reencauche/newReencauche");
+      $("#content_mantain").load("reencauche/newReencauche");
       $("#editReencauche").removeClass("active");
       $("#searchReencauche").removeClass("active");
       $("#deleteReencauche").removeClass("active");
@@ -14,7 +14,7 @@ $("#addReencauche").click(function()
    });
 $("#editReencauche").click(function()
     {
-      $("#content_mantain").load("../reencauche/editReencauche");
+      $("#content_mantain").load("reencauche/editReencauche");
       $("#addReencauche").removeClass("active");
       $("#searchReencauche").removeClass("active");
       $("#deleteReencauche").removeClass("active");
@@ -28,7 +28,7 @@ $("#editReencauche").click(function()
    });
 $("#deleteReencauche").click(function()
     {
-      $("#content_mantain").load("../reencauche/deleteReencauche");
+      $("#content_mantain").load("reencauche/deleteReencauche");
       $("#editReencauche").removeClass("active");
       $("#searchReencauche").removeClass("active");
       $("#addReencauche").removeClass("active");
@@ -42,7 +42,7 @@ $("#deleteReencauche").click(function()
    });
 $("#searchReencauche").click(function()
     {
-      $("#content_mantain").load("../reencauche/searchReencauche");
+      $("#content_mantain").load("reencauche/searchReencauche");
       $("#editReencauche").removeClass("active");
       $("#addReencauche").removeClass("active");
       $("#deleteReencauche").removeClass("active");
@@ -58,7 +58,7 @@ $("#searchReencauche").click(function()
 
 $("#addWheel").click(function()
     {
-      $("#content_mantain").load("../wheel/newWheel");
+      $("#content_mantain").load("wheel/newWheel");
       $("#editWheel").removeClass("active");
       $("#searchWheel").removeClass("active");
       $("#deleteWheel").removeClass("active");
@@ -72,7 +72,7 @@ $("#addWheel").click(function()
    });
 $("#editWheel").click(function()
     {
-      $("#content_mantain").load("../wheel/editWheel");
+      $("#content_mantain").load("wheel/editWheel");
       $("#addWheel").removeClass("active");
       $("#searchWheel").removeClass("active");
       $("#deleteWheel").removeClass("active");
@@ -86,7 +86,7 @@ $("#editWheel").click(function()
    });
 $("#deleteWheel").click(function()
     {
-      $("#content_mantain").load("../wheel/deleteWheel");
+      $("#content_mantain").load("wheel/deleteWheel");
       $("#editWheel").removeClass("active");
       $("#searchWheel").removeClass("active");
       $("#addWheel").removeClass("active");
@@ -100,7 +100,7 @@ $("#deleteWheel").click(function()
    });
 $("#searchWheel").click(function()
     {
-      $("#content_mantain").load("../wheel/searchWheel");
+      $("#content_mantain").load("wheel/searchWheel");
       $("#editWheel").removeClass("active");
       $("#addWheel").removeClass("active");
       $("#deleteWheel").removeClass("active");
@@ -115,7 +115,7 @@ $("#searchWheel").click(function()
 
 $("#Asignacion").click(function()
     {
-      $("#content_mantain").load("../asignacion/");
+      $("#content_mantain").load("asignacion/");
       $("#Asignacion").addClass("active");
       $("#editWheel").removeClass("active");
       $("#addWheel").removeClass("active");
@@ -130,7 +130,7 @@ $("#Asignacion").click(function()
 
 $("#Desechar").click(function()
     {
-      $("#content_mantain").load("../desechar/");
+      $("#content_mantain").load("desechar/");
       $("#Desechar").addClass("active");
       $("#editWheel").removeClass("active");
       $("#addWheel").removeClass("active");

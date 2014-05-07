@@ -12,11 +12,12 @@ class Login extends CI_Controller {
 	{
 		
 		$user=$this->input->post("user",true);
-		$password=$this->input->post("password",true);
+		$password=$this->input->post("pass",true);
 		
 
 
 		$this->load->model("login_model");
+		
 
 		if ($this->login_model->comprobar_usuario($password, $user))
              {

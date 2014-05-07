@@ -38,4 +38,4 @@
 		<h1>Mantenimiento Llantas</h1>
 	</div>
 </div>
-<script type="text/javascript" src="../../js/menu_mantain_actions.js"></script>
+<script type="text/javascript" src="../js/menu_mantain_actions.js"></script>

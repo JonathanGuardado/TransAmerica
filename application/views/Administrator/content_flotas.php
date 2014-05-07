@@ -65,4 +65,4 @@
 		<h1>Flota</h1>
 	</div>
 </div>
-<script type="text/javascript" src="../../js/menu_flotas_actions.js"></script>
+<script type="text/javascript" src="../js/menu_flotas_actions.js"></script>

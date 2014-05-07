@@ -1,6 +1,6 @@
 $("#addUnit").click(function()
     {
-      $("#content_flotas").load("../unit/newUnit");
+      $("#content_flotas").load("unit/newUnit");
       $("#editUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
@@ -21,7 +21,7 @@ $("#addUnit").click(function()
    });
 $("#editUnit").click(function()
     {
-      $("#content_flotas").load("../unit/editUnit");
+      $("#content_flotas").load("unit/editUnit");
       $("#addUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
@@ -42,7 +42,7 @@ $("#editUnit").click(function()
    });
 $("#deleteUnit").click(function()
     {
-      $("#content_flotas").load("../unit/deleteUnit");
+      $("#content_flotas").load("unit/deleteUnit");
       $("#editUnit").removeClass("active");
       $("#searchUnit").removeClass("active");
       $("#addUnit").removeClass("active");
@@ -63,7 +63,7 @@ $("#deleteUnit").click(function()
    });
 $("#searchUnit").click(function()
     {
-      $("#content_flotas").load("../unit/searchUnit");
+      $("#content_flotas").load("unit/searchUnit");
       $("#editUnit").removeClass("active");
       $("#addUnit").removeClass("active");
       $("#deleteUnit").removeClass("active");
@@ -86,7 +86,7 @@ $("#searchUnit").click(function()
 
 $("#addChofer").click(function()
     {
-      $("#content_flotas").load("../chofer/newChofer");
+      $("#content_flotas").load("chofer/newChofer");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#deleteChofer").removeClass("active");
@@ -106,7 +106,7 @@ $("#addChofer").click(function()
    });
 $("#editChofer").click(function()
     {
-      $("#content_flotas").load("../chofer/editChofer");
+      $("#content_flotas").load("chofer/editChofer");
       $("#addChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#deleteChofer").removeClass("active");
@@ -126,7 +126,7 @@ $("#editChofer").click(function()
    });
 $("#deleteChofer").click(function()
     {
-      $("#content_flotas").load("../chofer/deleteChofer");
+      $("#content_flotas").load("chofer/deleteChofer");
       $("#editChofer").removeClass("active");
       $("#searchChofer").removeClass("active");
       $("#addChofer").removeClass("active");
@@ -146,7 +146,7 @@ $("#deleteChofer").click(function()
    });
 $("#searchChofer").click(function()
     {
-      $("#content_flotas").load("../chofer/searchChofer");
+      $("#content_flotas").load("chofer/searchChofer");
       $("#editChofer").removeClass("active");
       $("#addChofer").removeClass("active");
       $("#deleteChofer").removeClass("active");
@@ -168,7 +168,7 @@ $("#searchChofer").click(function()
 
 $("#addChasis").click(function()
     {
-      $("#content_flotas").load("../chasis/newChasis");
+      $("#content_flotas").load("chasis/newChasis");
       $("#editChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
@@ -188,7 +188,7 @@ $("#addChasis").click(function()
    });
 $("#editChasis").click(function()
     {
-      $("#content_flotas").load("../chasis/editChasis");
+      $("#content_flotas").load("chasis/editChasis");
       $("#addChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
@@ -208,7 +208,7 @@ $("#editChasis").click(function()
    });
 $("#deleteChasis").click(function()
     {
-      $("#content_flotas").load("../chasis/deleteChasis");
+      $("#content_flotas").load("chasis/deleteChasis");
       $("#editChasis").removeClass("active");
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
@@ -228,7 +228,7 @@ $("#deleteChasis").click(function()
    });
 $("#searchChasis").click(function()
     {
-      $("#content_flotas").load("../chasis/searchChasis");
+      $("#content_flotas").load("chasis/searchChasis");
       $("#editChasis").removeClass("active");
       $("#addChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
@@ -250,7 +250,7 @@ $("#searchChasis").click(function()
 
 $("#addContenedor").click(function()
     {
-      $("#content_flotas").load("../contenedor/newContenedor");
+      $("#content_flotas").load("contenedor/newContenedor");
       $("#editContenedor").removeClass("active");
       $("#searchContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
@@ -271,7 +271,7 @@ $("#addContenedor").click(function()
    });
 $("#editContenedor").click(function()
     {
-      $("#content_flotas").load("../contenedor/editContenedor");
+      $("#content_flotas").load("contenedor/editContenedor");
       $("#addContenedor").removeClass("active");
       $("#searchContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
@@ -291,7 +291,7 @@ $("#editContenedor").click(function()
    });
 $("#deleteContenedor").click(function()
     {
-      $("#content_flotas").load("../contenedor/deleteContenedor");
+      $("#content_flotas").load("contenedor/deleteContenedor");
       $("#editContenedor").removeClass("active");
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
@@ -311,7 +311,7 @@ $("#deleteContenedor").click(function()
    });
 $("#searchContenedor").click(function()
     {
-      $("#content_flotas").load("../contenedor/searchContenedor");
+      $("#content_flotas").load("contenedor/searchContenedor");
       $("#editContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
