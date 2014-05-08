@@ -26,8 +26,10 @@ class Route extends CI_Controller {
 	}
 	public function deleteRoute()
 	{
-		//Jala todos los Rutas de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
+		$this->load->model("route_model");
+		$data=$this->route_model->routes();
+
+		//$this->route_model->eliminar_route($idroute);
 		$this->load->view("Administrator/Route/deleteRoute",$data);		
 	}
 	public function searchRoute()
@@ -53,14 +55,27 @@ class Route extends CI_Controller {
 		$gasolina=$this->input->post("gasolina",true);
 
 		$this->load->model("route_model");
-		$idroute=$this->route_model->ingresar_route($nameRoute,$tiempo,$distancia,$gasolina);
-		$id_or=$this->route_model->buscar_lugar($origen);
-		$id_des=$this->route_model->buscar_lugar($destino);
-		$this->route_model->ingresar_route_lugar($idroute["id_ruta"],$id_or["idlugar"],'O');
-		$this->route_model->ingresar_route_lugar($idroute["id_ruta"],$id_des["idlugar"],'D');
+		$idroute=$this->route_model->buscar_route($nameRoute,$tiempo,$distancia,$gasolina);
+		if(isset($idroute["id_ruta"]))
+		{
+			$data['message']="<div class='text-center'><h4>Ruta Repetida</h4></div>";
+				
+		}
+		else
+		{
+			$this->route_model->ingresar_route($nameRoute,$tiempo,$distancia,$gasolina);
+			$idroute=$this->route_model->buscar_route($nameRoute,$tiempo,$distancia,$gasolina);
+			$id_or=$this->route_model->buscar_lugar($origen);
+			$id_des=$this->route_model->buscar_lugar($destino);
+			$this->route_model->ingresar_route_lugar($idroute["id_ruta"],$id_or["idlugar"],'O');
+			$this->route_model->ingresar_route_lugar($idroute["id_ruta"],$id_des["idlugar"],'D');
+
+			$data['message']="<div class='text-center'><h4>Ruta Agregada Exitosamente!</h4></div>";
+		}
+		
 
 
-		$data['message']="<div class='text-center'><h4>Ruta Agregada Exitosamente!</h4></div>";
+		
 		$this->load->view("Administrator/Route/newRoute",$data);
 	}
 	public function storeEditRoute()

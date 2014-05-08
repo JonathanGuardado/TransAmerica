@@ -25,8 +25,10 @@ class Lugar extends CI_Controller {
 	}
 	public function deleteLugar()
 	{
-		//Jala todos los Lugars de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
+		$this->load->model("lugar_model");
+		$data=$this->lugar_model->lugars();
+
+		//$this->lugar_model->eliminar_lugar($idlugar);
 		$this->load->view("Administrator/Lugar/deleteLugar",$data);		
 	}
 	public function searchLugar()
@@ -44,11 +46,23 @@ class Lugar extends CI_Controller {
 	}
 	public function storeNewLugar()
 	{
-		$fechaLugar=$this->input->post("fechaLugar",true);
-		$noWheel=$this->input->post("noWheel",true);
-		$descripcion=$this->input->post("descripcion",true);
+		$nombrelugar=$this->input->post("nombreLugar",true);
+		$ciudad=$this->input->post("ciudad",true);
+		$pais=$this->input->post("pais",true);
 		
+		$this->load->model("lugar_model");
+		$idlugar=$this->lugar_model->buscar_lugar($nombrelugar);
+		if(isset($idroute["idlugar"]))
+		{
+			$data['message']="<div class='text-center'><h4>Lugar Repetido</h4></div>";
+				
+		}
+		else
+		{
+			$this->lugar_model->ingresar_lugar($nombrelugar,$ciudad,$pais);
 
+			$data['message']="<div class='text-center'><h4>Ruta Agregada Exitosamente!</h4></div>";
+		}
 		//Se almacena en la base de datos
 
 		$data['message']="<div class='text-center'><h4>Lugar Agregado Exitosamente!</h4></div>";
@@ -56,9 +70,9 @@ class Lugar extends CI_Controller {
 	}
 	public function storeEditLugar()
 	{
-		$fechaLugar=$this->input->post("fechaLugar",true);
-		$noWheel=$this->input->post("noWheel",true);
-		$descripcion=$this->input->post("descripcion",true);
+		$nombrelugar=$this->input->post("nombrelugar",true);
+		$ciudad=$this->input->post("ciudad",true);
+		$pais=$this->input->post("pais",true);
 
 		//Se almacena en la base de datos
 

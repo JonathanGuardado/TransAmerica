@@ -25,8 +25,11 @@ class Viaje extends CI_Controller {
 	}
 	public function deleteViaje()
 	{
-		//Jala todos los Viajes de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
+		
+		$this->load->model("viaje_model");
+		$data=$this->viaje_model->viajes();
+		
+		//$this->viaje_model->eliminar_viaje($idviaje);
 		$this->load->view("Administrator/Viaje/deleteViaje",$data);		
 	}
 	public function searchViaje()
@@ -49,17 +52,17 @@ class Viaje extends CI_Controller {
 		$idFlota=$this->input->post("idFlota",true);
 		$fechaViaje=$this->input->post("fechaViaje",true);
 		$tipoViaje=$this->input->post("tipoViaje",true);
-		$conductor=1;//$this->input->post("idConductor")//se necesita este campo
+		$conductor="xfsdfsdf";//$this->input->post("nombreConductor")//se necesita este campo
 		$gas=100;//$this->input->post("gasolina")//se necesita este campo
 		$marchamos="no se";//$this->input->post("marchamos")//se necesita este campo
 		
 		$this->load->model("viaje_model");
 		$nameClient=$this->viaje_model->buscar_cliente($nameClient);
 		$nameRoute=$this->viaje_model->buscar_ruta($nameRoute);
-		
+		$conductor=$this->viaje_model->buscar_conductor($conductor);
 
 			
-		$this->viaje_model->ingresar_viaje($nameClient["idcliente"],$nameRoute["id_ruta"],$idFlota,$fechaViaje,$tipoViaje,$conductor,$gas,$marchamos);
+		$this->viaje_model->ingresar_viaje($nameClient["idcliente"],$nameRoute["id_ruta"],$idFlota,$fechaViaje,$tipoViaje,$conductor["idconductor"],$gas,$marchamos);
 		$data['message']="<div class='text-center'><h4>Viaje Agregado Exitosamente!</h4></div>";
 		
 		

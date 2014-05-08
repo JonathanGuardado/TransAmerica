@@ -26,8 +26,10 @@ class Client extends CI_Controller {
 	}
 	public function deleteClient()
 	{
-		//Jala todos los clientes de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
+		$this->load->model("cliente_model");
+		$data=$this->cliente_model->clientes();
+
+		//$this->cliente_model->eliminar_cliente($idcliente);
 		$this->load->view("Administrator/Client/deleteClient",$data);		
 	}
 	public function searchClient()
