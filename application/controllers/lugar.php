@@ -19,8 +19,8 @@ class Lugar extends CI_Controller {
 	public function editLugar2()
 	{
 		$nameLugar=$this->input->post("nameLugar",true);
-		//Jala de la base los campos del Lugar para llenar el formulario
-		$data="";
+		$this->load->model("lugar_model");
+		$data=$this->lugar_model->buscar_lugar2($nameLugar);
 		$this->load->view("Administrator/Lugar/editLugar2",$data);		
 	}
 	public function deleteLugar()
@@ -47,7 +47,7 @@ class Lugar extends CI_Controller {
 	public function storeNewLugar()
 	{
 		$nombrelugar=$this->input->post("nombreLugar",true);
-		$ciudad=$this->input->post("ciudad",true);
+		$ciudad=$this->input->post("Ciudad",true);
 		$pais=$this->input->post("pais",true);
 		
 		$this->load->model("lugar_model");
@@ -70,13 +70,27 @@ class Lugar extends CI_Controller {
 	}
 	public function storeEditLugar()
 	{
-		$nombrelugar=$this->input->post("nombrelugar",true);
+		$nombrelugar=$this->input->post("nombreLugar",true);
 		$ciudad=$this->input->post("ciudad",true);
 		$pais=$this->input->post("pais",true);
+		$idlugar=$this->input->post("idlugar",true);
 
-		//Se almacena en la base de datos
+		$this->load->model("lugar_model");
+		$this->lugar_model->update_lugar($nombrelugar,$ciudad,$pais,$idlugar);
 
 		$data['message']="<div class='text-center'><h4>Lugar Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Lugar/editLugar",$data);
 	}
+	public function getData()
+    {
+        $this->load->model("lugar_model");
+		$sequential=$this->lugar_model->lugars();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['nombre']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 }
