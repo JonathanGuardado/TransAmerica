@@ -9,12 +9,12 @@
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Marca</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="marca" placeholder="Marca" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="marca" placeholder="Marca" value="<?php echo $idplaca ?>" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Descripci&oacute;n</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="descripcion" placeholder="Descripci&oacute;n" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="descripcion" placeholder="Descripci&oacute;n" value="<?php echo $descripcion ?>" />
         </div>
         </div>
         
@@ -24,6 +24,7 @@
         <input type="button" class="btn btn-primary sendBtn " value="Editar Chasis" id="editBtnChasis" name="editBtnChasis"/>
             
             <br />            
+            <input type="hidden" name="idChasis" id="idChasis" value="<?php echo $idchasis ?>"/>
             
         </div>
 	</fieldset>
