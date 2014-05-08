@@ -7,9 +7,12 @@ jQuery(document).ready(function() {
 });
 function loadAutocomplete(input) {    
     var form = jQuery(input).parents("form");
-    var metodData = jQuery(input).attr("data");
+    var dataMetod = jQuery(input).attr("data-method");
+    var dataController = jQuery(input).attr("data-controller");
     var url = jQuery(form).attr("action");
-    url = url.substring(0, url.lastIndexOf("/")) + "/" + metodData;
+    url = url.substring(0, url.lastIndexOf("/"));
+    url = url.substring(0, url.lastIndexOf("/")) ;
+    url= url+"/"+dataController+"/"+dataMetod;
     jQuery.ajax({
         url: url,
         type: 'GET',
