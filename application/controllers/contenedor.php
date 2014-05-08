@@ -20,14 +20,42 @@ class Contenedor extends CI_Controller {
 	{
 		$nameContenedor=$this->input->post("nameContenedor",true);
 		//Jala de la base los campos del Contenedor para llenar el formulario
-		$data="";
+		$this->load->model("contenedor_model");
+		$data=$this->contenedor_model->load_contenedor($nameContenedor);
 		$this->load->view("Administrator/Contenedor/editContenedor2",$data);		
 	}
 	public function deleteContenedor()
 	{
 		//Jala todos los Contenedors de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
-		$this->load->view("Administrator/Contenedor/deleteContenedor",$data);		
+		
+		$this->load->model("contenedor_model");
+		$data=$this->contenedor_model->load_contenedores();
+
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$this->table->set_heading('Descripcion Contenedor', 'Tipo contenedor','Eliminar');
+		foreach ($data as $estudiantes) 
+		{
+			$this->table->add_row($estudiantes["descripcion_contenedor"], $estudiantes["tipo_contenedor"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingContenedor('.$estudiantes["idcontenedor"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadContenedores"] = $this->table->generate();
+
+		$this->load->view("Administrator/Contenedor/deleteContenedor",$info);		
+	}
+	public function deletingContenedor()
+	{
+		//obteniendo id del contenedor a borrar 
+		$idContenedor=$this->input->post("idContenedor",true);
+		$this->load->model("contenedor_model");
+		$data=$this->contenedor_model->deleting_contenedor($idContenedor);
+
+		//div que indica borrado
+		$data['message']="<div class='text-center'><h4>Contenedor Borrado Exitosamente!</h4></div>";
+		$this->load->view("Administrator/Contenedor/deleteContenedor",$data);
+
 	}
 	public function searchContenedor()
 	{
@@ -39,13 +67,27 @@ class Contenedor extends CI_Controller {
 	{
 		$nameContenedor=$this->input->post("nameContenedor",true);
 		//Jala de la base los campos del Contenedor para llenar el formulario
-		$data="";
-		$this->load->view("Administrator/Contenedor/searchContenedor2",$data);		
+		
+		$this->load->model("contenedor_model");
+
+		$data=$this->contenedor_model->load_contenedor($nameContenedor);
+
+
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$this->table->set_heading('Descripcion Contenedor', 'Tipo Contenedor');
+		$this->table->add_row($data["descripcion_contenedor"], $data["tipo_contenedor"]);
+		$this->table->set_template($plantilla);
+		$info["tabla_searchContenedor"] = $this->table->generate();
+
+		$this->load->view("Administrator/Contenedor/searchContenedor2",$info);		
 	}
 	public function storeNewContenedor()
 	{
 		$tipoContenedor=$this->input->post("tipoContenedor",true);
 		$descripcion=$this->input->post("descripcion",true);
+
 
 		//Se almacena en la base de datos
 		$this->load->model("contenedor_model");
@@ -58,8 +100,11 @@ class Contenedor extends CI_Controller {
 	{
 		$tipoContenedor=$this->input->post("tipoContenedor",true);
 		$descripcion=$this->input->post("descripcion",true);
+		$idContenedor=$this->input->post("idContenedor",true);
 
 		//Se almacena en la base de datos
+		$this->load->model("contenedor_model");
+		$this->contenedor_model->updating_contenedor($idContenedor,$tipoContenedor,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Contenedor Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Contenedor/editContenedor",$data);

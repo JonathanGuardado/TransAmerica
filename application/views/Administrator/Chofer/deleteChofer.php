@@ -14,5 +14,7 @@
 </form>
 
 <div id="content_busqueda" class="row">
-
+<?php   
+echo $tabla_loadChofers;
+?>      
 </div>

@@ -33,7 +33,19 @@ class Chofer extends CI_Controller {
 		$this->load->model("chofer_model");
 		$data=$this->chofer_model->load_choferes();
 
-		$this->load->view("Administrator/Chofer/deleteChofer",$data);		
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$this->table->set_heading('Nombre Conductor', 'Apellido Conductor',' Dui ',' Nit ','Fecha Ingreso','Eliminar');
+		foreach ($data as $estudiantes) 
+		{
+			$this->table->add_row($estudiantes["nombre_conductor"], $estudiantes["apellido_conductor"],$estudiantes["dui"],$estudiantes["nit"],$estudiantes["fecha_ingreso_cond"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingChofer('.$estudiantes["idconductor"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadChofers"] = $this->table->generate();
+
+		$this->load->view("Administrator/Chofer/deleteChofer",$info);		
 	}
 	public function deletingChofer()
 	{
@@ -59,8 +71,19 @@ class Chofer extends CI_Controller {
 		$nameChofer=$this->input->post("nameChofer",true);
 		//Jala de la base los campos del Chofer para llenar el formulario
 		$this->load->model("chofer_model");
-		$data=$data=$this->chofer_model->load_chofer($nameChofer);
-		$this->load->view("Administrator/Chofer/searchChofer2",$data);		
+
+		$data=$this->chofer_model->load_chofer($nameChofer);
+
+
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$this->table->set_heading('Nombre Conductor', 'Apellido Conductor',' Dui ',' Nit ','Fecha Ingreso');
+		$this->table->add_row($data["nombre_conductor"], $data["apellido_conductor"],$data["dui"],$data["nit"],$data["fecha_ingreso_cond"]);
+		$this->table->set_template($plantilla);
+		$info["tabla_searchChofer"] = $this->table->generate();
+
+		$this->load->view("Administrator/Chofer/searchChofer2",$info);		
 	}
 	public function storeNewChofer()
 	{
@@ -88,10 +111,11 @@ class Chofer extends CI_Controller {
 		$nit=$this->input->post("nit",true);
 		$fechaNac=$this->input->post("fechaNac",true);
 		$estado=$this->input->post("estado",true);
+		$idChofer=$this->input->post("idChofer",true);
 
 		//Se almacena en la base de datos
 		$this->load->model("chofer_model");
-		$this->chofer_model->updating_chofer($nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$estado);
+		$this->chofer_model->updating_chofer($idChofer,$nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$estado);
 
 		$data['message']="<div class='text-center'><h4>Chofer Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chofer/editChofer",$data);

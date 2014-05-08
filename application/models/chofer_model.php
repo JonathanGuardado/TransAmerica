@@ -1,7 +1,7 @@
 <?php
 class Chofer_model extends CI_Model
 {
-	public function __construct()
+  public function __construct()
    {
       parent::__construct();
       $this->load->database();
@@ -15,13 +15,13 @@ class Chofer_model extends CI_Model
     $this->db->set('nit', $nit);
     $this->db->set('fecha_nacimiento', $fechaNac);
     $this->db->set('fecha_ingreso_cond', $fechaIngreso);
-    $this->db->set('estado_conductor', $estado);
+    $this->db->set('estado_conductor', 'T');
     $this->db->insert('conductor');
  }
 
  public function load_choferes()
  {
-  $query=$this->db->query("SELECT nombre_conductor, apellido_conductor FROM conductor WHERE estado_conductor='T'");
+  $query=$this->db->query("SELECT nombre_conductor, apellido_conductor,idconductor,dui,nit,fecha_ingreso_cond FROM conductor WHERE estado_conductor='T'");
       return $query->result_array();
  }
 public function load_chofer($nameChofer)
@@ -33,7 +33,7 @@ public function load_chofer($nameChofer)
       return $query->row_array();
 }
 
- public function updating_chofer($nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$estado)
+ public function updating_chofer($idChofer,$nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$estado)
  {
       $data = array(
                'nombre_conductor' => $nameChofer,
@@ -43,17 +43,17 @@ public function load_chofer($nameChofer)
                  'fecha_nacimiento'=> $fechaNac,
                  'estado_conductor'=> $estado
                );
-    $this->db->where('nombre_conductor', $nameChofer);
+    $this->db->where('idconductor', $idChofer);
     $this->db->update('conductor', $data);
  }
  public function deleting_chofer($idChofer)
  {
     $data = array(
                
-                 'estado_conductor'=> 'F',
+                 'estado_conductor'=> 'F'
                );
     $this->db->where('idconductor', $idChofer);
     $this->db->update('conductor', $data);
  }
-}	
+} 
 ?>

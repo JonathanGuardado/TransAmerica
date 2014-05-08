@@ -44,12 +44,15 @@ class Cabezal extends CI_Controller {
 	}
 	public function storeNewCabezal()
 	{
-		$fechaCabezal=$this->input->post("fechaCabezal",true);
-		$noWheel=$this->input->post("noWheel",true);
-		$descripcion=$this->input->post("descripcion",true);
+		$identificador=$this->input->post("fechaCabezal",true);
+		$marca=$this->input->post("noWheel",true);
+		$kmactual=$this->input->post("descripcion",true);
 		
 
 		//Se almacena en la base de datos
+		//Se almacena en la base de datos
+		$this->load->model("cabezal_model");
+		$this->cabezal_model->agregar_cabezal($identificador,$marca,$kmactual);
 
 		$data['message']="<div class='text-center'><h4>Cabezal Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Cabezal/newCabezal",$data);

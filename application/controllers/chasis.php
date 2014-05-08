@@ -20,14 +20,43 @@ class Chasis extends CI_Controller {
 	{
 		$nameChasis=$this->input->post("nameChasis",true);
 		//Jala de la base los campos del Chasis para llenar el formulario
-		$data="";
+		$this->load->model("chasis_model");
+		$data=$data=$this->chasis_model->load_chasis($nameChasis);
 		$this->load->view("Administrator/Chasis/editChasis2",$data);		
 	}
 	public function deleteChasis()
 	{
 		//Jala todos los Chasiss de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
-		$this->load->view("Administrator/Chasis/deleteChasis",$data);		
+		
+		$this->load->model("chasis_model");
+		$data=$this->chasis_model->load_all_chasis();
+
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$this->table->set_heading('Placa', 'Marca','Descripcion','Eliminar');
+		foreach ($data as $estudiantes) 
+		{
+			$this->table->add_row($estudiantes["placa"], $estudiantes["marca"],$estudiantes["descripcion"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingChasis('.$estudiantes["idchasis"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadChasis"] = $this->table->generate();
+
+
+		$this->load->view("Administrator/Chasis/deleteChasis",$info);		
+	}
+	public function deletingChasis()
+	{
+		//obteniendo id del chasis a borrar 
+		$idChasis=$this->input->post("idChasis",true);
+		$this->load->model("chasis_model");
+		$data=$this->chasis_model->deleting_chasis($idChasis);
+
+		//div que indica borrado
+		$data['message']="<div class='text-center'><h4>Chasis Borrado Exitosamente!</h4></div>";
+		$this->load->view("Administrator/Chasis/deleteChasis",$data);
+
 	}
 	public function searchChasis()
 	{
@@ -39,8 +68,22 @@ class Chasis extends CI_Controller {
 	{
 		$nameChasis=$this->input->post("nameChasis",true);
 		//Jala de la base los campos del Chasis para llenar el formulario
-		$data="";
-		$this->load->view("Administrator/Chasis/searchChasis2",$data);		
+		
+		$this->load->model("chasis_model");
+
+		$data=$this->chasis_model->load_chasis($nameChasis);
+
+
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$this->table->set_heading('Placa', 'Marca','Descripcion');
+		$this->table->add_row($data["placa"], $data["marca"],$data["descripcion"]);
+		$this->table->set_template($plantilla);
+		$info["tabla_searchChasis"] = $this->table->generate();
+
+
+		$this->load->view("Administrator/Chasis/searchChasis2",$info);		
 	}
 	public function storeNewChasis()
 	{
@@ -67,9 +110,11 @@ class Chasis extends CI_Controller {
 
 		$estadoChasis= $this->input->post("estado",true);
 		$descripcionChasis= $this->input->post("descripcion",true);
+		$idChasis= $this->input->post("idChasis",true);
 
 		//Se almacena en la base de datos
-		$this->load->model("chasis");
+		$this->load->model("chasis_model");
+		$this->chasis_model->updating_chasis($idChasis,$estadoChasis,$estadoChasis);
 
 		$data['message']="<div class='text-center'><h4>Chasis Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/editChasis",$data);
