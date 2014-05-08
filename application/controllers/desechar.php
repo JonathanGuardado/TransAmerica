@@ -13,7 +13,12 @@ class Desechar extends CI_Controller {
 		$descripcion=$this->input->post("descripcion",true);
 
 		//Almacenamos en la base la Desechar de la llanta
-		$this->load->view("Administrator/Desechar/desecharWheel");	
+		$this->load->model("desechar_model");
+		$this->desechar_model->desechar_llanta($fechaDesechar,$noWheel,$descripcion);
+		$data['message']="<div class='text-center'><h4>modificacion de llanta  Exitosamente!</h4></div>";
+		$this->load->view("Administrator/Desechar/desecharWheel",$data);	
+
+		
 		
 	}
 }
