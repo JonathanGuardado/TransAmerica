@@ -74,6 +74,10 @@ class Chasis extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>Chasis Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/editChasis",$data);
 	}
+        public function getData(){
+            $sequential = array("foo", "bar", "baz", "blong");
+            echo json_encode($sequential);
+        }
 
 
 

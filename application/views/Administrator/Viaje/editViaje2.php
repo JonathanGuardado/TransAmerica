@@ -41,7 +41,7 @@
         </div>
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#editBtnViaje").click(function(){
 //    var $form=$("#editViajeForm"), url=$form.attr("action");

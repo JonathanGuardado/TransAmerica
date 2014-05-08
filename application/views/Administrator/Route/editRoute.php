@@ -12,7 +12,7 @@
 
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#buscarRuta").click(function(){
 //    var $form=$("#buscar"), url=$form.attr("action");

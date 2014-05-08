@@ -32,7 +32,7 @@
         </div>
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#editBtn").click(function(){
 //    var $form=$("#editClientForm"), url=$form.attr("action");

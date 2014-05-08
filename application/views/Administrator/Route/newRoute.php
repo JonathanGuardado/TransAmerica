@@ -45,7 +45,7 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-  <script src="../js/envio_datos.js"></script>
+  <script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#new").click(function(){
 //    var $form=$("#newRoute"), url=$form.attr("action");

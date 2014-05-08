@@ -19,14 +19,14 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             
-        <input type="button" class="btn btn-primary sendBtn" value="Editar Chasis" id="editBtnChasis" name="editBtnChasis"/>
+        <input type="button" class="btn btn-primary sendBtn " value="Editar Chasis" id="editBtnChasis" name="editBtnChasis"/>
             
             <br />            
             
         </div>
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#editBtnChasis").click(function(){
 //    var $form=$("#editChasisForm"), url=$form.attr("action");

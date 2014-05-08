@@ -42,7 +42,7 @@
         </div>
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#editBtnChofer").click(function(){
 //    var $form=$("#editChoferForm"), url=$form.attr("action");

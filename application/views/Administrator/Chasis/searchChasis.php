@@ -16,7 +16,7 @@
 <div id="content_busqueda" class="row">
 
 </div>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#searchBtnChasis").click(function(){
 //    var $form=$("#searchFormChasis"), url=$form.attr("action");

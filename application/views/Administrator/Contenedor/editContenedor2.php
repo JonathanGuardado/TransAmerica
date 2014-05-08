@@ -26,7 +26,7 @@
         </div>
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#editBtnContenedor").click(function(){
 //    var $form=$("#editContenedorForm"), url=$form.attr("action");
