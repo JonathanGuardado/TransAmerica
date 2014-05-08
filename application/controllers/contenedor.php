@@ -48,6 +48,8 @@ class Contenedor extends CI_Controller {
 		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
+		$this->load->model("contenedor_model");
+		$data=$this->contenedor_model->newContenedor($tipoContenedor,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Contenedor Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Contenedor/newContenedor",$data);

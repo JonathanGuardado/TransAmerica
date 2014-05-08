@@ -33,17 +33,26 @@ public function load_chofer($nameChofer)
       return $query->row_array();
 }
 
- public function updating_chofer($nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$fechaIngreso,$estado)
+ public function updating_chofer($nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$estado)
  {
       $data = array(
                'nombre_conductor' => $nameChofer,
                  'apellido_conductor'=> $surnameChofer,
-                 'apellido_conductor'=> $dui,
-                 'apellido_conductor'=> $nit,
-                 'apellido_conductor'=> $fechaNac,
-                 'apellido_conductor'=> $estado
+                 'dui'=> $dui,
+                 'nit'=> $nit,
+                 'fecha_nacimiento'=> $fechaNac,
+                 'estado_conductor'=> $estado
                );
-    $this->db->where('nombre_conductor', $codigo);
+    $this->db->where('nombre_conductor', $nameChofer);
+    $this->db->update('conductor', $data);
+ }
+ public function deleting_chofer($idChofer)
+ {
+    $data = array(
+               
+                 'estado_conductor'=> 'F',
+               );
+    $this->db->where('idconductor', $idChofer);
     $this->db->update('conductor', $data);
  }
 }	

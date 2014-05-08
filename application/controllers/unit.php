@@ -8,11 +8,13 @@ class Unit extends CI_Controller {
 	}
 	public function newUnit()
 	{
-		$this->load->view("Administrator/Unit/newUnit");		
+		$this->load->view("Administrator/Unit/newUnit");	
+		//Se deben enviar 3 autocomplete para NoChasis, NoContenedor, NombreChofer, NoCabezal	
 	}
 	public function editUnit()
 	{
 		//Jala de la base todos los Unidads para llenarlos en un autocomplete
+
 		$data="";
 		$this->load->view("Administrator/Unit/editUnit",$data);		
 	}
@@ -44,11 +46,16 @@ class Unit extends CI_Controller {
 	}
 	public function storeNewUnit()
 	{
+
 		$noChasis=$this->input->post("noChasis",true);
 		$noContenedor=$this->input->post("noContenedor",true);
 		$nameChofer=$this->input->post("nameChofer",true);
 
+		
+
+
 		//Se almacena en la base de datos
+
 
 		$data['message']="<div class='text-center'><h4>Unidad Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Unit/newUnit",$data);

@@ -3,32 +3,32 @@
 		<legend>Editar Chofer</legend>
 		<div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombres</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="nameChofer" class="form-control" placeholder="Nombres"/>            
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="nameChofer" value="<?php echo $nombre_conductor;?>"  class="form-control" placeholder="Nombres"/>            
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Apellidos</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="surnameChofer" placeholder="Apellidos" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" value="<?php echo $apellido_conductor;?>" name="surnameChofer" placeholder="Apellidos" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>DUI</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="dui" placeholder="DUI" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" value="<?php echo $dui;?>" name="dui" placeholder="DUI" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>NIT</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="nit" placeholder="NIT" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" value="<?php echo $nit;?>" name="nit" placeholder="NIT" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Fecha Nacimiento</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="date" class="form-control" name="fechaNac" placeholder="Fecha Nacimiento" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="date" class="form-control" value="<?php echo $fecha_nacimiento;?>" name="fechaNac" placeholder="Fecha Nacimiento" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Estado</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" name="estado" placeholder="Estado" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" value="<?php echo $estado_conductor;?>" name="estado" placeholder="Estado" />
         </div>
         </div>
         

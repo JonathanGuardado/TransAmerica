@@ -13,7 +13,7 @@ class Chasis extends CI_Controller {
 	public function editChasis()
 	{
 		//Jala de la base todos los Chasiss para llenarlos en un autocomplete
-		$data="";
+		$data='';
 		$this->load->view("Administrator/Chasis/editChasis",$data);		
 	}
 	public function editChasis2()
@@ -44,24 +44,32 @@ class Chasis extends CI_Controller {
 	}
 	public function storeNewChasis()
 	{
-		$nameChasis=$this->input->post("nameChasis",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		//$nameChasis=$this->input->post("nameChasis",true);
+		//$nameContact=$this->input->post("nameContact",true);
+		//$phoneContact=$this->input->post("phoneContact",true);
+		//$tarifa=$this->input->post("tarifa",true);
 
+		$estadoChasis= $this->input->post("estado",true);
+		$descripcionChasis= $this->input->post("descripcion",true);
 		//Se almacena en la base de datos
+		$this->load->model("chasis_model");
+		$data=$this->chasis_model->newChasis($estadoChasis,$descripcionChasis);
 
 		$data['message']="<div class='text-center'><h4>Chasis Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/newChasis",$data);
 	}
 	public function storeEditChasis()
 	{
-		$nameChasis=$this->input->post("nameChasis",true);
-		$nameContact=$this->input->post("nameContact",true);
-		$phoneContact=$this->input->post("phoneContact",true);
-		$tarifa=$this->input->post("tarifa",true);
+		//$nameChasis=$this->input->post("nameChasis",true);
+		//$nameContact=$this->input->post("nameContact",true);
+		//$phoneContact=$this->input->post("phoneContact",true);
+		//$tarifa=$this->input->post("tarifa",true);
+
+		$estadoChasis= $this->input->post("estado",true);
+		$descripcionChasis= $this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
+		$this->load->model("chasis");
 
 		$data['message']="<div class='text-center'><h4>Chasis Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/editChasis",$data);
