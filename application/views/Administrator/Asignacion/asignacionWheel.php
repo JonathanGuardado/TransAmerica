@@ -35,7 +35,7 @@
 <div id="message">
 <?php if(isset($message)) echo $message ; ?>
 </div>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#newBtnAsignacion").click(function(){
 //    var $form=$("#newFormAsignacion"), url=$form.attr("action");

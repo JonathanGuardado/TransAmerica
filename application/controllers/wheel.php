@@ -55,21 +55,40 @@ class Wheel extends CI_Controller {
 	}
 	public function storeNewWheel()
 	{
-		$noSerie=$this->input->post("noSerie",true);
-		$marca=$this->input->post("marca",true);
-		$size=$this->input->post("size",true);
-		$estado=$this->input->post("estado",true);
-		$fechaCompra=$this->input->post("fechaCompra",true);
-		$descripcion=$this->input->post("descripcion",true);		
+		$noSerie    =$this->input->post("noSerie"       ,true);
+		$marca      =$this->input->post("marca"         ,true);
+		$size       =$this->input->post("size"          ,true);
+		$unit_price =$this->input->post("precioUnitario",true);
+		$iva        =$this->input->post("iva"           ,true);
+		$totalprice =$this->input->post("precioTotal"   ,true);
+		$fechaCompra=$this->input->post("fechaCompra"   ,true);
+		$proveedores=$this->input->post("proveedor "    ,true);
+		$estado     =$this->input->post("estado"        ,true);
+		$descripcion=$this->input->post("descripcion"   ,true);		
 
-		$no_llanta='';
+		$query= $this->db->query("SELECT id_proveedor FROM proveedor_llanta WHERE nombre_proveedor="+$proveedores);//en regla
+        
+
+		$no_llanta='abc456';
+
+		$data = $query->result_array();
 		//Se almacena en la base de datos
 		
+		if(mysql_num_rows($query->result_array() === 0))
+		{
+			$data['message']="<div class='text-center'><h4>proveedor no existe</h4></div>";
+			$this->load->view("Administrator/Wheel/newWheel",$data);
+		}
+		else
+		{
+
+
 		
-		$this->buy_model->agregar_compra($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion);
+		$this->buy_model->agregar_compra($noSerie,$marca,$size,$unit_price,$iva,$totalprice,$fechaCompra,$proveedores,$estado,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Llanta Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Wheel/newWheel",$data);
+	}
 	}
 	public function storeEditWheel()
 	{

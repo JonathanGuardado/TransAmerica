@@ -8,15 +8,19 @@ class Buy_model extends CI_Model
       $this->load->database();
    }
 
-  public function agregar_compra($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion)
+  public function agregar_compra($noSerie,$marca,$size,$unit_price,$iva,$totalprice,$fechaCompra,$proveedores,$estado,$descripcion)
    {
     
     $this->db->set('descripcion_llanta', $descripcion);
-    $this->db->set('serie_llanta', $noSerie);
-    $this->db->set('tamanio_llanta', $size);
-    $this->db->set('marca_llanta', $marca);
-    $this->db->set('estado_llanta', $estado);
-    $this->db->set('fecha_compra', $fechaCompra);
+    $this->db->set('serie_llanta'      , $noSerie    );
+    $this->db->set('tamanio_llanta'    , $size       );
+    $this->db->set('marca_llanta'      , $marca      );
+    $this->db->set('estado_llanta'     , $estado     );
+    $this->db->set('fecha_compra'      , $fechaCompra);
+    $this->db->set('precio_unitario'   , $unit_price );
+    $this->db->set('iva'               , $iva        );
+    $this->db->set('total_compra'      , $totalprice );
+    $this->db->set('id_proveedor'      , $proveedores);
     
     
     $this->db->insert('llanta');
