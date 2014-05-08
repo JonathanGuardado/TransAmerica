@@ -10,9 +10,9 @@ function loadAutocomplete(input) {
     var dataMetod = jQuery(input).attr("data-method");
     var dataController = jQuery(input).attr("data-controller");
     var url = jQuery(form).attr("action");
-    url = url.substring(0, url.lastIndexOf("/"));
-    url = url.substring(0, url.lastIndexOf("/")) ;
-    url= url+"/"+dataController+"/"+dataMetod;
+    //url = url.substring(0, url.lastIndexOf("/"));
+    //url = url.substring(0, url.lastIndexOf("/")) ;
+    url= dataController+"/"+dataMetod;
     jQuery.ajax({
         url: url,
         type: 'GET',
