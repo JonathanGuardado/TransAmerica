@@ -58,6 +58,20 @@
 			</div>
 				
 			</div>
+		  	<div class="accordion-group">
+				<div class="accordion-heading">
+		  		<a id="Cabezal" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseCabezal">Cabezal</a>
+				</div>
+			<div class="accordion-body collapse" id="collapseCabezal">
+					  	<div class="list-group accordion-inner">
+						  <a id="addCabezal" class="list-group-item badge">Agregar Cabezal</a>
+						  <a id="editCabezal" class="list-group-item badge">Modificar Cabezal</a>
+						  <a id="searchCabezal" class="list-group-item badge">Buscar Cabezal</a>
+						  <a id="deleteCabezal" class="list-group-item badge">Eliminar Cabezal</a>
+						</div>
+			</div>
+				
+			</div>
 		  	
 		</div>
 	</div>

@@ -17,7 +17,10 @@ $("#addUnit").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
-      
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#editUnit").click(function()
     {
@@ -38,7 +41,10 @@ $("#editUnit").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
-
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#deleteUnit").click(function()
     {
@@ -59,7 +65,10 @@ $("#deleteUnit").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
-
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#searchUnit").click(function()
     {
@@ -80,7 +89,10 @@ $("#searchUnit").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
-
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 
 
@@ -103,6 +115,10 @@ $("#addChofer").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#editChofer").click(function()
     {
@@ -123,6 +139,10 @@ $("#editChofer").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#deleteChofer").click(function()
     {
@@ -143,6 +163,10 @@ $("#deleteChofer").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#searchChofer").click(function()
     {
@@ -163,6 +187,10 @@ $("#searchChofer").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 
 
@@ -185,6 +213,10 @@ $("#addChasis").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#editChasis").click(function()
     {
@@ -205,6 +237,10 @@ $("#editChasis").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#deleteChasis").click(function()
     {
@@ -225,6 +261,10 @@ $("#deleteChasis").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#searchChasis").click(function()
     {
@@ -245,6 +285,10 @@ $("#searchChasis").click(function()
       $("#searchContenedor").removeClass("active");
       $("#addContenedor").removeClass("active");
       $("#deleteContenedor").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 
 
@@ -267,7 +311,10 @@ $("#addContenedor").click(function()
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
-
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#editContenedor").click(function()
     {
@@ -288,6 +335,10 @@ $("#editContenedor").click(function()
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#deleteContenedor").click(function()
     {
@@ -308,6 +359,10 @@ $("#deleteContenedor").click(function()
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 $("#searchContenedor").click(function()
     {
@@ -328,5 +383,109 @@ $("#searchContenedor").click(function()
       $("#searchChasis").removeClass("active");
       $("#addChasis").removeClass("active");
       $("#deleteChasis").removeClass("active");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
    });
 
+
+
+$("#addCabezal").click(function()
+    {
+      $("#content_flotas").load("cabezal/newCabezal");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
+      $("#addCabezal").addClass("active");
+      $("#editUnit").removeClass("active");
+      $("#addUnit").removeClass("active");
+      $("#deleteUnit").removeClass("active");
+      $("#searchUnit").removeClass("active");
+      $("#editChofer").removeClass("active");
+      $("#searchChofer").removeClass("active");
+      $("#addChofer").removeClass("active");
+      $("#deleteChofer").removeClass("active");
+      $("#editChasis").removeClass("active");
+      $("#searchChasis").removeClass("active");
+      $("#addChasis").removeClass("active");
+      $("#deleteChasis").removeClass("active");
+      $("#editContenedor").removeClass("active");
+      $("#searchContenedor").removeClass("active");
+      $("#addContenedor").removeClass("active");
+      $("#deleteContenedor").removeClass("active");
+   });
+$("#editCabezal").click(function()
+    {
+      $("#content_flotas").load("cabezal/editCabezal");
+      $("#addCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
+      $("#editCabezal").addClass("active");
+      $("#editUnit").removeClass("active");
+      $("#addUnit").removeClass("active");
+      $("#deleteUnit").removeClass("active");
+      $("#searchUnit").removeClass("active");
+      $("#editChofer").removeClass("active");
+      $("#searchChofer").removeClass("active");
+      $("#addChofer").removeClass("active");
+      $("#deleteChofer").removeClass("active");
+      $("#editChasis").removeClass("active");
+      $("#searchChasis").removeClass("active");
+      $("#addChasis").removeClass("active");
+      $("#deleteChasis").removeClass("active");
+      $("#editContenedor").removeClass("active");
+      $("#searchContenedor").removeClass("active");
+      $("#addContenedor").removeClass("active");
+      $("#deleteContenedor").removeClass("active");
+   });
+$("#deleteCabezal").click(function()
+    {
+      $("#content_flotas").load("cabezal/deleteCabezal");
+      $("#editCabezal").removeClass("active");
+      $("#searchCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").addClass("active");
+      $("#editUnit").removeClass("active");
+      $("#addUnit").removeClass("active");
+      $("#deleteUnit").removeClass("active");
+      $("#searchUnit").removeClass("active");
+      $("#editChofer").removeClass("active");
+      $("#searchChofer").removeClass("active");
+      $("#addChofer").removeClass("active");
+      $("#deleteChofer").removeClass("active");
+      $("#editChasis").removeClass("active");
+      $("#searchChasis").removeClass("active");
+      $("#addChasis").removeClass("active");
+      $("#deleteChasis").removeClass("active");
+      $("#editContenedor").removeClass("active");
+      $("#searchContenedor").removeClass("active");
+      $("#addContenedor").removeClass("active");
+      $("#deleteContenedor").removeClass("active");
+   });
+$("#searchCabezal").click(function()
+    {
+      $("#content_flotas").load("cabezal/searchCabezal");
+      $("#editCabezal").removeClass("active");
+      $("#addCabezal").removeClass("active");
+      $("#deleteCabezal").removeClass("active");
+      $("#searchCabezal").addClass("active");
+      $("#editUnit").removeClass("active");
+      $("#addUnit").removeClass("active");
+      $("#deleteUnit").removeClass("active");
+      $("#searchUnit").removeClass("active");
+      $("#editChofer").removeClass("active");
+      $("#searchChofer").removeClass("active");
+      $("#addChofer").removeClass("active");
+      $("#deleteChofer").removeClass("active");
+      $("#editChasis").removeClass("active");
+      $("#searchChasis").removeClass("active");
+      $("#addChasis").removeClass("active");
+      $("#deleteChasis").removeClass("active");
+      $("#editContenedor").removeClass("active");
+      $("#searchContenedor").removeClass("active");
+      $("#addContenedor").removeClass("active");
+      $("#deleteContenedor").removeClass("active");
+   });
+
+      
