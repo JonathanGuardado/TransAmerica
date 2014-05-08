@@ -71,7 +71,6 @@ class Chofer extends CI_Controller {
 		$nameChofer=$this->input->post("nameChofer",true);
 		//Jala de la base los campos del Chofer para llenar el formulario
 		$this->load->model("chofer_model");
-
 		$data=$this->chofer_model->load_chofer($nameChofer);
 
 

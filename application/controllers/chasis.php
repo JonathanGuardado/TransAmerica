@@ -92,11 +92,12 @@ class Chasis extends CI_Controller {
 		//$phoneContact=$this->input->post("phoneContact",true);
 		//$tarifa=$this->input->post("tarifa",true);
 
-		$estadoChasis= $this->input->post("estado",true);
+		$marcaChasis= $this->input->post("marca",true);
 		$descripcionChasis= $this->input->post("descripcion",true);
+		$placaChasis=$this->input->post("placa",true);
 		//Se almacena en la base de datos
 		$this->load->model("chasis_model");
-		$data=$this->chasis_model->newChasis($estadoChasis,$descripcionChasis);
+		$data=$this->chasis_model->newChasis($marcaChasis,$descripcionChasis,$placaChasis);
 
 		$data['message']="<div class='text-center'><h4>Chasis Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/newChasis",$data);
@@ -108,13 +109,14 @@ class Chasis extends CI_Controller {
 		//$phoneContact=$this->input->post("phoneContact",true);
 		//$tarifa=$this->input->post("tarifa",true);
 
-		$estadoChasis= $this->input->post("estado",true);
+		$marcaChasis= $this->input->post("marca",true);
 		$descripcionChasis= $this->input->post("descripcion",true);
+		$placaChasis=$this->input->post("placa",true);
 		$idChasis= $this->input->post("idChasis",true);
 
 		//Se almacena en la base de datos
 		$this->load->model("chasis_model");
-		$this->chasis_model->updating_chasis($idChasis,$estadoChasis,$estadoChasis);
+		$this->chasis_model->updating_chasis($idChasis,$marcaChasis,$descripcionChasis,$placaChasis);
 
 		$data['message']="<div class='text-center'><h4>Chasis Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/editChasis",$data);

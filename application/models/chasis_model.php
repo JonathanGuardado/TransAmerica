@@ -7,9 +7,10 @@ class Chasis_model extends CI_Model
       $this->load->database();
    }
 
-   public function newChasis($estadoChasis,$descripcionChasis)
+   public function newChasis($marcaChasis,$descripcionChasis,$placaChasis)
    {
-      $this->db->set('placa', $estadoChasis);
+      $this->db->set('placa', $placaChasis);
+      $this->db->set('marca', $marcaChasis);
     $this->db->set('descripcion', $descripcionChasis);
     $this->db->set('estado_chasis', 'T');
     $this->db->insert('chasis');
@@ -23,15 +24,16 @@ class Chasis_model extends CI_Model
 {
     $this->db->select('*');
       $this->db->from('chasis');
-      $this->db->where('chasis.idchasis', $nameChasis);
+      $this->db->where('chasis.placa', $nameChasis);
        $query=$this->db->get();
       return $query->row_array();
 }
-public function updating_chasis($idChasis,$estadoChasis,$estadoChasis)
+public function updating_chasis($idChasis,$marcaChasis,$descripcionChasis,$placaChasis)
  {
       $data = array(
-               'placa' => $estadoChasis,
-                 'descripcion'=> $estadoChasis
+               'placa' => $placaChasis,
+                 'descripcion'=> $descripcionChasis,
+                 'marca'=> $marcaChasis
                );
     $this->db->where('idconductor', $idChasis);
     $this->db->update('chasis', $data);

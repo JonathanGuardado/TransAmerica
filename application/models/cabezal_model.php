@@ -16,41 +16,38 @@ class Cabezal_model extends CI_Model
     $this->db->insert('cabezal');
  }
 
- public function load_choferes()
+ public function load_cabezales()
  {
-  $query=$this->db->query("SELECT nombre_conductor, apellido_conductor,idconductor,dui,nit,fecha_ingreso_cond FROM conductor WHERE estado_conductor='T'");
+  $query=$this->db->query("SELECT * FROM cabezal WHERE estado_cabezal='T'");
       return $query->result_array();
  }
-public function load_chofer($nameChofer)
+public function load_cabezal($nameCabezal)
 {
     $this->db->select('*');
-      $this->db->from('conductor');
-      $this->db->where('conductor.nombre_conductor', $nameChofer);
+      $this->db->from('cabezal');
+      $this->db->where('cabezal.identificador', $nameCabezal);
        $query=$this->db->get();
       return $query->row_array();
 }
 
- public function updating_chofer($idChofer,$nameChofer,$surnameChofer,$dui,$nit,$fechaNac,$estado)
+ public function updating_cabezal($idCabezal,$identificador,$marca,$kmactual)
  {
       $data = array(
-               'nombre_conductor' => $nameChofer,
-                 'apellido_conductor'=> $surnameChofer,
-                 'dui'=> $dui,
-                 'nit'=> $nit,
-                 'fecha_nacimiento'=> $fechaNac,
-                 'estado_conductor'=> $estado
+               'identificador' => $namecabezal,
+                 'marca'=> $surnamecabezal,
+                 'kilometraje_actual'=> $dui
                );
-    $this->db->where('idconductor', $idChofer);
-    $this->db->update('conductor', $data);
+    $this->db->where('idcabezal', $idCabezal);
+    $this->db->update('cabezal', $data);
  }
- public function deleting_chofer($idChofer)
+ public function deleting_cabezal($idCabezal)
  {
     $data = array(
                
-                 'estado_conductor'=> 'F'
+                 'estado_cabezal'=> 'F'
                );
-    $this->db->where('idconductor', $idChofer);
-    $this->db->update('conductor', $data);
+    $this->db->where('idcabezal', $idCabezal);
+    $this->db->update('cabezal', $data);
  }
 } 
 ?>
