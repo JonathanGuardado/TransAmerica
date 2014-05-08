@@ -22,6 +22,26 @@
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Precio Unitario</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="" class="form-control" name="precioUnitario" placeholder="Precio Unitario" />
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>IVA</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="" class="form-control" name="iva" placeholder="IVA" />
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Precio Total</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="" class="form-control" name="precioTotal" placeholder="Precio Total" />
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Proveedor</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="" class="form-control" name="proveedor" placeholder="Proveedor" />
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Fecha de Compra</label></div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="date" class="form-control" name="fechaCompra" placeholder="Fecha de Compra" />
         </div>

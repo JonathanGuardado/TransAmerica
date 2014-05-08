@@ -1,24 +1,24 @@
 $("#fleet").click(function()
     {
       $("#content").load("administrador/showFleet");
-      $("#fact").removeClass();
-      $("#mantain").removeClass();
+      $("#fact").removeClass("active");
+      $("#mantain").removeClass("active");
       $("#fleet").addClass("active");
       
    });
 $("#fact").click(function()
     {
       $("#content").load("administrador/showFact");
-      $("#fleet").removeClass();
-      $("#mantain").removeClass();
+      $("#fleet").removeClass("active");
+      $("#mantain").removeClass("active");
       $("#fact").addClass("active");
       
    });
 $("#mantain").click(function()
     {
       $("#content").load("administrador/showMantain");
-      $("#fleet").removeClass();
-      $("#fact").removeClass();
+      $("#fleet").removeClass("active");
+      $("#fact").removeClass("active");
       $("#mantain").addClass("active");
       
    });

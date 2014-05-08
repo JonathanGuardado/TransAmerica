@@ -27,7 +27,7 @@
         </div>
 	</fieldset>
 </form>
-<script src="../js/envio_datos.js"></script>
+<script src="../js/utileria.js"></script>
 <script type="text/javascript">
 //$("#editBtnCabezal").click(function(){
 //    var $form=$("#editCabezalForm"), url=$form.attr("action");

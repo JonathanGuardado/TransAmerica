@@ -4,10 +4,7 @@
 		<div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Tipo de Contenedor</label></div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left">
-            <select type="text" name="tipoContenedor" class="form-control" placeholder="Tipo de Contenedor">
-                <option>A</option>
-                <option>B</option>
-            </select>
+            <input type="text" class="form-control" name="tipo" placeholder="Tipo de Contenedor" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
