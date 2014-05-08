@@ -52,7 +52,13 @@ class Route extends CI_Controller {
 		$distancia=$this->input->post("distancia",true);
 		$gasolina=$this->input->post("gasolina",true);
 
-		//Se almacena en la base de datos
+		$this->load->model("route_model");
+		$idroute=$this->route_model->ingresar_route($nameRoute,$tiempo,$distancia,$gasolina);
+		$id_or=$this->route_model->buscar_lugar($origen);
+		$id_des=$this->route_model->buscar_lugar($destino);
+		$this->route_model->ingresar_route_lugar($idroute["id_ruta"],$id_or["idlugar"],'O');
+		$this->route_model->ingresar_route_lugar($idroute["id_ruta"],$id_des["idlugar"],'D');
+
 
 		$data['message']="<div class='text-center'><h4>Ruta Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Route/newRoute",$data);

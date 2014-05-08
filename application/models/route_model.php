@@ -1,0 +1,32 @@
+<?php
+class Route_model extends CI_Model
+{
+	public function __construct()
+   {
+      parent::__construct();
+      $this->load->database();
+   }
+   public function ingresar_route($nameRoute,$tiempo,$distancia,$gasolina)
+   {   	
+       $this->db->query('INSERT INTO `ruta`( `descripcion`, `tiempo_estimado`, `distancia_km`, `gasolina_estimada`)   VALUES ("'.$nameRoute.'","'.$tiempo.'", "'.$distancia.'", "'.$gasolina.'")');
+       $this->db->select('id_ruta');
+       $this->db->from('ruta');
+       $this->db->where('descripcion', $nameRoute,'tiempo_estimado',$tiempo,'distancia_km',$distancia,'gasolina_estimada',$gasolina);
+       $query=$this->db->get();
+       return $query->row_array();
+   }
+   public function ingresar_route_lugar($idrout,$lugar,$opciones)
+	{
+      $this->db->query('INSERT INTO `ruta_lugar`(`idlugar`, `id_ruta`, `opcionruta`)   VALUES ("'.$lugar.'","'.$idrout.'", "'.$opciones.'")');
+	}
+   public function buscar_lugar($name)
+   {
+       $this->db->select('idlugar');
+         $this->db->from('lugar');
+         $this->db->where('nombre', $name);
+          $query=$this->db->get();
+         return $query->row_array();
+   }
+}	
+
+?>
