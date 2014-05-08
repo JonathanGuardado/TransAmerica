@@ -13,7 +13,10 @@ $("#addClient").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
-      
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#editClient").click(function()
     {
@@ -30,7 +33,10 @@ $("#editClient").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
-
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#deleteClient").click(function()
     {
@@ -47,7 +53,10 @@ $("#deleteClient").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
-
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#searchClient").click(function()
     {
@@ -64,7 +73,10 @@ $("#searchClient").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
-
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 
 $("#addRoute").click(function()
@@ -82,6 +94,10 @@ $("#addRoute").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#editRoute").click(function()
     {
@@ -98,6 +114,10 @@ $("#editRoute").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#deleteRoute").click(function()
     {
@@ -114,6 +134,10 @@ $("#deleteRoute").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#searchRoute").click(function()
     {
@@ -130,6 +154,10 @@ $("#searchRoute").click(function()
       $("#searchViaje").removeClass("active");
       $("#addViaje").removeClass("active");
       $("#deleteViaje").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 
 
@@ -148,6 +176,10 @@ $("#addViaje").click(function()
       $("#searchRoute").removeClass("active");
       $("#addRoute").removeClass("active");
       $("#deleteRoute").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#editViaje").click(function()
     {
@@ -164,6 +196,10 @@ $("#editViaje").click(function()
       $("#searchRoute").removeClass("active");
       $("#addRoute").removeClass("active");
       $("#deleteRoute").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#deleteViaje").click(function()
     {
@@ -180,6 +216,10 @@ $("#deleteViaje").click(function()
       $("#searchRoute").removeClass("active");
       $("#addRoute").removeClass("active");
       $("#deleteRoute").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 $("#searchViaje").click(function()
     {
@@ -196,5 +236,94 @@ $("#searchViaje").click(function()
       $("#searchRoute").removeClass("active");
       $("#addRoute").removeClass("active");
       $("#deleteRoute").removeClass("active");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
    });
 
+
+
+$("#addLugar").click(function()
+    {
+      $("#content_fact").load("lugar/newLugar");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
+      $("#addLugar").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#editViaje").removeClass("active");
+      $("#searchViaje").removeClass("active");
+      $("#addViaje").removeClass("active");
+      $("#deleteViaje").removeClass("active");
+   });
+$("#editLugar").click(function()
+    {
+      $("#content_fact").load("lugar/editLugar");
+      $("#addLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
+      $("#editLugar").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#editViaje").removeClass("active");
+      $("#searchViaje").removeClass("active");
+      $("#addViaje").removeClass("active");
+      $("#deleteViaje").removeClass("active");
+   });
+$("#deleteLugar").click(function()
+    {
+      $("#content_fact").load("lugar/deleteLugar");
+      $("#editLugar").removeClass("active");
+      $("#searchLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#editViaje").removeClass("active");
+      $("#searchViaje").removeClass("active");
+      $("#addViaje").removeClass("active");
+      $("#deleteViaje").removeClass("active");
+   });
+$("#searchLugar").click(function()
+    {
+      $("#content_fact").load("lugar/searchLugar");
+      $("#editLugar").removeClass("active");
+      $("#addLugar").removeClass("active");
+      $("#deleteLugar").removeClass("active");
+      $("#searchLugar").addClass("active");
+      $("#editClient").removeClass("active");
+      $("#addClient").removeClass("active");
+      $("#deleteClient").removeClass("active");
+      $("#searchClient").removeClass("active");
+      $("#editRoute").removeClass("active");
+      $("#searchRoute").removeClass("active");
+      $("#addRoute").removeClass("active");
+      $("#deleteRoute").removeClass("active");
+      $("#editViaje").removeClass("active");
+      $("#searchViaje").removeClass("active");
+      $("#addViaje").removeClass("active");
+      $("#deleteViaje").removeClass("active");
+   });
+
+      
+      

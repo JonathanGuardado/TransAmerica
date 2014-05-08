@@ -43,6 +43,20 @@
 			</div>
 				
 			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+		  		<a id="Lugar" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseLugar">Lugar</a>
+				</div>
+			<div class="accordion-body collapse" id="collapseLugar">
+					  	<div class="list-group accordion-inner">
+						  <a id="addLugar" class="list-group-item badge">Agregar Lugar</a>
+						  <a id="editLugar" class="list-group-item badge">Modificar Lugar</a>
+						  <a id="searchLugar" class="list-group-item badge">Buscar Lugar</a>
+						  <a id="deleteLugar" class="list-group-item badge">Eliminar Lugar</a>
+						</div>
+			</div>
+				
+			</div>
 		  	
 		</div>
 	</div>
