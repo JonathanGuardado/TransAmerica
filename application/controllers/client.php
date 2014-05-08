@@ -49,10 +49,24 @@ class Client extends CI_Controller {
 		$nameContact=$this->input->post("nameContact",true);
 		$phoneContact=$this->input->post("phoneContact",true);
 		$tarifa=$this->input->post("tarifa",true);
+		$time = time();
+		$fechaIngreso = date('Y-m-d',$time);
+		
+		$this->load->model("cliente_model");
+		$name=$this->cliente_model->buscar_cliente($nameClient);
+		if(isset($name["idcliente"]))
+		{
+			$data['message']="<div class='text-center'><h4>Cliente Repetido</h4></div>";
+				
+		}
+		else
+		{
+			$this->cliente_model->ingresar_cliente($nameClient,$nameContact,$phoneContact,$tarifa,$fechaIngreso);
 
-		//Se almacena en la base de datos
-
-		$data['message']="<div class='text-center'><h4>Cliente Agregado Exitosamente!</h4></div>";
+			$data['message']="<div class='text-center'><h4>Cliente Agregado Exitosamente!</h4></div>";
+				
+		}
+		
 		$this->load->view("Administrator/Client/newClient",$data);
 	}
 	public function storeEditClient()

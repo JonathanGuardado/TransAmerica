@@ -39,7 +39,7 @@ class Login extends CI_Controller {
        {
            $this->load->helper('url');
            $this->load->library('session');
-           $data=array('USER_NAME'=>'','USER_ID'=>'','USER_TYPE_ID'=>'','PASSWORD'=>'');
+           $data=array('idusuario'=>'','idtipousuario'=>'','nombre_usuario'=>'','clave'=>'');
            $this->session->unset_userdata($data);
            $this->session->sess_destroy();
            redirect("");
