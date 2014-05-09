@@ -70,9 +70,24 @@ class Viaje extends CI_Controller {
 	}
 	public function searchViaje()
 	{
-		//Jala de la base todos los Viajes para llenarlos en un autocomplete
-		$data="";
-		$this->load->view("Administrator/Viaje/searchViaje",$data);		
+		$this->load->model("viaje_model");
+		$data=$this->viaje_model->viajes();
+		
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Conductor', 'Flota','Cliente','ruta','Fecha Viaje','Tipo','Gasolina','Marchamos');
+		foreach ($data as $dato) 
+		{
+			$nameClient=$this->viaje_model->buscar_cliente3($dato["idcliente"]);
+			$nameRoute=$this->viaje_model->buscar_ruta2($dato["id_ruta"]);
+			$conductor=$this->viaje_model->buscar_conductor2($dato["idconductor"]);
+
+			$this->table->add_row($conductor["nombre_conductor"], $dato["idflota"],$nameClient["nombre_empresa"],$nameRoute["descripcion"],$dato["fecha_viaje"],$dato["tipo_viaje"],$dato["gasolina_asignada"],$dato["marchamos"]);
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadViaje"] = $this->table->generate();
+		$this->load->view("Administrator/Viaje/searchViaje",$info);		
 	}
 	public function searchViaje2()
 	{

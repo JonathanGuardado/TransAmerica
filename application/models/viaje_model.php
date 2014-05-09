@@ -74,6 +74,7 @@ class Viaje_model extends CI_Model
 	{
 		$this->db->select('*');
 	      $this->db->from('viaje');
+	      $this->db->where('estado_viaje',"T");
 	       $query=$this->db->get();
 	      return $query->result_array();
 	}
