@@ -31,8 +31,6 @@ class Asignar_model extends CI_Model
 
    
  
-
-
 }
 
 

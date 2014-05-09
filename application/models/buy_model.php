@@ -8,7 +8,7 @@ class Buy_model extends CI_Model
       $this->load->database();
    }
 
-  public function agregar_compra($noSerie,$marca,$size,$unit_price,$iva,$totalprice,$fechaCompra,$proveedores,$estado,$descripcion)
+  public function agregar_compra($noSerie,$marca,$size,$fechaCompra,$estado,$descripcion)
    {
     
     $this->db->set('descripcion_llanta', $descripcion);
@@ -17,17 +17,13 @@ class Buy_model extends CI_Model
     $this->db->set('marca_llanta'      , $marca      );
     $this->db->set('estado_llanta'     , $estado     );
     $this->db->set('fecha_compra'      , $fechaCompra);
-    $this->db->set('precio_unitario'   , $unit_price );
-    $this->db->set('iva'               , $iva        );
-    $this->db->set('total_compra'      , $totalprice );
-    $this->db->set('id_proveedor'      , $proveedores);
-    
+   
     
     $this->db->insert('llanta');
  }
  public function load_wheels()
  {
-  $query=$this->db->query("SELECT nombre_conductor, apellido_conductor FROM llanta WHERE estado_conductor='T'");
+  $query=$this->db->query("SELECT * FROM llanta ");
   return $query->result_array();
  }
 
