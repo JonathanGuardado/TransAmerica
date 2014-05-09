@@ -43,7 +43,7 @@ class Route_model extends CI_Model
    {     
        $this->db->select('id_ruta');
        $this->db->from('ruta');
-       $this->db->where('descripcion', $nameRoute,'tiempo_estimado',$tiempo,'distancia_km',$distancia,'gasolina_estimada',$gasolina);
+       $this->db->where('descripcion', $nameRoute,'tiempo_estimado',$tiempo,'distancia_km',$distancia,'gasolina_estimada',$gasolina,'estado_ruta',"T");
        $query=$this->db->get();
        return $query->row_array();
    }
@@ -63,6 +63,7 @@ class Route_model extends CI_Model
    {
       $this->db->select('*');
          $this->db->from('ruta');
+         $this->db->where('estado_ruta',"T");
           $query=$this->db->get();
          return $query->result_array();
    }

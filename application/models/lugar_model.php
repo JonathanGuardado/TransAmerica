@@ -34,6 +34,7 @@ class Lugar_model extends CI_Model
    {
       $this->db->select('*');
          $this->db->from('lugar');
+         $this->db->where('estado_lugar',"T");
           $query=$this->db->get();
          return $query->result_array();
    }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2014 a las 21:42:29
--- Versión del servidor: 5.6.17
--- Versión de PHP: 5.5.12
+-- Servidor: localhost
+-- Tiempo de generación: 09-05-2014 a las 05:06:56
+-- Versión del servidor: 5.6.12-log
+-- Versión de PHP: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_transamerica`
 --
+CREATE DATABASE IF NOT EXISTS `db_transamerica` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `db_transamerica`;
 
 -- --------------------------------------------------------
 
@@ -33,14 +35,17 @@ CREATE TABLE IF NOT EXISTS `cabezal` (
   `kilometraje_actual` float DEFAULT NULL,
   `estado_cabezal` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idcabezal`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `cabezal`
 --
 
 INSERT INTO `cabezal` (`idcabezal`, `identificador`, `marca`, `kilometraje_actual`, `estado_cabezal`) VALUES
-(1, 1, 'mercedez', 1234, 'T');
+(1, 1, 'Outro', 1000, 'T'),
+(2, 2, 'Hinowa', 370000, 'T'),
+(3, 3, 'kenworth', 10000, 'T'),
+(4, 4, 'Freightliner', 6000, 'T');
 
 -- --------------------------------------------------------
 
@@ -55,14 +60,19 @@ CREATE TABLE IF NOT EXISTS `chasis` (
   `descripcion` varchar(100) DEFAULT NULL,
   `estado_chasis` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idchasis`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `chasis`
 --
 
 INSERT INTO `chasis` (`idchasis`, `placa`, `marca`, `descripcion`, `estado_chasis`) VALUES
-(1, 'mercerdez', 'mercedez', 'color rojo año 2000', 'T');
+(1, 'C78912', 'vautran', 'Flexible torsionalmente', 'T'),
+(2, 'C75655', 'volvo', 'Contiene barra estabilizadora', 'T'),
+(3, 'C75648', 'chevrolet', 'Distancia entre ejes reducida', 'T'),
+(4, 'C76088', 'volvo', 'Plataforma corta ', 'T'),
+(5, 'C101864', 'vautran', 'Torsionalmente rigida', 'T'),
+(6, 'C101885', 'chevrolet', 'Flexible torsionalmente', 'T');
 
 -- --------------------------------------------------------
 
@@ -79,20 +89,18 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `fecha_ingreso_cliente` date DEFAULT NULL,
   `estado_cliente` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
 INSERT INTO `cliente` (`idcliente`, `nombre_empresa`, `nombre_contacto`, `telefono_contacto`, `tarifa`, `fecha_ingreso_cliente`, `estado_cliente`) VALUES
-(1, 'Siman', 'jose', '23', 12.5, '2014-05-04', 'T'),
-(2, 'tigo', 'torrea', '12345678', 12.98, '2014-05-08', 'T'),
-(3, 'tigo', 'q', 'q', 12, '2014-05-08', 'T'),
-(4, '2', 'q', 'q', 11, '2014-05-08', 'T'),
-(5, 'claro', 'navarrete', '123', 23, '2014-05-08', 'T'),
-(6, 'digicel', 'marcos', '475', 3, '2014-05-08', 'T'),
-(7, 'sony', 'alex', '12677', 129, '2014-05-08', 'T');
+(1, 'Auto Parts', 'Juan Jose Perez', '21232425', 20, '2012-05-08', 'T'),
+(2, 'Comidita Rapida', 'Emiliano Caceres', '24252627', 45, '2010-10-17', 'T'),
+(3, 'Line Air', 'Carlos Reyes Cruz', '26290098', 18, '2008-11-27', 'T'),
+(4, 'Nestle', 'Ever Orenalla ', '26272829', 23, '2014-02-04', 'T'),
+(5, 'Big Cola', 'Ana Clara Martinez', '24255656', 15, '2005-07-12', 'T');
 
 -- --------------------------------------------------------
 
@@ -111,14 +119,17 @@ CREATE TABLE IF NOT EXISTS `conductor` (
   `fecha_fin_cond` date DEFAULT NULL,
   `estado_conductor` varchar(45) NOT NULL,
   PRIMARY KEY (`idconductor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `conductor`
 --
 
 INSERT INTO `conductor` (`idconductor`, `nombre_conductor`, `apellido_conductor`, `dui`, `nit`, `fecha_nacimiento`, `fecha_ingreso_cond`, `fecha_fin_cond`, `estado_conductor`) VALUES
-(1, 'xfsdfsdf', 'vsdasd', '111', '111', '2014-05-07', '2014-05-07', NULL, 'T');
+(1, 'Manuel ', 'Reyes Reyes', '12345678-0', '1401-13289-101-4', '1992-02-03', '2014-05-12', '2020-05-06', 'T'),
+(2, 'Rigoberto', 'Mejia Canales', '12343456-6', '1401-24572-101-2', '1972-05-24', '2013-02-24', '2016-05-03', 'T'),
+(3, 'Carlos Mario', 'Cruz Orellana', '23456789-1', '1401-12391-101-5', '1991-03-12', '2010-12-17', '2015-05-21', 'T'),
+(4, 'Babaro Luis', 'Zelada Pineda', '56789345-6', '1401-3268-101-7', '1968-02-03', '2014-05-15', '2016-05-27', 'T');
 
 -- --------------------------------------------------------
 
@@ -130,15 +141,21 @@ CREATE TABLE IF NOT EXISTS `contenedor` (
   `idcontenedor` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion_contenedor` varchar(500) NOT NULL,
   `tipo_contenedor` varchar(200) DEFAULT NULL,
+  `estado_contenedor` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idcontenedor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `contenedor`
 --
 
-INSERT INTO `contenedor` (`idcontenedor`, `descripcion_contenedor`, `tipo_contenedor`) VALUES
-(1, 'carga de camisa', 'ropa');
+INSERT INTO `contenedor` (`idcontenedor`, `descripcion_contenedor`, `tipo_contenedor`, `estado_contenedor`) VALUES
+(1, 'Equipo propio de generador de frio', 'refrigerados integrales', 'T'),
+(2, 'Para cualquier carga seca normal', 'Comunes', 'T'),
+(3, 'Sin equipo generador de frio', 'Insulados', 'T'),
+(4, 'Con terminales fijos, sin laterales', 'Flatrack', 'T'),
+(5, 'Descarga por precipitacion, transporte de granos', 'Granelero', 'T'),
+(6, 'Techo removible, para transportar cargas pesadas', 'Open Top', 'T');
 
 -- --------------------------------------------------------
 
@@ -152,19 +169,23 @@ CREATE TABLE IF NOT EXISTS `flota` (
   `idcontenedor` int(11) DEFAULT NULL,
   `idconductor` int(11) DEFAULT NULL,
   `idcabezal` int(11) DEFAULT NULL,
+  `estado_flota` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idflota`),
   KEY `FK_REFERENCE_14` (`idconductor`),
   KEY `FK_RELATIONSHIP_5` (`idchasis`),
   KEY `FK_RELATIONSHIP_6` (`idcabezal`),
   KEY `FK_RELATIONSHIP_7` (`idcontenedor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `flota`
 --
 
-INSERT INTO `flota` (`idflota`, `idchasis`, `idcontenedor`, `idconductor`, `idcabezal`) VALUES
-(1, 1, 1, 1, 1);
+INSERT INTO `flota` (`idflota`, `idchasis`, `idcontenedor`, `idconductor`, `idcabezal`, `estado_flota`) VALUES
+(1, 1, 1, 1, 1, 'T'),
+(2, 2, 2, 2, 2, 'T'),
+(3, 3, 3, 3, 3, 'T'),
+(4, 4, 4, 4, 4, 'T');
 
 -- --------------------------------------------------------
 
@@ -216,17 +237,19 @@ CREATE TABLE IF NOT EXISTS `lugar` (
   `nombre` varchar(100) NOT NULL,
   `ciudad` varchar(100) DEFAULT NULL,
   `pais` varchar(100) DEFAULT NULL,
+  `estado_lugar` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idlugar`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `lugar`
 --
 
-INSERT INTO `lugar` (`idlugar`, `nombre`, `ciudad`, `pais`) VALUES
-(1, 'Guatemala', NULL, NULL),
-(2, 'El Salvador', NULL, NULL),
-(3, 'Costa Rica', NULL, NULL);
+INSERT INTO `lugar` (`idlugar`, `nombre`, `ciudad`, `pais`, `estado_lugar`) VALUES
+(1, 'La Parada', 'San Jose', 'Costa Rica', 'T'),
+(2, 'Siman', 'San Miguel', 'El Salvador', ''),
+(3, 'Los Pintos', 'Managua', 'Nicaragua', 'T'),
+(4, 'La palmera', 'Tegucigalpa', 'Honduras', 'T');
 
 -- --------------------------------------------------------
 
@@ -253,7 +276,16 @@ CREATE TABLE IF NOT EXISTS `opciones` (
   `id_opcion` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion_opcion` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_opcion`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `opciones`
+--
+
+INSERT INTO `opciones` (`id_opcion`, `descripcion_opcion`) VALUES
+(1, 'Flota'),
+(2, 'Facturacion'),
+(3, 'Mantenimiento');
 
 -- --------------------------------------------------------
 
@@ -268,7 +300,19 @@ CREATE TABLE IF NOT EXISTS `opcion_tipo` (
   PRIMARY KEY (`id_opcion_tipo`),
   KEY `FK_REFERENCE_17` (`id_opcion`),
   KEY `FK_REFERENCE_18` (`idtipousuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcado de datos para la tabla `opcion_tipo`
+--
+
+INSERT INTO `opcion_tipo` (`id_opcion_tipo`, `idtipousuario`, `id_opcion`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 1),
+(5, 2, 2),
+(6, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +327,19 @@ CREATE TABLE IF NOT EXISTS `proveedor_llanta` (
   `telefono_proveedor` varchar(15) DEFAULT NULL,
   `estado_proveedor` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id_proveedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcado de datos para la tabla `proveedor_llanta`
+--
+
+INSERT INTO `proveedor_llanta` (`id_proveedor`, `nombre_proveedor`, `direccion_proveedor`, `telefono_proveedor`, `estado_proveedor`) VALUES
+(1, 'Auto Repuestos', 'Soyapango, San Salvador', '23242728', 'T'),
+(2, 'Llantas Max', 'San Jose, Costa Rica', '506(23242522)', 'T'),
+(3, 'Car Race', 'San Pedro, Honduras', '505(24232321)', 'T'),
+(4, 'Las llantitas', 'Cortes, Honduras', '25262892', 'T'),
+(5, 'Experts Cars', 'Tegucigalpa, Honduras', '505(24232426)', 'T'),
+(6, 'El carrito ', 'managua, Nicaragua', '505(23242628)', 'T');
 
 -- --------------------------------------------------------
 
@@ -298,7 +354,19 @@ CREATE TABLE IF NOT EXISTS `reencauche` (
   `total_reencauche` float DEFAULT NULL,
   `observacion_re` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id_reencauche`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcado de datos para la tabla `reencauche`
+--
+
+INSERT INTO `reencauche` (`id_reencauche`, `fecha_reencauche`, `lugar_reencauche`, `total_reencauche`, `observacion_re`) VALUES
+(1, '2014-05-12', 'Llanta car, San Salvador', 38, 'Llanta perforada'),
+(2, '2007-04-09', 'Mi Carro, Honduras', 45, NULL),
+(3, '2012-05-10', 'El kiosko, Guatemala', 20, 'Desgaste en laterales'),
+(4, '2014-02-10', 'Repuestos, Costa Rica', 35, NULL),
+(5, '2010-05-03', 'Las Margaritas, Soyapango', 50, NULL),
+(6, '2014-05-18', 'Las claritas, Ilopango', 24, NULL);
 
 -- --------------------------------------------------------
 
@@ -312,17 +380,19 @@ CREATE TABLE IF NOT EXISTS `ruta` (
   `tiempo_estimado` time NOT NULL,
   `distancia_km` float NOT NULL,
   `gasolina_estimada` float NOT NULL,
+  `estado_ruta` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id_ruta`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `ruta`
 --
 
-INSERT INTO `ruta` (`id_ruta`, `descripcion`, `tiempo_estimado`, `distancia_km`, `gasolina_estimada`) VALUES
-(1, 'guate to el salvador', '72:00:00', 300, 50),
-(2, 'el salvador to costa', '48:00:00', 200, 40),
-(5, 'de guate a guate', '00:00:13', 12, 15);
+INSERT INTO `ruta` (`id_ruta`, `descripcion`, `tiempo_estimado`, `distancia_km`, `gasolina_estimada`, `estado_ruta`) VALUES
+(1, 'Cortez/antiguo Cuscatlan/ Lourdes', '00:00:48', 10000, 500, 'T'),
+(2, 'San Jose/ San Salvador/Cortez', '00:00:24', 1000, 250, 'T'),
+(3, 'San Miguel/Cuscatlan/ Honduras', '24:00:00', 500, 125, 'T'),
+(4, 'soyapango/San Miguel/Honduras', '28:00:00', 300, 123, 'T');
 
 -- --------------------------------------------------------
 
@@ -338,7 +408,7 @@ CREATE TABLE IF NOT EXISTS `ruta_lugar` (
   PRIMARY KEY (`idrutalugar`),
   KEY `FK_RELATIONSHIP_14` (`id_ruta`),
   KEY `FK_RELATIONSHIP_15` (`idlugar`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `ruta_lugar`
@@ -346,11 +416,13 @@ CREATE TABLE IF NOT EXISTS `ruta_lugar` (
 
 INSERT INTO `ruta_lugar` (`idrutalugar`, `idlugar`, `id_ruta`, `opcionruta`) VALUES
 (1, 1, 1, 'O'),
-(2, 2, 1, 'D'),
-(3, 2, 2, 'O'),
-(4, 3, 2, 'D'),
-(8, 1, 5, 'O'),
-(9, 1, 5, 'D');
+(2, 2, 2, 'D'),
+(3, 3, 3, 'D'),
+(4, 4, 4, 'O'),
+(5, 2, 1, 'D'),
+(6, 3, 2, 'O'),
+(7, 4, 3, 'O'),
+(8, 2, 4, 'D');
 
 -- --------------------------------------------------------
 
@@ -363,15 +435,16 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
   `tipo_usuario` varchar(45) NOT NULL,
   `nivel_acceso` varchar(45) NOT NULL,
   PRIMARY KEY (`idtipousuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `tipo_usuario`
 --
 
 INSERT INTO `tipo_usuario` (`idtipousuario`, `tipo_usuario`, `nivel_acceso`) VALUES
-(1, 'administrador', ''),
-(2, 'gerente', '');
+(1, 'Administrador', '1'),
+(2, 'Usuario', '2'),
+(3, 'Invitado', '3');
 
 -- --------------------------------------------------------
 
@@ -389,15 +462,17 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `estado_usuario` varchar(45) NOT NULL,
   PRIMARY KEY (`idusuario`),
   KEY `FK_RELATIONSHIP_13` (`idtipousuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `nombre_usuario`, `usuario`, `clave`, `fecha_ingreso_user`, `estado_usuario`) VALUES
-(1, 1, 'administrador', 'admin', 'fbc71ce36cc20790f2eeed2197898e71', '2014-05-05', 'V'),
-(2, 2, 'gerente', 'gerente', 'fbc71ce36cc20790f2eeed2197898e71', '2014-05-06', 'V');
+(1, 1, 'Manuel Reyes', 'Manuel', 'manuel', '2012-05-01', 'T'),
+(2, 3, 'Juan Marquez', 'juan', 'juan', '2014-02-03', 'T'),
+(3, 2, 'Maria Garcia Prez', 'maria', 'maria', '2014-05-06', 'T'),
+(4, 1, 'admin', 'admin', 'fbc71ce36cc20790f2eeed2197898e71', '2014-05-05', 'T');
 
 -- --------------------------------------------------------
 
@@ -415,24 +490,23 @@ CREATE TABLE IF NOT EXISTS `viaje` (
   `tipo_viaje` varchar(100) NOT NULL,
   `gasolina_asignada` float DEFAULT NULL,
   `marchamos` varchar(10) DEFAULT NULL,
+  `estado_viaje` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idviaje`),
   KEY `FK_RELATIONSHIP_10` (`idcliente`),
   KEY `FK_RELATIONSHIP_11` (`id_ruta`),
   KEY `FK_RELATIONSHIP_12` (`idconductor`),
   KEY `FK_RELATIONSHIP_9` (`idflota`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idviaje`, `idconductor`, `idflota`, `idcliente`, `id_ruta`, `fecha_viaje`, `tipo_viaje`, `gasolina_asignada`, `marchamos`) VALUES
-(1, 1, 1, 1, 1, '2014-05-04', 'A', 100, 'no se'),
-(4, 1, 1, 1, 2, '2014-05-07', 'B', 100, 'no se'),
-(5, 1, 1, 1, 2, '2014-05-23', 'A', 100, 'no se'),
-(10, 1, 1, 2, 1, '0000-00-00', 'A', 100, 'no se'),
-(11, 1, 1, 2, 1, '2014-05-31', 'B', 100, 'no se'),
-(13, 1, 1, 2, 2, '2014-05-07', 'A', 100, 'no se');
+INSERT INTO `viaje` (`idviaje`, `idconductor`, `idflota`, `idcliente`, `id_ruta`, `fecha_viaje`, `tipo_viaje`, `gasolina_asignada`, `marchamos`, `estado_viaje`) VALUES
+(1, 1, 1, 1, 1, '2014-02-04', 'Carga Pesada', 34, '12323', 'T'),
+(2, 2, 2, 2, 2, '2012-05-01', 'Entrega Leche', 45, '3754', 'T'),
+(3, 3, 3, 3, 3, '2014-05-13', 'Carga Granos', 24, '3434', 'T'),
+(4, 4, 4, 4, 4, '2013-07-22', 'Entrega Comida', 36, '4646', 'T');
 
 --
 -- Restricciones para tablas volcadas
