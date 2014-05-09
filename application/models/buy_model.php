@@ -95,7 +95,16 @@ public function deleting_Wheels($idllanta)
  //----------------------------------------------------------------------------------//
 
  
- 
+ public function comprobar_asignacion($campo)
+ {
+   if(empty($campo))
+    return "No asignado";
+  else 
+    return $campo;
+
+
+
+ }
  
 }	
 ?>

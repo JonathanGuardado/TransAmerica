@@ -85,7 +85,7 @@ class Wheel extends CI_Controller {
 			$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$llantas["idllanta"]."'");
 			$idflota = $query->result_array();
 
-			$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$llantas["fecha_asignacion"],$llantas["fecha_desecho"],$llantas["descripcion_llanta"],$idflota[0]['idflota'], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
+			@$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$this->buy_model->comprobar_asignacion($llantas["fecha_asignacion"]),$this->buy_model->comprobar_asignacion($llantas["fecha_desecho"]),$llantas["descripcion_llanta"],$this->buy_model->comprobar_asignacion($idflota[0]['idflota']), ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
 
 
 		}
