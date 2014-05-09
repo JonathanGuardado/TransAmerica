@@ -50,6 +50,18 @@ class Buy_model extends CI_Model
   $query= $this->db->get("llanta");
   return $query->row_array();
  }
+
+ public function deleting_Wheels($idllanta)
+ {
+    $date = getdate();
+
+    $data = array(
+               
+                 'fecha_desecho'=> $date
+               );
+    $this->db->where('idllanta', $idllanta);
+    $this->db->update('llantas', $data);
+ }
  
 }	
 ?>

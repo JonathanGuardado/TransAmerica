@@ -45,7 +45,7 @@ class Wheel extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="" >');
 		$this->table->set_heading(' Serie ', ' marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha asignacion','fecha de desecho','codigo de flota','descripcion llanta','Eliminar');
 		foreach ($data as $llantas) 
 		{
@@ -62,6 +62,18 @@ class Wheel extends CI_Controller {
 		$info["tabla_loadWheels"] = $this->table->generate();
 
 		$this->load->view("Administrator/Wheel/deleteWheel",$info);	
+	}
+	public function deletingWheel()
+	{
+		//obteniendo id del chofer a borrar 
+		$idllanta=$this->input->post("nameWheel",true);
+		$this->load->model("buy_model");
+		$data=$this->buy_model->deleting_Wheels($idllanta);
+
+		//div que indica borrado
+		$data['message']="<div class='text-center'><h4>llanta desechada Exitosamente!</h4></div>";
+		$this->load->view("Administrator/Chofer/deleteWheel",$data);
+
 	}
 	public function searchWheel()
 	{
