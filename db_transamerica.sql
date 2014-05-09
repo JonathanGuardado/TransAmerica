@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.3
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 09-05-2014 a las 19:27:19
--- Versión del servidor: 5.5.37
--- Versión de PHP: 5.3.28
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-05-2014 a las 01:00:30
+-- Versión del servidor: 5.6.17
+-- Versión de PHP: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_transamerica`
 --
-CREATE DATABASE IF NOT EXISTS `db_transamerica` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `db_transamerica`;
 
 -- --------------------------------------------------------
 
@@ -200,7 +198,17 @@ CREATE TABLE IF NOT EXISTS `flota_llanta` (
   PRIMARY KEY (`idflotallanta`),
   KEY `FK_RELATIONSHIP_16` (`idflota`),
   KEY `FK_RELATIONSHIP_17` (`idllanta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `flota_llanta`
+--
+
+INSERT INTO `flota_llanta` (`idflotallanta`, `idflota`, `idllanta`) VALUES
+(1, 'TAS-00001', '2'),
+(2, 'TAS-00001', '4'),
+(3, 'TAS-00001', '11'),
+(4, 'TAS-00001', '5');
 
 -- --------------------------------------------------------
 
@@ -229,10 +237,10 @@ INSERT INTO `llanta` (`idllanta`, `descripcion_llanta`, `serie_llanta`, `tamanio
 ('06', 'Desc', '6', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
 ('07', 'Desc', '7', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
 ('10', 'Llantas 24 in', '10', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
-('11', 'Llantas 24 in', '11', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('11', 'Llantas 24 in', '11', 22, 'Fire Stone', 'T', '2014-05-01', '2014-05-09', NULL),
 ('12', 'Llantas 24 in', '12', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
 ('15', 'Llantas 24 in', '15', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
-('2', 'Desc', '2', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('2', 'Desc', '2', 22, 'FIRESTONE', 'F', NULL, '2014-05-09', '2014-05-04'),
 ('20', 'Llanta', '20', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
 ('21', 'Llanta', '21', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
 ('22', 'Llantas 24 in', '22', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
@@ -254,7 +262,7 @@ INSERT INTO `llanta` (`idllanta`, `descripcion_llanta`, `serie_llanta`, `tamanio
 ('37', 'Llantas 24 in', '37', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('38', 'Llantas 24 in', '38', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('39', 'Llantas 24 in', '39', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
-('4', 'Desc', '4', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('4', 'Desc', '4', 22, 'FIRESTONE', 'T', '2014-05-04', '2014-05-09', NULL),
 ('40', 'Llantas 24 in', '40', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('41', 'Llantas 24 in', '41', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('42', 'Llantas 24 in', '42', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
@@ -265,7 +273,7 @@ INSERT INTO `llanta` (`idllanta`, `descripcion_llanta`, `serie_llanta`, `tamanio
 ('47', 'llantas de 30 in', '47', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('48', 'llantas de 30 in', '48', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('49', 'llantas de 30 in', '49', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
-('5', 'Desc', '5', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('5', 'Desc', '5', 22, 'FIRESTONE', 'T', '2014-05-02', '2014-05-09', NULL),
 ('50', 'llantas de 30 in', '50', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('51', 'llantas de 30 in', '51', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
 ('52', 'llantas de 30 in', '52', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL);
@@ -556,8 +564,8 @@ ALTER TABLE `mantenimiento`
 -- Filtros para la tabla `opcion_tipo`
 --
 ALTER TABLE `opcion_tipo`
-  ADD CONSTRAINT `FK_REFERENCE_18` FOREIGN KEY (`idtipousuario`) REFERENCES `tipo_usuario` (`idtipousuario`),
-  ADD CONSTRAINT `FK_REFERENCE_17` FOREIGN KEY (`id_opcion`) REFERENCES `opciones` (`id_opcion`);
+  ADD CONSTRAINT `FK_REFERENCE_17` FOREIGN KEY (`id_opcion`) REFERENCES `opciones` (`id_opcion`),
+  ADD CONSTRAINT `FK_REFERENCE_18` FOREIGN KEY (`idtipousuario`) REFERENCES `tipo_usuario` (`idtipousuario`);
 
 --
 -- Filtros para la tabla `reencauche`
@@ -569,8 +577,8 @@ ALTER TABLE `reencauche`
 -- Filtros para la tabla `ruta_lugar`
 --
 ALTER TABLE `ruta_lugar`
-  ADD CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`idlugar`) REFERENCES `lugar` (`idlugar`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_14` FOREIGN KEY (`id_ruta`) REFERENCES `ruta` (`id_ruta`);
+  ADD CONSTRAINT `FK_RELATIONSHIP_14` FOREIGN KEY (`id_ruta`) REFERENCES `ruta` (`id_ruta`),
+  ADD CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`idlugar`) REFERENCES `lugar` (`idlugar`);
 
 --
 -- Filtros para la tabla `usuario`
@@ -582,10 +590,10 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  ADD CONSTRAINT `FK_RELATIONSHIP_9` FOREIGN KEY (`idflota`) REFERENCES `flota` (`idflota`),
   ADD CONSTRAINT `FK_RELATIONSHIP_10` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`),
   ADD CONSTRAINT `FK_RELATIONSHIP_11` FOREIGN KEY (`id_ruta`) REFERENCES `ruta` (`id_ruta`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_12` FOREIGN KEY (`idconductor`) REFERENCES `conductor` (`idconductor`);
+  ADD CONSTRAINT `FK_RELATIONSHIP_12` FOREIGN KEY (`idconductor`) REFERENCES `conductor` (`idconductor`),
+  ADD CONSTRAINT `FK_RELATIONSHIP_9` FOREIGN KEY (`idflota`) REFERENCES `flota` (`idflota`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
