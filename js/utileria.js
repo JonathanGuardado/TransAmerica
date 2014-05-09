@@ -1,15 +1,26 @@
 //alert("juqeu")
 jQuery(document).ready(function() {
-    
+    configureMask();
+    configureSendBtn();
+    configureCalendar();
+    configureAutocomplete();
+    configureDataTable();
+});
+function  configureMask(){
+    jQuery(".tel").mask("0000-0000");
+    jQuery(".tel").attr({"placeholder":"2222-2222"});
+    jQuery(".dui").mask("00000000-0");
+    jQuery(".dui").attr({"placeholder":"00000000-0"});
+    jQuery(".nit").mask("0000-000000-000-0");
+    jQuery(".nit").attr({"placeholder":"0000-000000-000-0"});
+}
+function  configureSendBtn(){
     jQuery(".sendBtn").click(function() {
         if (InputsEmpty(this) == 0) {
             envioDatos(this);
         }
     });
-    configureCalendar();
-    configureAutocomplete();
-    configureDataTable();
-});
+}
 function configureCalendar(){
     jQuery(".calendar").datepicker({
         dateFormat:"yy-mm-dd"

@@ -13,12 +13,12 @@
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>DUI</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" value="<?php echo $dui;?>" name="dui" placeholder="DUI" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control dui" value="<?php echo $dui;?>" name="dui" placeholder="DUI" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>NIT</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" value="<?php echo $nit;?>" name="nit" placeholder="NIT" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control nit" value="<?php echo $nit;?>" name="nit" placeholder="NIT" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
