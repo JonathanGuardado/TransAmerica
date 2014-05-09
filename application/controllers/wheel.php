@@ -129,15 +129,9 @@ class Wheel extends CI_Controller {
        $this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="" >');
 		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion','Codigo de flota');
-		
-			$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$data["idllanta"]."'");
-			$idflota = $query->result_array();
-
-
-			
-			$this->table->add_row($data["serie_llanta"], $data["marca_llanta"],$data["tamanio_llanta"],$data["estado_llanta"],$data["fecha_compra"],$data["fecha_asignacion"],$data["fecha_desecho"],$data["descripcion_llanta"],$idflota[0]["idflota"]);
-
-
+		$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$data["idllanta"]."'");
+		$idflota = $query->result_array();		
+		$this->table->add_row($data["serie_llanta"], $data["marca_llanta"],$data["tamanio_llanta"],$data["estado_llanta"],$data["fecha_compra"],$data["fecha_asignacion"],$data["fecha_desecho"],$data["descripcion_llanta"],$idflota[0]["idflota"]);
 		
 		$this->table->set_template($plantilla);
 		$info["tabla_searWheel"] = $this->table->generate();
