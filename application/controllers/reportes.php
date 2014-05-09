@@ -17,7 +17,11 @@ class Reportes extends CI_Controller {
 
 	//Especificamos algunos parametros del PDF
         $this->mpdf->mPDF('utf-8','A4');
+        $stylesheet = file_get_contents('../bootstrap/css/bootstrap.css');
+        //cargamos el estilo CSS
+        $this->mpdf->WriteHTML($stylesheet,1);
         //CONTENIDO DEL PDF
+
         $datos=$this->reportes_model->inventario_llanta();
         //tabla
         /*
@@ -25,17 +29,15 @@ class Reportes extends CI_Controller {
         */
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table class="table">');
-		$this->table->set_heading('Fecha Asignacion', 'Descripcion','Serie','Tama&ntilde;o','Marca','');
-
-		$this->table->add_row($data["placa"], $data["tipo_contenedor"],$data["identificador"],$data["nombre_conductor"]);
+		$this->table->set_heading('Fecha Asignacion', 'Descripcion','Serie','Tama&ntilde;o','Marca','Ultima Unidad');
+		foreach ($datos as $data) {
+			$this->table->add_row($data["FECHA_ASIGNACION"], $data["DESCRIPCION_LLANTA"],$data["SERIE_LLANTA"],$data["TAMANO_LLANTA"],$data["MARCA_LLANTA"],$data["ULTIMA_UNIDAD"]);
+		}
 		
 		$this->table->set_template($plantilla);
-		$info["tabla_searchUnit"] = $this->table->generate();
+		//$info["tabla_searchUnit"] = $this->table->generate();
 		
-        foreach ($datos as $dato) {
-        	
-        }
-        $html = "<h1>HOLA BIENVENIDOS</h1>";
+        $html = $this->table->generate();
         //ESCRIBIMOS AL PDF
         
         $this->mpdf->WriteHTML($html,2);

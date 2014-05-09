@@ -10,7 +10,7 @@ class Reportes_model extends CI_Model
    public function inventario_llanta()
    {
 
-   	$this->db->select('llanta.fecha_asignacion FECHA_ASIGNACION, llanta.descripcion_llanta DESCRIPCION_LLANTA, llanta.serie_llanta SERIE LLANTA, llanta.tamanio_llanta TAMANO_LLANTA, llanta.marca_llanta MARCA_LLANTA, flota.idflota ULTIMA_UNIDAD');
+   	$this->db->select('llanta.fecha_asignacion FECHA_ASIGNACION, llanta.descripcion_llanta DESCRIPCION_LLANTA, llanta.serie_llanta SERIE_LLANTA, llanta.tamanio_llanta TAMANO_LLANTA, llanta.marca_llanta MARCA_LLANTA, flota.idflota ULTIMA_UNIDAD');
       $this->db->from('flota_llanta');
       $this->db->join('llanta', 'flota_llanta.idllanta = llanta.idllanta','INNER');
       $this->db->join('flota', 'flota.idflota = flota_llanta.idflota','INNER');
