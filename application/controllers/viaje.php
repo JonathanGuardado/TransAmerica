@@ -38,9 +38,35 @@ class Viaje extends CI_Controller {
 		
 		$this->load->model("viaje_model");
 		$data=$this->viaje_model->viajes();
-		//segui el formato que tiene ever en sus controladores
-		//$this->viaje_model->eliminar_viaje($idviaje);
-		$this->load->view("Administrator/Viaje/deleteViaje",$data);		
+		
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Conductor', 'Flota','Cliente','ruta','Fecha Viaje','Tipo','Gasolina','Marchamos','Eliminar');
+		foreach ($data as $dato) 
+		{
+			$nameClient=$this->viaje_model->buscar_cliente3($dato["idcliente"]);
+			$nameRoute=$this->viaje_model->buscar_ruta2($dato["id_ruta"]);
+			$conductor=$this->viaje_model->buscar_conductor2($dato["idconductor"]);
+
+			$this->table->add_row($conductor["nombre_conductor"], $dato["idflota"],$nameClient["nombre_empresa"],$nameRoute["descripcion"],$dato["fecha_viaje"],$dato["tipo_viaje"],$dato["gasolina_asignada"],$dato["marchamos"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="viaje" data-method="deletingViaje" onclick="deleteData('.$dato["idviaje"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadViaje"] = $this->table->generate();
+
+		$this->load->view("Administrator/Viaje/deleteViaje",$info);		
+	}
+	public function deletingViaje()
+	{
+		//obteniendo id del cabezal a borrar 
+		$idviaje=$this->input->post("id",true);
+		$this->load->model("viaje_model");
+		$data=$this->viaje_model->eliminar_viaje($idviaje);
+		$this->deleteViaje();
+		//div que indica borrado
+		//$data['message']="<div class='text-center'><h4>Cabezal Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Cabezal/deleteCabezal",$data);
+
 	}
 	public function searchViaje()
 	{
