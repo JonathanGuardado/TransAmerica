@@ -35,7 +35,7 @@ public function updating_chasis($idChasis,$marcaChasis,$descripcionChasis,$placa
                  'descripcion'=> $descripcionChasis,
                  'marca'=> $marcaChasis
                );
-    $this->db->where('idconductor', $idChasis);
+    $this->db->where('idchasis', $idChasis);
     $this->db->update('chasis', $data);
  }
  public function deleting_chasis($idChasis)
