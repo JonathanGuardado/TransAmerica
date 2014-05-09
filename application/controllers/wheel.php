@@ -90,6 +90,7 @@ class Wheel extends CI_Controller {
 	}
 	public function storeNewWheel()
 	{
+		$idllanta    =$this->input->post("idllanta"       ,true);
 		$noSerie    =$this->input->post("noSerie"       ,true);
 		$marca      =$this->input->post("marca"         ,true);
 		$size       =$this->input->post("size"          ,true);
@@ -99,7 +100,7 @@ class Wheel extends CI_Controller {
 		$fechaCompra=$this->input->post("fechaCompra"   ,true);
 
 		
-		$this->buy_model->agregar_compra($noSerie,$marca,$size,$fechaCompra,$estado,$descripcion);
+		$this->buy_model->agregar_compra($idllanta,$noSerie,$marca,$size,$fechaCompra,$estado,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Llanta Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Wheel/newWheel",$data);
@@ -120,6 +121,19 @@ class Wheel extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>Llanta Editada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Wheel/editWheel",$data);
 	}
+
+	public function getDataWheels()
+    {
+       // $this->load->model("chasis_model");
+		$sequential= $this->buy_model->load_wheels();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['serie_llanta']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 
 
 

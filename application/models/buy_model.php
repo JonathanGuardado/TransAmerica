@@ -8,9 +8,9 @@ class Buy_model extends CI_Model
       $this->load->database();
    }
 
-  public function agregar_compra($noSerie,$marca,$size,$fechaCompra,$estado,$descripcion)
+  public function agregar_compra($idllanta,$noSerie,$marca,$size,$fechaCompra,$estado,$descripcion)
    {
-    
+    $this->db->set('idllanta', $idllanta);
     $this->db->set('descripcion_llanta', $descripcion);
     $this->db->set('serie_llanta'      , $noSerie    );
     $this->db->set('tamanio_llanta'    , $size       );
@@ -28,9 +28,10 @@ class Buy_model extends CI_Model
  }
 
 
- public function updating_wheel($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion)
+ public function updating_wheel($idllanta,$noSerie,$marca,$size,$estado,$fechaCompra,$descripcion)
  {
       $data = array(
+                 'idllanta' => $idllanta,
                  'serie_llanta' => $noSerie,
                  'marca_llanta'=> $marca,
                  'tamanio_llanta'=> $size,
@@ -60,8 +61,16 @@ class Buy_model extends CI_Model
                  'fecha_desecho'=> $date
                );
     $this->db->where('idllanta', $idllanta);
-    $this->db->update('llantas', $data);
+    $this->db->update('llanta', $data);
  }
+
+ public function search_wheels($name)
+  {
+         $this->db->where('serie_llanta', $name);
+         $query=$this->db->get('llanta');
+
+         return $query->row_array();
+  }
  
 }	
 ?>
