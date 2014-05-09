@@ -123,7 +123,7 @@ class Chofer extends CI_Controller {
 	public function getData()
         {
 	        $this->load->model("chofer_model");
-			$sequential=$this->chasis_model->load_choferes();
+			$sequential=$this->chofer_model->load_choferes();
 			$array = array();
 
 		    foreach($sequential as $row)

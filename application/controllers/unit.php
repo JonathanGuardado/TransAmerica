@@ -128,7 +128,7 @@ class Unit extends CI_Controller {
 	public function getData()
         {
 	        $this->load->model("unit_model");
-			$sequential=$this->chasis_model->load_unites();
+			$sequential=$this->unit_model->load_unites();
 			$array = array();
 
 		    foreach($sequential as $row)
