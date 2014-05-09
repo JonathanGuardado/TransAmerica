@@ -20,8 +20,26 @@ class Route extends CI_Controller {
 	public function editRoute2()
 	{
 		$nameRoute=$this->input->post("nameRoute",true);
-		//Jala de la base los campos del Ruta para llenar el formulario
-		$data="";
+		$this->load->model("route_model");
+		$data=$this->route_model->buscar_route2($nameRoute);
+		$lugares=$this->route_model->buscar_route_lugar($data['id_ruta']);
+		foreach($lugares as $row)
+	    {
+	    	if($row['opcionruta']=='O')
+	    	{
+	    		$data['orirulu'] = $row['idrutalugar'];
+	    		$data['ori'] = $row['idlugar'];
+	    	}
+	    	if($row['opcionruta']=='D')
+	    	{
+	    		$data['desrulu'] = $row['idrutalugar'];
+	    		$data['des'] = $row['idlugar'];
+	    	}
+	    }
+	    $ori=$this->route_model->buscar_lugar2($data['ori']);
+	    $des=$this->route_model->buscar_lugar2($data['des']);
+	    $data["origen"]=$ori["nombre"];
+	    $data["destino"]=$des["nombre"];
 		$this->load->view("Administrator/Route/editRoute2",$data);		
 	}
 	public function deleteRoute()
@@ -87,10 +105,32 @@ class Route extends CI_Controller {
 		$distancia=$this->input->post("distancia",true);
 		$gasolina=$this->input->post("gasolina",true);
 
-		//Se almacena en la base de datos
+		$id_ruta=$this->input->post("id_ruta",true);
+		$ori=$this->input->post("id_ori",true);
+		$des=$this->input->post("id_des",true);
+
+		$id_or=$this->route_model->buscar_lugar($origen);
+		$id_de=$this->route_model->buscar_lugar($destino);
+
+		$this->route_model->update_route_lugar($id_or,$ori,$id_ruta,"O");
+		$this->route_model->update_route_lugar($id_de,$des,$id_ruta,"D");
+
+		$this->route_model->update_route($nameRoute,$tiempo,$distancia,$gasolina,$id_ruta);
 
 		$data['message']="<div class='text-center'><h4>Ruta Editada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Route/editRoute",$data);
 	}
+	public function getData()
+    {
+        $this->load->model("route_model");
+		$sequential=$this->route_model->routes();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['descripcion']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 
 }

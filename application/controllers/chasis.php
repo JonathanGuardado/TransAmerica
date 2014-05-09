@@ -121,18 +121,18 @@ class Chasis extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>Chasis Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Chasis/editChasis",$data);
 	}
-        public function getData()
-        {
-	        $this->load->model("chasis_model");
-			$sequential=$this->chasis_model->load_all_chasis();
-			$array = array();
+    public function getData()
+    {
+        $this->load->model("chasis_model");
+		$sequential=$this->chasis_model->load_all_chasis();
+		$array = array();
 
-		    foreach($sequential as $row)
-		    {
-		        $array[] = $row['placa']; // add each user id to the array
-		    }
-            echo json_encode($array);
-        }
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['placa']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 
 
 

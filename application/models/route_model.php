@@ -23,11 +23,35 @@ class Route_model extends CI_Model
           $query=$this->db->get();
          return $query->row_array();
    }
+   public function buscar_lugar2($name)
+   {
+       $this->db->select('nombre');
+         $this->db->from('lugar');
+         $this->db->where('idlugar', $name,'estado_lugar',"T");
+          $query=$this->db->get();
+         return $query->row_array();
+   }
+   public function buscar_route_lugar($idroute)
+   {
+       $this->db->select('*');
+       $this->db->from('ruta_lugar');
+       $this->db->where('id_ruta', $idroute);
+       $query=$this->db->get();
+       return $query->result_array();
+   }
    public function buscar_route($nameRoute,$tiempo,$distancia,$gasolina)
    {     
        $this->db->select('id_ruta');
        $this->db->from('ruta');
        $this->db->where('descripcion', $nameRoute,'tiempo_estimado',$tiempo,'distancia_km',$distancia,'gasolina_estimada',$gasolina);
+       $query=$this->db->get();
+       return $query->row_array();
+   }
+   public function buscar_route2($nameRoute)
+   {     
+       $this->db->select('*');
+       $this->db->from('ruta');
+       $this->db->where('descripcion', $nameRoute);
        $query=$this->db->get();
        return $query->row_array();
    }
@@ -41,6 +65,14 @@ class Route_model extends CI_Model
          $this->db->from('ruta');
           $query=$this->db->get();
          return $query->result_array();
+   }
+   public function update_route($nameRoute,$tiempo,$distancia,$gasolina,$id_ruta)
+   {
+      $this->db->query('UPDATE `ruta` SET `descripcion`="'.$nameRoute.'",`tiempo_estimado`="'.$tiempo.'",`distancia_km`="'.$distancia.'",`gasolina_estimada`="'.$gasolina.'" WHERE `id_ruta`='.$id_ruta);
+   }
+   public function update_route_lugar($idlugar,$rutalugar,$idruta,$op)
+   {      
+      $this->db->query('UPDATE `ruta_lugar` SET `idlugar`="'.$idlugar.'",`id_ruta`="'.$idruta.'",`opcionruta`="'.$op.'" WHERE `idrutalugar`='.$rutalugar);
    }
 }	
 
