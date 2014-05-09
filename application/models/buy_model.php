@@ -8,6 +8,9 @@ class Buy_model extends CI_Model
       $this->load->database();
    }
 
+   //Funcion agregar llantas
+   //----------------------------------------------------------------------------------//
+
   public function agregar_compra($idllanta,$noSerie,$marca,$size,$fechaCompra,$estado,$descripcion)
    {
     $this->db->set('idllanta', $idllanta);
@@ -21,11 +24,32 @@ class Buy_model extends CI_Model
     
     $this->db->insert('llanta');
  }
+
+  //----------------------------------------------------------------------------------//
+
+ //Funcion cargar llantas/llanta
+ //----------------------------------------------------------------------------------//
+
+
  public function load_wheels()
  {
   $query=$this->db->query("SELECT * FROM llanta ");
   return $query->result_array();
  }
+
+ public function load_wheel($idllanta)
+ {
+      $this->db->select('*');
+      $this->db->from('llanta');
+      $this->db->where('idllanta', $idllanta);
+       $query=$this->db->get();
+      return $query->row_array();
+ }
+
+ //----------------------------------------------------------------------------------//
+
+ //Funcion actualizar llantas/llanta
+ //----------------------------------------------------------------------------------//
 
 
  public function updating_wheel($idllanta,$noSerie,$marca,$size,$estado,$fechaCompra,$descripcion)
@@ -44,15 +68,12 @@ class Buy_model extends CI_Model
     $this->db->update('llanta', $data);
  }
 
- public function load_wheels_id($id)
- {
+ //----------------------------------------------------------------------------------//
 
-  $query= $this->db->where('serie_llanta',$id);
-  $query= $this->db->get("llanta");
-  return $query->row_array();
- }
+//Funcion eliminar (las coloca como llantas/llanta
+//----------------------------------------------------------------------------------//
 
- public function deleting_Wheels($idllanta)
+public function deleting_Wheels($idllanta)
  {
     $date = getdate();
 
@@ -64,13 +85,17 @@ class Buy_model extends CI_Model
     $this->db->update('llanta', $data);
  }
 
- public function search_wheels($name)
-  {
-         $this->db->where('serie_llanta', $name);
-         $query=$this->db->get('llanta');
+ public function load_wheels_id($id)
+ {
 
-         return $query->row_array();
-  }
+  $query= $this->db->where('serie_llanta',$id);
+  $query= $this->db->get("llanta");
+  return $query->row_array();
+ }
+ //----------------------------------------------------------------------------------//
+
+ 
+ 
  
 }	
 ?>

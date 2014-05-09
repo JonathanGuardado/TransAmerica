@@ -27,9 +27,31 @@ class Lugar extends CI_Controller {
 	{
 		$this->load->model("lugar_model");
 		$data=$this->lugar_model->lugars();
-		//segui el formato que tiene ever en sus controladores
+
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Nombre', 'Ciudad','Pais','Eliminar');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["nombre"], $dato["ciudad"],$dato["pais"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="lugar" data-method="deletingLugar" onclick="deleteData('.$dato["idlugar"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadLugar"] = $this->table->generate();
 		//$this->lugar_model->eliminar_lugar($idlugar);
-		$this->load->view("Administrator/Lugar/deleteLugar",$data);		
+		$this->load->view("Administrator/Lugar/deleteLugar",$info);		
+	}
+	public function deletingLugar()
+	{
+		//obteniendo id del cabezal a borrar 
+		$idlugar=$this->input->post("id",true);
+		$this->load->model("lugar_model");
+		$data=$this->lugar_model->eliminar_lugar($idlugar);
+		$this->deleteLugar();
+		//div que indica borrado
+		//$data['message']="<div class='text-center'><h4>Cabezal Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Cabezal/deleteCabezal",$data);
+
 	}
 	public function searchLugar()
 	{

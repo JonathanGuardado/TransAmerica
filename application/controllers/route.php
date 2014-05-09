@@ -46,9 +46,32 @@ class Route extends CI_Controller {
 	{
 		$this->load->model("route_model");
 		$data=$this->route_model->routes();
+
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Descripcion', 'Tiempo(Horas)','Distancia(Km)','Gasolina','Eliminar');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["descripcion"], $dato["tiempo_estimado"],$dato["distancia_km"],$dato["gasolina_estimada"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="route" data-method="deletingRoute" onclick="deleteData('.$dato["id_ruta"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadRoute"] = $this->table->generate();
 		//segui el formato que tiene ever en sus controladores
 		//$this->route_model->eliminar_route($idroute);
-		$this->load->view("Administrator/Route/deleteRoute",$data);		
+		$this->load->view("Administrator/Route/deleteRoute",$info);		
+	}
+	public function deletingRoute()
+	{
+		//obteniendo id del cabezal a borrar 
+		$idroute=$this->input->post("id",true);
+		$this->load->model("route_model");
+		$data=$this->route_model->eliminar_route($idroute);
+		$this->deleteRoute();
+		//div que indica borrado
+		//$data['message']="<div class='text-center'><h4>Cabezal Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Cabezal/deleteCabezal",$data);
+
 	}
 	public function searchRoute()
 	{
