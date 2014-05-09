@@ -1,5 +1,5 @@
 <div id="content_busqueda" class="row">
 <legend>Eliminar Ruta</legend>
-<?php echo $table_loadRoute; ?>
+<?php echo $tabla_loadRoute; ?>
 </div>
 <script src="../js/utileria.js"></script>

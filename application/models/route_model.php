@@ -57,7 +57,7 @@ class Route_model extends CI_Model
    }
    public function eliminar_route($idroute)
    {
-      $this->db->query('UPDATE `ruta` SET `estado_ruta`="F" WHERE `idruta`='.$idroute);
+      $this->db->query('UPDATE `ruta` SET `estado_ruta`="F" WHERE `id_ruta`='.$idroute);
    }
    public function routes()
    {
