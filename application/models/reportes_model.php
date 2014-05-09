@@ -21,7 +21,13 @@ class Reportes_model extends CI_Model
 
    public function historial_reencauche()
    {
-   	
+      $query=$this->db->query('SELECT reencauche.fecha_reencauche, reencauche.total_reencauche, reencauche.lugar_reencauche, llanta.serie_llanta, flota_llanta.idflota, llanta.descripcion_llanta
+         FROM (reencauche INNER JOIN llanta ON reencauche.idllanta = llanta.idllanta) INNER JOIN flota_llanta ON llanta.idllanta = flota_llanta.idllanta
+         GROUP BY reencauche.fecha_reencauche, reencauche.total_reencauche, reencauche.lugar_reencauche, reencauche.id_reencauche, reencauche.idllanta, llanta.serie_llanta, llanta.estado_llanta, flota_llanta.idflota, llanta.descripcion_llanta
+         HAVING (((llanta.estado_llanta)="T"));
+         ');
+      return $query->result_array();
+
    }
 } 
 ?>

@@ -55,7 +55,43 @@ class Reportes extends CI_Controller {
 	}
 	public function historialReencauche()
 	{
+		//Especificamos algunos parametros del PDF
+        $this->mpdf->mPDF('utf-8','A4');
+        $stylesheet = file_get_contents('../bootstrap/css/bootstrap.css');
+        //cargamos el estilo CSS
+        $this->mpdf->WriteHTML($stylesheet,1);
+        //CONTENIDO DEL PDF
+
+        $datos=$this->reportes_model->historial_reencauche();
+        //tabla
+        /*
+		reencauche.fecha_reencauche, reencauche.total_reencauche, reencauche.lugar_reencauche, llanta.serie_llanta, flota_llanta.idflota, llanta.descripcion_llanta
+        */
+        $img="<div class='row text-center'>
+        	  <div class='col-lg-6'>
+        	  <img src='img/transamerica.jpg' class='img-thumbnail' />
+        	  </div>        	  
+        	  <div class='col-lg-6'>
+        	  <h2>Historial Reencauches</h2>
+        	  </div>
+        	  <br><br></div>";
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Fecha ', 'Total ','Lugar','Serie','Ultima Unidad','Descripcion');
+		foreach ($datos as $data) {
+			$this->table->add_row($data["fecha_reencauche"], $data["total_reencauche"],$data["lugar_reencauche"],$data["serie_llanta"],$data["idflota"],$data["descripcion_llanta"]);
+		}
 		
+		$this->table->set_template($plantilla);
+		//$info["tabla_searchUnit"] = $this->table->generate();
+		
+        $tabla = $this->table->generate();
+        //ESCRIBIMOS AL PDF
+        $html=$img." ".$tabla;
+        $this->mpdf->WriteHTML($html,2);
+        //SALIDA DE NUESTRO PDF
+        $this->mpdf->Output();	
+	
 	}
 
 

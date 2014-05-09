@@ -6,7 +6,7 @@ $("#InventarioLlanta").click(function(){
 });
 
 $("#HistorialReencauche").click(function(){
-	$("#content_reports").load("reportes/historialReencauche");
+	window.open("reportes/historialReencauche","_blank");
 	$("#InventarioLlanta").removeClass("active");
 	$("#HistorialReencauche").addClass("active");
 });
