@@ -1,5 +1,5 @@
 <?php
-class Chofer_model extends CI_Model
+class Reportes_model extends CI_Model
 {
   public function __construct()
    {
@@ -19,7 +19,7 @@ class Chofer_model extends CI_Model
       return $query->result_array();
    }
 
-   public function historial_reencauche
+   public function historial_reencauche()
    {
    	
    }
