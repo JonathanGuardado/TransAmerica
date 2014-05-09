@@ -35,7 +35,7 @@ class Unit extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="editable">');
 		$this->table->set_heading('Placa Chasis', 'No Contenedor','Identificador Cabezal','Nombre Chofer','Eliminar');
 		foreach ($data as $dato) 
 		{
@@ -88,7 +88,7 @@ class Unit extends CI_Controller {
 	}
 	public function storeNewUnit()
 	{
-
+                $noUnit=$this->input->post("noUnidad",true);
 		$noChasis=$this->input->post("noChasis",true);
 		$noContenedor=$this->input->post("noContenedor",true);
 		$noCabezal=$this->input->post("noCabezal",true);
@@ -99,7 +99,7 @@ class Unit extends CI_Controller {
 		$idContenedor=$this->unit_model->load_idContenedor($noContenedor);
 		$idCabezal=$this->unit_model->load_idCabezal($noCabezal);
 		$idChofer=$this->unit_model->load_idChofer($nameChofer);
-		$this->unit_model->agregar_unit($idChasis["idchasis"],$idContenedor["idcontenedor"],$idCabezal["idcabezal"],$idChofer["idconductor"]);
+		$this->unit_model->agregar_unit($noUnit,$idChasis["idchasis"],$idContenedor["idcontenedor"],$idCabezal["idcabezal"],$idChofer["idconductor"]);
 
 		$data['message']="<div class='text-center'><h4>Unidad Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Unit/newUnit",$data);

@@ -42,7 +42,7 @@ return $query->row_array();
     $this->db->where('idflota', $noUnidad);
     $this->db->update('flota', $data);
  }
- /*public function updating_unit_chasis($idChasis,$noChasis)
+ public function updating_unit_chasis($idChasis,$noChasis)
  {
       $data = array(
                'placa' => $noChasis
@@ -73,8 +73,7 @@ return $query->row_array();
                );
     $this->db->where('idconductor', $idChofer);
     $this->db->update('conductor', $data);
- }*/
-
+ }
  public function deleting_unit($idFlota)
  {
     $data = array(

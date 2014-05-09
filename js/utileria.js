@@ -1,18 +1,23 @@
 //alert("juqeu")
 jQuery(document).ready(function() {
-
+    
     jQuery(".sendBtn").click(function() {
         if (InputsEmpty(this) == 0) {
             envioDatos(this);
         }
     });
-
+    configureCalendar();
     configureAutocomplete();
     configureDataTable();
 });
+function configureCalendar(){
+    jQuery(".calendar").datepicker({
+        dateFormat:"yy-mm-dd"
+    });
+}
 function configureDataTable() {
     jQuery("table").find("th").css({"background": "#428BCA", "color": "white"})
-    jQuery("table").addClass("display").dataTable({});
+    jQuery("table").addClass("display").dataTable();
     jQuery('table.editable tbody td').editable(function (value){return value});
 }
 function configureAutocomplete() {
@@ -68,9 +73,9 @@ function InputsEmpty(btnSend) {
     if (countInputEmpty > 0) {
         divCount = jQuery("#divError").length;
         if (divCount == 0) {
-            jQuery("<div id='divError' style='color:red'>¡Ops Le faltaron algunos campos!</div>").appendTo(div)
+            jQuery("<div id='divError' style='color:red'>Â¡Ops Le faltaron algunos campos!</div>").appendTo(div)
         } else {
-            jQuery("#divError").html("¡Ops Le faltaron algunos campos!");
+            jQuery("#divError").html("Â¡Ops Le faltaron algunos campos!");
         }
         setTimeout(function() {
             jQuery("#divError").html("");

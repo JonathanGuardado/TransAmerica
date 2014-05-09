@@ -3,7 +3,7 @@
 		<legend>Nueva Unidad</legend>
 		<div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>No Unidad</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="noUnidad"   class="form-control autocomplete" required placeholder="No Unidad"/>            
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="noUnidad"   class="form-control" required placeholder="No Unidad"/>            
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
