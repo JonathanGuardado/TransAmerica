@@ -10,6 +10,7 @@ class Contenedor_model extends CI_Model
    {
       $this->db->set('tipo_contenedor', $tipoContenedor);
     $this->db->set('descripcion_contenedor', $descripcion);
+    $this->db->set('estado_contenedor', 'T');
     $this->db->insert('contenedor');
    }
    public function load_contenedores()
@@ -21,7 +22,7 @@ class Contenedor_model extends CI_Model
 {
     $this->db->select('*');
       $this->db->from('contenedor');
-      $this->db->where('contenedor.idcontenedor', $nameContenedor);
+      $this->db->where('contenedor.tipo_contenedor', $nameContenedor);
        $query=$this->db->get();
       return $query->row_array();
 }

@@ -38,7 +38,7 @@
         <input type="button" class="btn btn-primary sendBtn" value="Editar Chofer" id="editBtnChofer" name="editBtnChofer"/>
             
             <br />            
-            <input type="hidden" name="idFlota" id="idFlota" value="<?php echo $idconductor;?>" />
+            <input type="hidden" name="idChofer" id="idChofer" value="<?php echo $idconductor;?>" />
         </div>
 	</fieldset>
 </form>

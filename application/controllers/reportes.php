@@ -17,7 +17,7 @@ class Reportes extends CI_Controller {
 
 	//Especificamos algunos parametros del PDF
         $this->mpdf->mPDF('utf-8','A4');
-        $stylesheet = file_get_contents('../bootstrap/css/bootstrap.css');
+        $stylesheet = file_get_contents('bootstrap/css/bootstrap.css');
         //cargamos el estilo CSS
         $this->mpdf->WriteHTML($stylesheet,1);
         //CONTENIDO DEL PDF

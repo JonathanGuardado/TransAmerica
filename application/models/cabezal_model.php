@@ -33,9 +33,9 @@ public function load_cabezal($nameCabezal)
  public function updating_cabezal($idCabezal,$identificador,$marca,$kmactual)
  {
       $data = array(
-               'identificador' => $namecabezal,
-                 'marca'=> $surnamecabezal,
-                 'kilometraje_actual'=> $dui
+               'identificador' => $identificador,
+                 'marca'=> $marca,
+                 'kilometraje_actual'=> $kmactual
                );
     $this->db->where('idcabezal', $idCabezal);
     $this->db->update('cabezal', $data);

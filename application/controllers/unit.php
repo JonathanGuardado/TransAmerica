@@ -111,17 +111,13 @@ class Unit extends CI_Controller {
 		$noCabezal=$this->input->post("noCabezal",true);
 		$nameChofer=$this->input->post("nameChofer",true);
 		$idFlota=$this->input->post("idFlota",true);
-		$idChasis=$this->input->post("idChasis",true);
-		$idContenedor=$this->input->post("idContenedor",true);
-		$idCabezal=$this->input->post("idCabezal",true);
-		$idChofer=$this->input->post("idConductor",true);
-		//Se almacena en la base de datos
-
 		$this->load->model("unit_model");
-		$this->unit_model->updating_unit_chasis($idChasis,$noChasis);
-		$this->unit_model->updating_unit_contenedor($idContenedor,$noContenedor);
-		$this->unit_model->updating_unit_cabezal($idCabezal,$noCabezal);
-		$this->unit_model->updating_unit_chofer($idChofer,$nameChofer);
+		$idChasis=$this->unit_model->load_idChasis($noChasis);
+		$idContenedor=$this->unit_model->load_idContenedor($noContenedor);
+		$idCabezal=$this->unit_model->load_idCabezal($noCabezal);
+		$idChofer=$this->unit_model->load_idChofer($nameChofer);
+		$this->unit_model->updating_unit($idFlota,$idChasis["idchasis"],$idContenedor["idcontenedor"],$idCabezal["idcabezal"],$idChofer["idconductor"]);
+		
 		$data['message']="<div class='text-center'><h4>Unidad Editada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Unit/editUnit",$data);
 	}

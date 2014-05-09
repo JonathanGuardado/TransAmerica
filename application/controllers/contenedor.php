@@ -85,7 +85,7 @@ class Contenedor extends CI_Controller {
 	}
 	public function storeNewContenedor()
 	{
-		$tipoContenedor=$this->input->post("tipoContenedor",true);
+		$tipoContenedor=$this->input->post("tipo",true);
 		$descripcion=$this->input->post("descripcion",true);
 
 
@@ -98,7 +98,7 @@ class Contenedor extends CI_Controller {
 	}
 	public function storeEditContenedor()
 	{
-		$tipoContenedor=$this->input->post("tipoContenedor",true);
+		$tipoContenedor=$this->input->post("tipo",true);
 		$descripcion=$this->input->post("descripcion",true);
 		$idContenedor=$this->input->post("idContenedor",true);
 
