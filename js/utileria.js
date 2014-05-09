@@ -1,7 +1,7 @@
 jQuery(document).ready(function() {
     jQuery(".sendBtn").click(function() {
         if (InputsEmpty(this) == 0) {
-            envioDatos();
+            envioDatos(this);
         }
     });
     var input = jQuery(".autocomplete");
@@ -30,8 +30,8 @@ function loadAutocomplete(input) {
         }
     });
 }
-function envioDatos() {
-    form = jQuery(this).parents("form")[0];
+function envioDatos(input) {
+    form = jQuery(input).parents("form")[0];
     url = jQuery(form).attr("action");
     data = jQuery(form).serialize();
     jQuery.ajax({
