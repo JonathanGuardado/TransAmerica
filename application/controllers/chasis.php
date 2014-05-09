@@ -35,9 +35,9 @@ class Chasis extends CI_Controller {
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
 		$this->table->set_heading('Placa', 'Marca','Descripcion','Eliminar');
-		foreach ($data as $estudiantes) 
+		foreach ($data as $dato) 
 		{
-			$this->table->add_row($estudiantes["placa"], $estudiantes["marca"],$estudiantes["descripcion"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingChasis('.$estudiantes["idchasis"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($dato["placa"], $dato["marca"],$dato["descripcion"], ' <a style="color:#0D8CFB;font-weight: normal" class="delete" data-controller="chasis" data-method="deletingChasis" onclick="deleteData('.$dato["idchasis"].');" href=# >'." X ".'</a>');
 
 		}
 		$this->table->set_template($plantilla);
@@ -49,13 +49,13 @@ class Chasis extends CI_Controller {
 	public function deletingChasis()
 	{
 		//obteniendo id del chasis a borrar 
-		$idChasis=$this->input->post("idChasis",true);
+		$idChasis=$this->input->post("id",true);
 		$this->load->model("chasis_model");
 		$data=$this->chasis_model->deleting_chasis($idChasis);
-
+		$this->deleteChasis();
 		//div que indica borrado
-		$data['message']="<div class='text-center'><h4>Chasis Borrado Exitosamente!</h4></div>";
-		$this->load->view("Administrator/Chasis/deleteChasis",$data);
+		//$data['message']="<div class='text-center'><h4>Chasis Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Chasis/deleteChasis",$data);
 
 	}
 	public function searchChasis()

@@ -27,7 +27,7 @@ class Lugar extends CI_Controller {
 	{
 		$this->load->model("lugar_model");
 		$data=$this->lugar_model->lugars();
-
+		//segui el formato que tiene ever en sus controladores
 		//$this->lugar_model->eliminar_lugar($idlugar);
 		$this->load->view("Administrator/Lugar/deleteLugar",$data);		
 	}

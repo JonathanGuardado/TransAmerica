@@ -28,7 +28,7 @@ class Client extends CI_Controller {
 	{
 		$this->load->model("cliente_model");
 		$data=$this->cliente_model->clientes();
-
+		//segui el formato que tiene ever en sus controladores
 		//$this->cliente_model->eliminar_cliente($idcliente);
 		$this->load->view("Administrator/Client/deleteClient",$data);		
 	}

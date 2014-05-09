@@ -35,9 +35,9 @@ class Contenedor extends CI_Controller {
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
 		$this->table->set_heading('Descripcion Contenedor', 'Tipo contenedor','Eliminar');
-		foreach ($data as $estudiantes) 
+		foreach ($data as $dato) 
 		{
-			$this->table->add_row($estudiantes["descripcion_contenedor"], $estudiantes["tipo_contenedor"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingContenedor('.$estudiantes["idcontenedor"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($dato["descripcion_contenedor"], $dato["tipo_contenedor"], ' <a style="color:#0D8CFB;font-weight: normal" class="delete" data-controller="contenedor" data-method="deletingContenedor"  onclick="deleteData('.$dato["idcontenedor"].');" href=# >'." X ".'</a>');
 
 		}
 		$this->table->set_template($plantilla);
@@ -48,13 +48,13 @@ class Contenedor extends CI_Controller {
 	public function deletingContenedor()
 	{
 		//obteniendo id del contenedor a borrar 
-		$idContenedor=$this->input->post("idContenedor",true);
+		$idContenedor=$this->input->post("id",true);
 		$this->load->model("contenedor_model");
 		$data=$this->contenedor_model->deleting_contenedor($idContenedor);
-
+		$this->deleteContenedor();
 		//div que indica borrado
-		$data['message']="<div class='text-center'><h4>Contenedor Borrado Exitosamente!</h4></div>";
-		$this->load->view("Administrator/Contenedor/deleteContenedor",$data);
+		//$data['message']="<div class='text-center'><h4>Contenedor Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Contenedor/deleteContenedor",$data);
 
 	}
 	public function searchContenedor()

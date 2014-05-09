@@ -33,6 +33,7 @@ class Reencauche extends CI_Controller {
 	{
 		//Jala todos los Reencauches de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
 		$data="";
+		//segui el formato de ever en sus controladores a la hora de eliminar
 		$this->load->view("Administrator/Reencauche/deleteReencauche",$data);		
 	}
 	public function searchReencauche()

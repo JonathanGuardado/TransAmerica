@@ -37,9 +37,9 @@ class Unit extends CI_Controller {
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
 		$this->table->set_heading('Placa Chasis', 'No Contenedor','Identificador Cabezal','Nombre Chofer','Eliminar');
-		foreach ($data as $estudiantes) 
+		foreach ($data as $dato) 
 		{
-			$this->table->add_row($estudiantes["placa"], $estudiantes["nocontenedor"],$estudiantes["identificador"],$estudiantes["nombreconductor"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingChofer('.$estudiantes["idflota"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($dato["placa"], $dato["nocontenedor"],$dato["identificador"],$dato["nombreconductor"], ' <a style="color:#0D8CFB;font-weight: normal" class="delete" data-controller="unit" data-method="deletingUnit" onclick="deleteData('.$dato["idflota"].');" href=# >'." X ".'</a>');
 
 		}
 		$this->table->set_template($plantilla);
@@ -52,13 +52,13 @@ class Unit extends CI_Controller {
 	public function deletingUnit()
 	{
 		//obteniendo id del chofer a borrar
-		$idFlota=$this->input->post("idFlota",true);
+		$idFlota=$this->input->post("id",true);
 		$this->load->model("unit_model");
-		$data=$this->chofer_model->deleting_unit($idFlota);
-
+		$data=$this->unit_model->deleting_unit($idFlota);
+		$this->deleteUnit();
 		//div que indica borrado
-		$data['message']="<div class='text-center'><h4>Chofer Borrado Exitosamente!</h4></div>";
-		$this->load->view("Administrator/Chofer/deleteChofer",$data);
+		//$data['message']="<div class='text-center'><h4>Chofer Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Chofer/deleteChofer",$data);
 
 	}
 	public function searchUnit()

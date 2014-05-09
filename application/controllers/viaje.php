@@ -38,7 +38,7 @@ class Viaje extends CI_Controller {
 		
 		$this->load->model("viaje_model");
 		$data=$this->viaje_model->viajes();
-		
+		//segui el formato que tiene ever en sus controladores
 		//$this->viaje_model->eliminar_viaje($idviaje);
 		$this->load->view("Administrator/Viaje/deleteViaje",$data);		
 	}

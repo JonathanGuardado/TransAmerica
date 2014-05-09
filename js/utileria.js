@@ -78,3 +78,17 @@ function InputsEmpty(btnSend) {
     }
     return countInputEmpty;
 }
+function deleteData(id){
+    
+        var controller = $("a.delete").attr("data-controller");
+        var method = $("a.delete").attr("data-method");
+        
+        var url  = controller + "/" + method;
+        
+        var posting= $.post(url,{id:id});
+
+        posting.done(function(data){
+            $("#content_busqueda").html(data);
+        });    
+
+}

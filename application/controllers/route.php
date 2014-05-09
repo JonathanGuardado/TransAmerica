@@ -46,7 +46,7 @@ class Route extends CI_Controller {
 	{
 		$this->load->model("route_model");
 		$data=$this->route_model->routes();
-
+		//segui el formato que tiene ever en sus controladores
 		//$this->route_model->eliminar_route($idroute);
 		$this->load->view("Administrator/Route/deleteRoute",$data);		
 	}

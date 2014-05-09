@@ -35,9 +35,9 @@ class Cabezal extends CI_Controller {
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
 		$this->table->set_heading('Identificador', 'Marca','Kilometraje','Eliminar');
-		foreach ($data as $estudiantes) 
+		foreach ($data as $dato) 
 		{
-			$this->table->add_row($estudiantes["identificador"], $estudiantes["marca"],$estudiantes["kilometraje_actual"],' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingCabezal('.$estudiantes["idcabezal"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($dato["identificador"], $dato["marca"],$dato["kilometraje_actual"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="cabezal" data-method="deletingCabezal" onclick="deleteData('.$dato["idcabezal"].');" href=# >'." X ".'</a>');
 
 		}
 		$this->table->set_template($plantilla);
@@ -48,13 +48,13 @@ class Cabezal extends CI_Controller {
 	public function deletingCabezal()
 	{
 		//obteniendo id del cabezal a borrar 
-		$idCabezal=$this->input->post("idCabezal",true);
+		$idCabezal=$this->input->post("id",true);
 		$this->load->model("cabezal_model");
 		$data=$this->cabezal_model->deleting_cabezal($idCabezal);
-
+		$this->deleteCabezal();
 		//div que indica borrado
-		$data['message']="<div class='text-center'><h4>Cabezal Borrado Exitosamente!</h4></div>";
-		$this->load->view("Administrator/Cabezal/deleteCabezal",$data);
+		//$data['message']="<div class='text-center'><h4>Cabezal Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Cabezal/deleteCabezal",$data);
 
 	}
 	public function searchCabezal()

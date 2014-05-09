@@ -35,11 +35,11 @@ class Chofer extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="dataTable">');
+		$plantilla = array ( 'table_open'  => '<table  border="2" cellpadding="5" cellspacing="5"   class="">');
 		$this->table->set_heading('Nombre Conductor', 'Apellido Conductor',' Dui ',' Nit ','Fecha Ingreso','Eliminar');
-		foreach ($data as $estudiantes) 
+		foreach ($data as $dato) 
 		{
-			$this->table->add_row($estudiantes["nombre_conductor"], $estudiantes["apellido_conductor"],$estudiantes["dui"],$estudiantes["nit"],$estudiantes["fecha_ingreso_cond"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingChofer('.$estudiantes["idconductor"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($dato["nombre_conductor"], $dato["apellido_conductor"],$dato["dui"],$dato["nit"],$dato["fecha_ingreso_cond"], ' <a style="color:#0D8CFB;font-weight: normal" class="delete" data-controller="chofer" data-method="deletingChofer"  onclick="deleteData('.$dato["idconductor"].');"  href=# >'." X ".'</a>');
 
 		}
 		$this->table->set_template($plantilla);
@@ -50,13 +50,13 @@ class Chofer extends CI_Controller {
 	public function deletingChofer()
 	{
 		//obteniendo id del chofer a borrar 
-		$idChofer=$this->input->post("idChofer",true);
+		$idChofer=$this->input->post("id",true);
 		$this->load->model("chofer_model");
 		$data=$this->chofer_model->deleting_chofer($idChofer);
-
+		$this->deleteChofer();
 		//div que indica borrado
-		$data['message']="<div class='text-center'><h4>Chofer Borrado Exitosamente!</h4></div>";
-		$this->load->view("Administrator/Chofer/deleteChofer",$data);
+		//$data['message']="<div class='text-center'><h4>Chofer Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Chofer/deleteChofer",$data);
 
 	}
 	public function searchChofer()
