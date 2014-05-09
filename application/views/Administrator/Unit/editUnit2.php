@@ -29,10 +29,6 @@
             
             <br />            
            <input type="hidden" name="idFlota" id="idFlota" value="<?php echo $idflota;?>" /> 
-           <input type="hidden" name="idChasis" id="idChasis" value="<?php echo $idchasis;?>" />
-           <input type="hidden" name="idContenedor" id="idContenedor" value="<?php echo $idcontenedor;?>" />
-           <input type="hidden" name="idCabezal" id="idCabezal" value="<?php echo $idcabezal;?>" />
-           <input type="hidden" name="idConductor" id="idConductor" value="<?php echo $idconductor;?>" />
         </div>
 	</fieldset>
 </form>

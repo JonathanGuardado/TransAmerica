@@ -30,8 +30,19 @@ public function load_unit($nameUnit)
        $query=$this->db->get();
 return $query->row_array();
 }
-
- public function updating_unit_chasis($idChasis,$noChasis)
+  
+  public function updating_unit($noUnidad,$idChasis,$idContenedor,$idCabezal,$idChofer)
+ {
+      $data = array(
+               'idchasis' => $idChasis,
+                 'idcontenedor'=> $idContenedor,
+                 'idcabezal'=> $idCabezal,
+                 'idconductor'=> $idChofer
+               );
+    $this->db->where('idflota', $noUnidad);
+    $this->db->update('flota', $data);
+ }
+ /*public function updating_unit_chasis($idChasis,$noChasis)
  {
       $data = array(
                'placa' => $noChasis
@@ -62,7 +73,8 @@ return $query->row_array();
                );
     $this->db->where('idconductor', $idChofer);
     $this->db->update('conductor', $data);
- }
+ }*/
+
  public function deleting_unit($idFlota)
  {
     $data = array(
@@ -104,8 +116,9 @@ return $query->row_array();
        $query=$this->db->get();
       return $query->row_array();
  }
- public function agregar_unit($idChasis,$idContenedor,$idCabezal,$idChofer)
+ public function agregar_unit($noUnidad,$idChasis,$idContenedor,$idCabezal,$idChofer)
  {
+  $this->db->set('idflota', $noUnidad);
   $this->db->set('idchasis', $idChasis);
     $this->db->set('idcontenedor', $idContenedor);
     $this->db->set('idconductor', $idChofer);
