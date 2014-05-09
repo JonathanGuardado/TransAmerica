@@ -8,9 +8,9 @@ class Reencauche_model extends CI_Model
       $this->load->database();
    }
 
-  public function agregar_reencauche($fecha_re,$lugar,$costo,$observacion)
+  public function agregar_reencauche($idllanta,$fecha_re,$lugar,$costo,$observacion)
    {
-    
+    $this->db->set('idllanta',$idllanta);
     $this->db->set('observacion_re',$observacion);
     $this->db->set('lugar_reencauche',$lugar);
     $this->db->set('total_reencauche', $costo);
@@ -26,19 +26,20 @@ class Reencauche_model extends CI_Model
  }
 
 
- public function updating_wheel($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion)
+ public function updating_reencauche($id_reencauche,$idllanta,$fecha_re,$lugar,$costo,$observacion)
  {
       $data = array(
-                 'serie_llanta' => $noSerie,
-                 'marca_llanta'=> $marca,
-                 'tamanio_llanta'=> $size,
-                 'estado_llanta'=> $estado,
-                 'fecha_compra'=> $fechaCompra,
-                 'descripcion_llanta'=> $descripcion
+
+                 'id_reencauche' => $id_reencauche,
+                 'fecha_reencauche' => $fecha_re,
+                 'lugar_reencauche'=> $lugar,
+                 'total_reencauche'=> $costo,
+                 'observacion_re'=> $observacion,
+                 'idllanta'=> $idllanta
                );
 
-    $this->db->where('serie_llanta', $noSerie);
-    $this->db->update('llanta', $data);
+    $this->db->where('id_reencauche', $id_reencauche);
+    $this->db->update('reencauche', $data);
  }
 
  public function load_reencauche_id($id)

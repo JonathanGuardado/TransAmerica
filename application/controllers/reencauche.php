@@ -51,6 +51,7 @@ class Reencauche extends CI_Controller {
 	}
 	public function storeNewReencauche()
 	{
+		$idllanta=$this->input->post("idllanta",true);
 		$fechaReencauche=$this->input->post("fechaReencauche",true);
 		$lugar=$this->input->post("place",true);
 		$observacion =$this->input->post("descripcion",true);
@@ -58,7 +59,7 @@ class Reencauche extends CI_Controller {
 
 		//Se almacena en la base de datos
 
-		$this->reencauche_model->agregar_reencauche($fechaReencauche,$lugar,$costo,$observacion);
+		$this->reencauche_model->agregar_reencauche($idllanta,$fechaReencauche,$lugar,$costo,$observacion);
 
 		$data['message']="<div class='text-center'><h4>Reencauche Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Reencauche/newReencauche",$data);
