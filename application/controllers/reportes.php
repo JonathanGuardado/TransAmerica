@@ -27,6 +27,7 @@ class Reportes extends CI_Controller {
         /*
 		llanta.fecha_asignacion FECHA_ASIGNACION, llanta.descripcion_llanta DESCRIPCION_LLANTA, llanta.serie_llanta SERIE LLANTA, llanta.tamanio_llanta TAMANO_LLANTA, llanta.marca_llanta MARCA_LLANTA, flota.idflota ULTIMA_UNIDAD
         */
+        $img="<div class='text-center'><img src='img/transamerica.jpg' class='img-thumbnail' /><br><h2 class='pull-right'>Inventario de Llantas</h2><br><br></div>";
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table class="table">');
 		$this->table->set_heading('Fecha Asignacion', 'Descripcion','Serie','Tama&ntilde;o','Marca','Ultima Unidad');
@@ -37,12 +38,13 @@ class Reportes extends CI_Controller {
 		$this->table->set_template($plantilla);
 		//$info["tabla_searchUnit"] = $this->table->generate();
 		
-        $html = $this->table->generate();
+        $tabla = $this->table->generate();
         //ESCRIBIMOS AL PDF
-        
+        $html=$img." ".$tabla;
         $this->mpdf->WriteHTML($html,2);
         //SALIDA DE NUESTRO PDF
-        $this->mpdf->Output();			
+        $this->mpdf->Output();	
+
 	}
 	public function historialReencauche()
 	{
