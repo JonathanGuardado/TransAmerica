@@ -4,20 +4,25 @@ jQuery(document).ready(function() {
             envioDatos(this);
         }
     });
-    var input = jQuery(".autocomplete");
-    if (input.length > 0) {
-        loadAutocomplete(input);
-    }
+
+    configureAutocomplete();
+    configureDataTable();
 });
-
-
+function configureDataTable() {
+    jQuery(".dataTable").dataTable({
+        "pagingType": "full_numbers"
+    } ).makeEditable();
+}
+function configureAutocomplete() {
+    jQuery(".autocomplete").each(function(i, input) {
+        loadAutocomplete(input);
+    });
+}
 function loadAutocomplete(input) {
     var form = jQuery(input).parents("form");
     var dataMetod = jQuery(input).attr("data-method");
     var dataController = jQuery(input).attr("data-controller");
     var url = jQuery(form).attr("action");
-    //url = url.substring(0, url.lastIndexOf("/"));
-    //url = url.substring(0, url.lastIndexOf("/")) ;
     url = dataController + "/" + dataMetod;
     jQuery.ajax({
         url: url,
@@ -51,22 +56,23 @@ function InputsEmpty(btnSend) {
     jQuery("input[type='text']").each(function(i, input) {
         if (jQuery(input).val().trim() == "") {
             jQuery(input).css({"border": "1px solid red"});
-            div=jQuery(btnSend).parent();             
+            div = jQuery(btnSend).parent();
             setTimeout(function() {
                 jQuery(input).css({"border": "1px solid #ccc"})
             }, 3000);
             countInputEmpty++;
         }
     });
-    if (countInputEmpty>0){
-        divCount=jQuery("#divError").length;
-        if(divCount==0){
-        jQuery("<div id='divError' style='color:red'>¡Ops Le faltaron algunos campos!</div>").appendTo(div)
-        }else{
+    if (countInputEmpty > 0) {
+        divCount = jQuery("#divError").length;
+        if (divCount == 0) {
+            jQuery("<div id='divError' style='color:red'>¡Ops Le faltaron algunos campos!</div>").appendTo(div)
+        } else {
             jQuery("#divError").html("¡Ops Le faltaron algunos campos!");
         }
-          setTimeout(function() {
-            jQuery("#divError").html(""); }, 3000);
+        setTimeout(function() {
+            jQuery("#divError").html("");
+        }, 3000);
     }
     return countInputEmpty;
 }
