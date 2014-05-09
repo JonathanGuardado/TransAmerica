@@ -79,13 +79,15 @@ class Wheel extends CI_Controller {
 		//tabla
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="" >');
-		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion','Eliminar');
+		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion','codigo de flota','Eliminar');
 		foreach ($data as $llantas) 
 		{
 			$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$llantas["idllanta"]."'");
 			$idflota = $query->result_array();
 
-			$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$llantas["fecha_asignacion"],$llantas["fecha_desecho"],$llantas["descripcion_llanta"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$llantas["fecha_asignacion"],$llantas["fecha_desecho"],$llantas["descripcion_llanta"],$idflota[0]['idflota'], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
+
+
 		}
 		$this->table->set_template($plantilla);
 		$info["tabla_loadWheels"] = $this->table->generate();
@@ -126,10 +128,17 @@ class Wheel extends CI_Controller {
 
        $this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="" >');
-		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion');
-		$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$data["idllanta"]."'");
-		$idflota = $query->result_array();		
-		$this->table->add_row($data["serie_llanta"], $data["marca_llanta"],$data["tamanio_llanta"],$data["estado_llanta"],$data["fecha_compra"],$data["fecha_asignacion"],$data["fecha_desecho"],$data["descripcion_llanta"]);
+		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion','Codigo de flota');
+		
+			$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$data["idllanta"]."'");
+			$idflota = $query->result_array();
+
+
+			
+			$this->table->add_row($data["serie_llanta"], $data["marca_llanta"],$data["tamanio_llanta"],$data["estado_llanta"],$data["fecha_compra"],$data["fecha_asignacion"],$data["fecha_desecho"],$data["descripcion_llanta"],$idflota[0]["idflota"]);
+
+
+		
 		$this->table->set_template($plantilla);
 		$info["tabla_searWheel"] = $this->table->generate();
 

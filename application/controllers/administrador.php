@@ -33,5 +33,9 @@ class Administrador extends CI_Controller {
 	{
 		$this->load->view("Administrator/content_mantain");		
 	}
+	public function showReports()
+	{
+		$this->load->view("Administrator/content_reports");		
+	}
 
 }

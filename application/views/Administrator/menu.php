@@ -5,6 +5,7 @@
   <li id="fleet" class="active"><a href="#">Flotas</a></li>
   <li id="fact"><a href="#">Facturaci&oacute;n</a></li>
   <li id="mantain"><a href="#">Mantenimiento Llantas</a></li>
+  <li id="reports"><a href="#">Reportes</a></li>
   <li id="logOut" class="pull-right" ><a href="login/logout">Cerrar Sesi&oacute;n</a></li>
 </ul>
 <script type="text/javascript" src="../js/menu_actions.js"></script>
