@@ -3,12 +3,13 @@
 	<title>Transamerica</title>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/jquery-2.1.0.js"></script>
      <script src="js/niveles.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>    
 </head>
 <body>
+    <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
     <div class="row jumbotron text-center" style="font-size:16px;">
@@ -43,6 +44,18 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-2  hidden-xs"></div>
-    
+    </div>
+    <div class="row">
+  <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+  <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <hr class="featurette-divider">
+            <!-- FOOTER -->
+          <footer class="text-center">
+            <p class="pull-right hidden-xs"><a href="#">Back to top</a></p>
+            <p>&copy; 2014 TransAmerica</p>
+          </footer>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+  </div>
 </body>
 </html>
