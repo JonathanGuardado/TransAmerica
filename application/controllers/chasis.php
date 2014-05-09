@@ -33,7 +33,7 @@ class Chasis extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
 		$this->table->set_heading('Placa', 'Marca','Descripcion','Eliminar');
 		foreach ($data as $dato) 
 		{
