@@ -33,10 +33,23 @@ class Reencauche extends CI_Controller {
 	}
 	public function deleteReencauche()
 	{
-		//Jala todos los Reencauches de la base para mostrarlos en una tabla y el usuario pueda eliminar el que desee
-		$data="";
+		$data= $this->reencauche_model->load_Reencauche();
+
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Id LLanta', 'Fecha de Reencauche','Lugar','Costo','Observaciones');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["idllanta"], $dato["fecha_reencauche"],$dato["lugar_reencauche"],$dato["total_reencauche"],$dato["observacion_re"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="" data-method="deletingCabezal" onclick="deleteData('.$dato["idllanta"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadReencauche"] = $this->table->generate();
+
+
 		//segui el formato de ever en sus controladores a la hora de eliminar
-		$this->load->view("Administrator/Reencauche/deleteReencauche",$data);		
+		$this->load->view("Administrator/Reencauche/deleteReencauche",$info);		
 	}
 	public function searchReencauche()
 	{
