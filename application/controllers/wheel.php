@@ -46,7 +46,7 @@ class Wheel extends CI_Controller {
 		//tabla
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="" >');
-		$this->table->set_heading(' Serie ', ' marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha asignacion','fecha de desecho','codigo de flota','descripcion llanta','Eliminar');
+		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion','Eliminar');
 		foreach ($data as $llantas) 
 		{
 			$query=$this->db->query("SELECT idflota  FROM flota_llanta WHERE idllanta = '".$llantas["idllanta"]."'");
@@ -54,7 +54,7 @@ class Wheel extends CI_Controller {
 
 
 			
-			$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$llantas["fecha_asignacion"],$llantas["fecha_desecho"],$idflota[0]["idflota"],$llantas["descripcion_llanta"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$llantas["fecha_asignacion"],$llantas["fecha_desecho"],$llantas["descripcion_llanta"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
 
 
 		}
