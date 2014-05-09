@@ -35,7 +35,7 @@ class Unit extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="editable">');
 		$this->table->set_heading('Placa Chasis', 'No Contenedor','Identificador Cabezal','Nombre Chofer','Eliminar');
 		foreach ($data as $dato) 
 		{
