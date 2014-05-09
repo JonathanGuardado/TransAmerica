@@ -19,3 +19,4 @@
 echo $tabla_loadChasis;
 ?> 
 </div>
+<script src="../js/utileria.js"></script>

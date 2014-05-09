@@ -12,7 +12,7 @@
 
 	</fieldset>
 </form>
-
+<script src="../js/utileria.js"></script>
 <div id="content_busqueda" class="row">
 <?php   
 echo $tabla_loadChofers;

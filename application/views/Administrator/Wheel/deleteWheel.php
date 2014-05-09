@@ -19,3 +19,4 @@ echo $tabla_loadWheels;
 ?>
 
 </div>
+<script src="../js/utileria.js"></script>

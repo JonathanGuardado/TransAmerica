@@ -16,3 +16,4 @@
 <div id="content_busqueda" class="row">
 
 </div>
+<script src="../js/utileria.js"></script>

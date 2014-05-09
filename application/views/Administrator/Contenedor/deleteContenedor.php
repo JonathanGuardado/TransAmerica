@@ -18,3 +18,4 @@
 echo $tabla_loadContenedores;
 ?> 
 </div>
+<script src="../js/utileria.js"></script>

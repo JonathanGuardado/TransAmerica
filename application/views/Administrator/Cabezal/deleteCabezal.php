@@ -18,3 +18,4 @@
 echo $tabla_loadCabezales;
 ?>
 </div>
+<script src="../js/utileria.js"></script>

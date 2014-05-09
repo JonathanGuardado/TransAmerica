@@ -35,7 +35,7 @@ class Chofer extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table class="dataTable" border="2" cellpadding="5" cellspacing="5"  class=""');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="dataTable">');
 		$this->table->set_heading('Nombre Conductor', 'Apellido Conductor',' Dui ',' Nit ','Fecha Ingreso','Eliminar');
 		foreach ($data as $estudiantes) 
 		{
@@ -76,7 +76,7 @@ class Chofer extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class=""');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
 		$this->table->set_heading('Nombre Conductor', 'Apellido Conductor',' Dui ',' Nit ','Fecha Ingreso');
 		$this->table->add_row($data["nombre_conductor"], $data["apellido_conductor"],$data["dui"],$data["nit"],$data["fecha_ingreso_cond"]);
 		$this->table->set_template($plantilla);

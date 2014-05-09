@@ -1,6 +1,6 @@
- //alert("juqeu")
+//alert("juqeu")
 jQuery(document).ready(function() {
-   
+
     jQuery(".sendBtn").click(function() {
         if (InputsEmpty(this) == 0) {
             envioDatos(this);
@@ -8,12 +8,12 @@ jQuery(document).ready(function() {
     });
 
     configureAutocomplete();
-   // configureDataTable();
+    configureDataTable();
 });
 function configureDataTable() {
-    jQuery(".dataTable").dataTable({
-        "pagingType": "full_numbers"
-    } ).makeEditable();
+    jQuery("table").find("th").css({"background": "#428BCA", "color": "white"})
+    jQuery("table").addClass("display").dataTable({
+    });
 }
 function configureAutocomplete() {
     jQuery(".autocomplete").each(function(i, input) {
