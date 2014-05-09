@@ -74,7 +74,7 @@ class Cabezal extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
 		$this->table->set_heading('Identificador', 'Marca','Kilometraje');
 		$this->table->add_row($data["identificador"], $data["marca"],$data["kilometraje_actual"]);
 		$this->table->set_template($plantilla);
