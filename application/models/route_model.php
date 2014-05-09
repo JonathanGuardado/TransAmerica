@@ -66,6 +66,13 @@ class Route_model extends CI_Model
           $query=$this->db->get();
          return $query->result_array();
    }
+   public function lugars()
+   {
+      $this->db->select('*');
+         $this->db->from('lugar');
+          $query=$this->db->get();
+         return $query->result_array();
+   }
    public function update_route($nameRoute,$tiempo,$distancia,$gasolina,$id_ruta)
    {
       $this->db->query('UPDATE `ruta` SET `descripcion`="'.$nameRoute.'",`tiempo_estimado`="'.$tiempo.'",`distancia_km`="'.$distancia.'",`gasolina_estimada`="'.$gasolina.'" WHERE `id_ruta`='.$id_ruta);

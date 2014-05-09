@@ -109,11 +109,12 @@ class Route extends CI_Controller {
 		$ori=$this->input->post("id_ori",true);
 		$des=$this->input->post("id_des",true);
 
+		$this->load->model("route_model");
 		$id_or=$this->route_model->buscar_lugar($origen);
 		$id_de=$this->route_model->buscar_lugar($destino);
 
-		$this->route_model->update_route_lugar($id_or,$ori,$id_ruta,"O");
-		$this->route_model->update_route_lugar($id_de,$des,$id_ruta,"D");
+		$this->route_model->update_route_lugar($id_or["idlugar"],$ori,$id_ruta,"O");
+		$this->route_model->update_route_lugar($id_de["idlugar"],$des,$id_ruta,"D");
 
 		$this->route_model->update_route($nameRoute,$tiempo,$distancia,$gasolina,$id_ruta);
 
@@ -129,6 +130,18 @@ class Route extends CI_Controller {
 	    foreach($sequential as $row)
 	    {
 	        $array[] = $row['descripcion']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
+    public function getData2()
+    {
+        $this->load->model("route_model");
+		$sequential=$this->route_model->lugars();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['nombre']; // add each user id to the array
 	    }
         echo json_encode($array);
     }
