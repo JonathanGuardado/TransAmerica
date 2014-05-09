@@ -210,20 +210,15 @@ CREATE TABLE IF NOT EXISTS `flota_llanta` (
 
 CREATE TABLE IF NOT EXISTS `llanta` (
   `idllanta` varchar(15) NOT NULL,
-  `id_proveedor` int(11) DEFAULT NULL,
-  `id_reencauche` int(11) DEFAULT NULL,
   `descripcion_llanta` varchar(150) NOT NULL,
   `serie_llanta` varchar(6) NOT NULL,
-  `ubicacion_llanta` varchar(45) NOT NULL,
   `tamanio_llanta` float NOT NULL,
   `marca_llanta` varchar(45) NOT NULL,
   `estado_llanta` varchar(45) NOT NULL,
   `fecha_asignacion` date DEFAULT NULL,
   `fecha_compra` date NOT NULL,
   `fecha_desecho` date DEFAULT NULL,
-  PRIMARY KEY (`idllanta`),
-  KEY `FK_REFERENCE_15` (`id_reencauche`),
-  KEY `FK_REFERENCE_16` (`id_proveedor`)
+  PRIMARY KEY (`idllanta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -314,32 +309,6 @@ INSERT INTO `opcion_tipo` (`id_opcion_tipo`, `idtipousuario`, `id_opcion`) VALUE
 (5, 2, 2),
 (6, 3, 1);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedor_llanta`
---
-
-CREATE TABLE IF NOT EXISTS `proveedor_llanta` (
-  `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_proveedor` varchar(250) DEFAULT NULL,
-  `direccion_proveedor` varchar(250) DEFAULT NULL,
-  `telefono_proveedor` varchar(15) DEFAULT NULL,
-  `estado_proveedor` varchar(1) DEFAULT NULL,
-  PRIMARY KEY (`id_proveedor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Volcado de datos para la tabla `proveedor_llanta`
---
-
-INSERT INTO `proveedor_llanta` (`id_proveedor`, `nombre_proveedor`, `direccion_proveedor`, `telefono_proveedor`, `estado_proveedor`) VALUES
-(1, 'Auto Repuestos', 'Soyapango, San Salvador', '23242728', 'T'),
-(2, 'Llantas Max', 'San Jose, Costa Rica', '506(23242522)', 'T'),
-(3, 'Car Race', 'San Pedro, Honduras', '505(24232321)', 'T'),
-(4, 'Las llantitas', 'Cortes, Honduras', '25262892', 'T'),
-(5, 'Experts Cars', 'Tegucigalpa, Honduras', '505(24232426)', 'T'),
-(6, 'El carrito ', 'managua, Nicaragua', '505(23242628)', 'T');
 
 -- --------------------------------------------------------
 
@@ -353,13 +322,14 @@ CREATE TABLE IF NOT EXISTS `reencauche` (
   `lugar_reencauche` varchar(200) DEFAULT NULL,
   `total_reencauche` float DEFAULT NULL,
   `observacion_re` varchar(500) DEFAULT NULL,
+  idllanta varchar(15) NOT NULL,
   PRIMARY KEY (`id_reencauche`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `reencauche`
 --
-
+/*
 INSERT INTO `reencauche` (`id_reencauche`, `fecha_reencauche`, `lugar_reencauche`, `total_reencauche`, `observacion_re`) VALUES
 (1, '2014-05-12', 'Llanta car, San Salvador', 38, 'Llanta perforada'),
 (2, '2007-04-09', 'Mi Carro, Honduras', 45, NULL),
@@ -367,7 +337,7 @@ INSERT INTO `reencauche` (`id_reencauche`, `fecha_reencauche`, `lugar_reencauche
 (4, '2014-02-10', 'Repuestos, Costa Rica', 35, NULL),
 (5, '2010-05-03', 'Las Margaritas, Soyapango', 50, NULL),
 (6, '2014-05-18', 'Las claritas, Ilopango', 24, NULL);
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -529,12 +499,10 @@ ALTER TABLE `flota_llanta`
   ADD CONSTRAINT `FK_RELATIONSHIP_16` FOREIGN KEY (`idflota`) REFERENCES `flota` (`idflota`);
 
 --
--- Filtros para la tabla `llanta`
---
-ALTER TABLE `llanta`
-  ADD CONSTRAINT `FK_REFERENCE_16` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor_llanta` (`id_proveedor`),
-  ADD CONSTRAINT `FK_REFERENCE_15` FOREIGN KEY (`id_reencauche`) REFERENCES `reencauche` (`id_reencauche`);
-
+-- Filtros para la tabla `reencauche`
+--  
+ALTER TABLE `reencauche`  
+ ADD CONSTRAINT `FK_REFERENCE_15` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`); 
 --
 -- Filtros para la tabla `mantenimiento`
 --
