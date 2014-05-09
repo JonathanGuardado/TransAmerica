@@ -56,9 +56,21 @@ class Client extends CI_Controller {
 	}
 	public function searchClient()
 	{
-		//Jala de la base todos los clientes para llenarlos en un autocomplete
-		$data="";
-		$this->load->view("Administrator/Client/searchClient",$data);		
+		$this->load->model("cliente_model");
+		$data=$this->cliente_model->clientes();
+		
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Nombre', 'Contacto','Telefono','Tarifa','Fecha Ingreso');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["nombre_empresa"], $dato["nombre_contacto"],$dato["telefono_contacto"],$dato["tarifa"],$dato["fecha_ingreso_cliente"]);
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadCliente"] = $this->table->generate();
+
+		$this->load->view("Administrator/Client/searchClient",$info);		
 	}
 	public function searchClient2()
 	{

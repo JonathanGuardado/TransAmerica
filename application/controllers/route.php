@@ -57,8 +57,7 @@ class Route extends CI_Controller {
 		}
 		$this->table->set_template($plantilla);
 		$info["tabla_loadRoute"] = $this->table->generate();
-		//segui el formato que tiene ever en sus controladores
-		//$this->route_model->eliminar_route($idroute);
+
 		$this->load->view("Administrator/Route/deleteRoute",$info);		
 	}
 	public function deletingRoute()
@@ -75,9 +74,21 @@ class Route extends CI_Controller {
 	}
 	public function searchRoute()
 	{
-		//Jala de la base todos los Rutas para llenarlos en un autocomplete
-		$data="";
-		$this->load->view("Administrator/Route/searchRoute",$data);		
+		$this->load->model("route_model");
+		$data=$this->route_model->routes();
+
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Descripcion', 'Tiempo(Horas)','Distancia(Km)','Gasolina');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["descripcion"], $dato["tiempo_estimado"],$dato["distancia_km"],$dato["gasolina_estimada"]);
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadRoute"] = $this->table->generate();
+
+		$this->load->view("Administrator/Route/searchRoute",$info);		
 	}
 	public function searchRoute2()
 	{

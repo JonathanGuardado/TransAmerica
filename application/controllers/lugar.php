@@ -55,9 +55,21 @@ class Lugar extends CI_Controller {
 	}
 	public function searchLugar()
 	{
-		//Jala de la base todos los Lugars para llenarlos en un autocomplete
-		$data="";
-		$this->load->view("Administrator/Lugar/searchLugar",$data);		
+		$this->load->model("lugar_model");
+		$data=$this->lugar_model->lugars();
+
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Nombre', 'Ciudad','Pais');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["nombre"], $dato["ciudad"],$dato["pais"]);
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadLugar"] = $this->table->generate();
+
+		$this->load->view("Administrator/Lugar/searchLugar",$info);		
 	}
 	public function searchLugar2()
 	{
