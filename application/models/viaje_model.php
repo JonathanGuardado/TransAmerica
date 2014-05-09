@@ -26,6 +26,14 @@ class Viaje_model extends CI_Model
 	       $query=$this->db->get();
 	      return $query->result_array();
 	}
+	public function buscar_cliente3($name)
+	{
+	    $this->db->select('nombre_empresa');
+	      $this->db->from('cliente');
+	      $this->db->where('idcliente', $name,'estado_cliente',"T");
+	       $query=$this->db->get();
+	      return $query->row_array();
+	}
 	public function buscar_ruta($name)
 	{
 	    $this->db->select('id_ruta');
@@ -34,11 +42,27 @@ class Viaje_model extends CI_Model
 	       $query=$this->db->get();
 	      return $query->row_array();
 	}
+	public function buscar_ruta2($name)
+	{
+	    $this->db->select('descripcion');
+	      $this->db->from('ruta');
+	      $this->db->where('id_ruta', $name,'estado_ruta',"T");
+	       $query=$this->db->get();
+	      return $query->row_array();
+	}
 	public function buscar_conductor($name)
 	{
 		$this->db->select('idconductor');
 	      $this->db->from('conductor');
 	      $this->db->where('nombre_conductor', $name,'estado_conductor',"T");
+	       $query=$this->db->get();
+	      return $query->row_array();
+	}
+	public function buscar_conductor2($name)
+	{
+		$this->db->select('nombre_conductor');
+	      $this->db->from('conductor');
+	      $this->db->where('idconductor', $name,'estado_conductor',"T");
 	       $query=$this->db->get();
 	      return $query->row_array();
 	}
@@ -69,13 +93,26 @@ class Viaje_model extends CI_Model
        $query=$this->db->get();
        return $query->result_array();
    }
-   public function flotass()
+   public function flotas()
    {     
        $this->db->select('*');
        $this->db->from('flota');
        $this->db->where('estado_flota',"T");
        $query=$this->db->get();
        return $query->result_array();
+   }
+   public function conductors()
+   {     
+       $this->db->select('*');
+       $this->db->from('conductor');
+       $this->db->where('estado_conductor',"T");
+       $query=$this->db->get();
+       return $query->result_array();
+   }
+   public function update_viaje($Client,$Route,$Flota,$fecha,$tipo,$con,$gas,$marchamos,$idviaje)
+   {
+   		
+   		$this->db->query('UPDATE `viaje` SET `idconductor`="'.$con.'",`idflota`="'.$Flota.'",`idcliente`="'.$Client.'",`id_ruta`="'.$Route.'",`fecha_viaje`="'.$fecha.'",`tipo_viaje`="'.$tipo.'",`gasolina_asignada`="'.$gas.'",`marchamos`="'.$marchamos.'" WHERE `idviaje`='.$idviaje);
    }
 }	
 

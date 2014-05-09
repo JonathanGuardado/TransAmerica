@@ -3,22 +3,39 @@
 		<legend>Editar Viaje</legend>
 		<div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre Cliente</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" name="nameClient" data-controller="viaje" data-method="getData2" class="form-control autocomplete" placeholder="Nombre Cliente"/>            
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $cliente; ?>" name="nameClient" data-controller="viaje" data-method="getData2" class="form-control autocomplete" placeholder="Nombre Cliente"/>            
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre Ruta</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" data-controller="viaje" data-method="getData3" class="form-control autocomplete" name="nameRoute" placeholder="Nombre Ruta" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $descripcion; ?>" data-controller="viaje" data-method="getData3" class="form-control autocomplete" name="nameRoute" placeholder="Nombre Ruta" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>No. Flota</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" data-controller="viaje" data-method="getData4" class="form-control autocomplete" name="idFlota" placeholder="No. Flota" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $idflota; ?>" data-controller="viaje" data-method="getData4" class="form-control autocomplete" name="idFlota" placeholder="No. Flota" />
+        </div>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Nombre conductor</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $conductor; ?>" data-controller="viaje" data-method="getData5" class="form-control autocomplete" name="conductor" placeholder="Nombre Conductor" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Gasolina Asignada</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $gasolina_asignada; ?>"  class="form-control" name="gas" placeholder="Gasolina Asignada" />
+        </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Marchamos</label></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $marchamos; ?>" class="form-control" name="marchamos" placeholder="Marchamos" />
+        </div>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Fecha de viaje</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="date" class="form-control" name="fechaViaje" placeholder="Fecha de viaje" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="date" value="<?php echo $fecha_viaje; ?>" class="form-control" name="fechaViaje" placeholder="Fecha de viaje" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">
@@ -37,7 +54,7 @@
         <input type="button" class="btn btn-primary sendBtn" value="Editar Viaje" id="editBtnViaje" name="editBtnViaje"/>
             
             <br />            
-            
+            <input type="hidden" name="idviaje" id="idviaje" value="<?php echo $idviaje; ?>"/>
         </div>
 	</fieldset>
 </form>
