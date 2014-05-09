@@ -28,9 +28,31 @@ class Client extends CI_Controller {
 	{
 		$this->load->model("cliente_model");
 		$data=$this->cliente_model->clientes();
-		//segui el formato que tiene ever en sus controladores
-		//$this->cliente_model->eliminar_cliente($idcliente);
-		$this->load->view("Administrator/Client/deleteClient",$data);		
+		
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Nombre', 'Contacto','Telefono','Tarifa','Fecha Ingreso','Eliminar');
+		foreach ($data as $dato) 
+		{
+			$this->table->add_row($dato["nombre_empresa"], $dato["nombre_contacto"],$dato["telefono_contacto"],$dato["tarifa"],$dato["fecha_ingreso_cliente"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="client" data-method="deletingClient" onclick="deleteData('.$dato["idcliente"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_loadClient"] = $this->table->generate();
+
+		$this->load->view("Administrator/Client/deleteClient",$info);		
+	}
+	public function deletingClient()
+	{
+		//obteniendo id del cabezal a borrar 
+		$idCliente=$this->input->post("id",true);
+		$this->load->model("Cliente_model");
+		$data=$this->Cliente_model->eliminar_Cliente($idCliente);
+		$this->deleteClient();
+		//div que indica borrado
+		//$data['message']="<div class='text-center'><h4>Cabezal Borrado Exitosamente!</h4></div>";
+		//$this->load->view("Administrator/Cabezal/deleteCabezal",$data);
+
 	}
 	public function searchClient()
 	{

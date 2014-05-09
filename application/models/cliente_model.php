@@ -32,7 +32,7 @@ class Cliente_model extends CI_Model
    }
    public function clientes()
    {
-      $this->db->select('nombre_empresa');
+      $this->db->select('*');
          $this->db->from('cliente');
          $this->db->where('estado_cliente',"T");
           $query=$this->db->get();
