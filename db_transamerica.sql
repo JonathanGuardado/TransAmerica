@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.0.3
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-05-2014 a las 05:06:56
--- Versión del servidor: 5.6.12-log
--- Versión de PHP: 5.4.12
+-- Tiempo de generación: 09-05-2014 a las 19:27:19
+-- Versión del servidor: 5.5.37
+-- Versión de PHP: 5.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -164,7 +164,7 @@ INSERT INTO `contenedor` (`idcontenedor`, `descripcion_contenedor`, `tipo_conten
 --
 
 CREATE TABLE IF NOT EXISTS `flota` (
-  `idflota` int(11) NOT NULL AUTO_INCREMENT,
+  `idflota` varchar(20) NOT NULL,
   `idchasis` int(11) DEFAULT NULL,
   `idcontenedor` int(11) DEFAULT NULL,
   `idconductor` int(11) DEFAULT NULL,
@@ -175,17 +175,17 @@ CREATE TABLE IF NOT EXISTS `flota` (
   KEY `FK_RELATIONSHIP_5` (`idchasis`),
   KEY `FK_RELATIONSHIP_6` (`idcabezal`),
   KEY `FK_RELATIONSHIP_7` (`idcontenedor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `flota`
 --
 
 INSERT INTO `flota` (`idflota`, `idchasis`, `idcontenedor`, `idconductor`, `idcabezal`, `estado_flota`) VALUES
-(1, 1, 1, 1, 1, 'T'),
-(2, 2, 2, 2, 2, 'T'),
-(3, 3, 3, 3, 3, 'T'),
-(4, 4, 4, 4, 4, 'T');
+('TAS-00001', 1, 1, 1, 1, 'T'),
+('TAS-00002', 2, 2, 2, 2, 'T'),
+('TAS-00003', 3, 3, 3, 3, 'T'),
+('TAS-00004', 4, 4, 4, 4, 'T');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,7 @@ INSERT INTO `flota` (`idflota`, `idchasis`, `idcontenedor`, `idconductor`, `idca
 
 CREATE TABLE IF NOT EXISTS `flota_llanta` (
   `idflotallanta` int(11) NOT NULL AUTO_INCREMENT,
-  `idflota` int(11) DEFAULT NULL,
+  `idflota` varchar(20) DEFAULT NULL,
   `idllanta` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`idflotallanta`),
   KEY `FK_RELATIONSHIP_16` (`idflota`),
@@ -220,6 +220,55 @@ CREATE TABLE IF NOT EXISTS `llanta` (
   `fecha_desecho` date DEFAULT NULL,
   PRIMARY KEY (`idllanta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `llanta`
+--
+
+INSERT INTO `llanta` (`idllanta`, `descripcion_llanta`, `serie_llanta`, `tamanio_llanta`, `marca_llanta`, `estado_llanta`, `fecha_asignacion`, `fecha_compra`, `fecha_desecho`) VALUES
+('06', 'Desc', '6', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('07', 'Desc', '7', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('10', 'Llantas 24 in', '10', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('11', 'Llantas 24 in', '11', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('12', 'Llantas 24 in', '12', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('15', 'Llantas 24 in', '15', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('2', 'Desc', '2', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('20', 'Llanta', '20', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('21', 'Llanta', '21', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('22', 'Llantas 24 in', '22', 22, 'Fire Stone', 'T', NULL, '2014-05-09', NULL),
+('23', 'Llantas 24 in', '23', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('24', 'Llantas 24 in', '24', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('25', 'Llantas 24 in', '25', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('26', 'Llantas 24 in', '26', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('27', 'Llantas 24 in', '27', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('28', 'Llantas 24 in', '28', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('29', 'Llantas 24 in', '29', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('3', 'Desc', '3', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('30', 'Llantas 24 in', '30', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('31', 'Llantas 24 in', '31', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('32', 'Llantas 24 in', '32', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('33', 'Llantas 24 in', '33', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('34', 'Llantas 24 in', '34', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('35', 'Llantas 24 in', '35', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('36', 'Llantas 24 in', '36', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('37', 'Llantas 24 in', '37', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('38', 'Llantas 24 in', '38', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('39', 'Llantas 24 in', '39', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('4', 'Desc', '4', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('40', 'Llantas 24 in', '40', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('41', 'Llantas 24 in', '41', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('42', 'Llantas 24 in', '42', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('43', 'llantas de 30 in', '43', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('44', 'llantas de 30 in', '44', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('45', 'llantas de 30 in', '45', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('46', 'llantas de 30 in', '46', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('47', 'llantas de 30 in', '47', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('48', 'llantas de 30 in', '48', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('49', 'llantas de 30 in', '49', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('5', 'Desc', '5', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL),
+('50', 'llantas de 30 in', '50', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('51', 'llantas de 30 in', '51', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL),
+('52', 'llantas de 30 in', '52', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL);
 
 -- --------------------------------------------------------
 
@@ -309,7 +358,6 @@ INSERT INTO `opcion_tipo` (`id_opcion_tipo`, `idtipousuario`, `id_opcion`) VALUE
 (5, 2, 2),
 (6, 3, 1);
 
-
 -- --------------------------------------------------------
 
 --
@@ -322,22 +370,23 @@ CREATE TABLE IF NOT EXISTS `reencauche` (
   `lugar_reencauche` varchar(200) DEFAULT NULL,
   `total_reencauche` float DEFAULT NULL,
   `observacion_re` varchar(500) DEFAULT NULL,
-  idllanta varchar(15) NOT NULL,
-  PRIMARY KEY (`id_reencauche`)
+  `idllanta` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_reencauche`),
+  KEY `FK_REFERENCE_15` (`idllanta`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `reencauche`
 --
-/*
-INSERT INTO `reencauche` (`id_reencauche`, `fecha_reencauche`, `lugar_reencauche`, `total_reencauche`, `observacion_re`) VALUES
-(1, '2014-05-12', 'Llanta car, San Salvador', 38, 'Llanta perforada'),
-(2, '2007-04-09', 'Mi Carro, Honduras', 45, NULL),
-(3, '2012-05-10', 'El kiosko, Guatemala', 20, 'Desgaste en laterales'),
-(4, '2014-02-10', 'Repuestos, Costa Rica', 35, NULL),
-(5, '2010-05-03', 'Las Margaritas, Soyapango', 50, NULL),
-(6, '2014-05-18', 'Las claritas, Ilopango', 24, NULL);
-*/
+
+INSERT INTO `reencauche` (`id_reencauche`, `fecha_reencauche`, `lugar_reencauche`, `total_reencauche`, `observacion_re`, `idllanta`) VALUES
+(1, '2014-05-12', 'Llanta car, San Salvador', 38, 'Llanta perforada', '2'),
+(2, '2007-04-09', 'Mi Carro, Honduras', 45, NULL, '2'),
+(3, '2012-05-10', 'El kiosko, Guatemala', 20, 'Desgaste en laterales', '3'),
+(4, '2014-02-10', 'Repuestos, Costa Rica', 35, NULL, '4'),
+(5, '2010-05-03', 'Las Margaritas, Soyapango', 50, NULL, '4'),
+(6, '2014-05-18', 'Las claritas, Ilopango', 24, NULL, '5');
+
 -- --------------------------------------------------------
 
 --
@@ -439,9 +488,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `nombre_usuario`, `usuario`, `clave`, `fecha_ingreso_user`, `estado_usuario`) VALUES
-(1, 1, 'Manuel Reyes', 'Manuel', 'manuel', '2012-05-01', 'T'),
-(2, 3, 'Juan Marquez', 'juan', 'juan', '2014-02-03', 'T'),
-(3, 2, 'Maria Garcia Prez', 'maria', 'maria', '2014-05-06', 'T'),
+(1, 1, 'Manuel Reyes', 'Manuel', '96917805fd060e3766a9a1b834639d35', '2012-05-01', 'T'),
+(2, 3, 'Juan Marquez', 'juan', 'a94652aa97c7211ba8954dd15a3cf838', '2014-02-03', 'T'),
+(3, 2, 'Maria Garcia Prez', 'maria', '263bce650e68ab4e23f28263760b9fa5', '2014-05-06', 'T'),
 (4, 1, 'admin', 'admin', 'fbc71ce36cc20790f2eeed2197898e71', '2014-05-05', 'T');
 
 -- --------------------------------------------------------
@@ -453,7 +502,7 @@ INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `nombre_usuario`, `usuario`
 CREATE TABLE IF NOT EXISTS `viaje` (
   `idviaje` int(11) NOT NULL AUTO_INCREMENT,
   `idconductor` int(11) DEFAULT NULL,
-  `idflota` int(11) DEFAULT NULL,
+  `idflota` varchar(20) DEFAULT NULL,
   `idcliente` int(11) DEFAULT NULL,
   `id_ruta` int(11) DEFAULT NULL,
   `fecha_viaje` date NOT NULL,
@@ -473,10 +522,10 @@ CREATE TABLE IF NOT EXISTS `viaje` (
 --
 
 INSERT INTO `viaje` (`idviaje`, `idconductor`, `idflota`, `idcliente`, `id_ruta`, `fecha_viaje`, `tipo_viaje`, `gasolina_asignada`, `marchamos`, `estado_viaje`) VALUES
-(1, 1, 1, 1, 1, '2014-02-04', 'Carga Pesada', 34, '12323', 'T'),
-(2, 2, 2, 2, 2, '2012-05-01', 'Entrega Leche', 45, '3754', 'T'),
-(3, 3, 3, 3, 3, '2014-05-13', 'Carga Granos', 24, '3434', 'T'),
-(4, 4, 4, 4, 4, '2013-07-22', 'Entrega Comida', 36, '4646', 'T');
+(1, 1, 'TAS-00002', 1, 1, '2014-02-04', 'Carga pesada', 34, '12323', 'T'),
+(2, 2, 'TAS-00002', 2, 2, '2012-05-01', 'Entrega Leche', 45, '3754', 'T'),
+(3, 3, 'TAS-00004', 3, 3, '2014-05-13', 'Carga Granos', 24, '3434', 'T'),
+(4, 4, 'TAS-00003', 4, 4, '2013-07-22', 'Entrega Comida', 36, '4646', 'T');
 
 --
 -- Restricciones para tablas volcadas
@@ -486,23 +535,17 @@ INSERT INTO `viaje` (`idviaje`, `idconductor`, `idflota`, `idcliente`, `id_ruta`
 -- Filtros para la tabla `flota`
 --
 ALTER TABLE `flota`
-  ADD CONSTRAINT `FK_RELATIONSHIP_7` FOREIGN KEY (`idcontenedor`) REFERENCES `contenedor` (`idcontenedor`),
   ADD CONSTRAINT `FK_REFERENCE_14` FOREIGN KEY (`idconductor`) REFERENCES `conductor` (`idconductor`),
   ADD CONSTRAINT `FK_RELATIONSHIP_5` FOREIGN KEY (`idchasis`) REFERENCES `chasis` (`idchasis`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_6` FOREIGN KEY (`idcabezal`) REFERENCES `cabezal` (`idcabezal`);
+  ADD CONSTRAINT `FK_RELATIONSHIP_6` FOREIGN KEY (`idcabezal`) REFERENCES `cabezal` (`idcabezal`),
+  ADD CONSTRAINT `FK_RELATIONSHIP_7` FOREIGN KEY (`idcontenedor`) REFERENCES `contenedor` (`idcontenedor`);
 
 --
 -- Filtros para la tabla `flota_llanta`
 --
 ALTER TABLE `flota_llanta`
-  ADD CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`),
-  ADD CONSTRAINT `FK_RELATIONSHIP_16` FOREIGN KEY (`idflota`) REFERENCES `flota` (`idflota`);
+  ADD CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`);
 
---
--- Filtros para la tabla `reencauche`
---  
-ALTER TABLE `reencauche`  
- ADD CONSTRAINT `FK_REFERENCE_15` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`); 
 --
 -- Filtros para la tabla `mantenimiento`
 --
@@ -515,6 +558,12 @@ ALTER TABLE `mantenimiento`
 ALTER TABLE `opcion_tipo`
   ADD CONSTRAINT `FK_REFERENCE_18` FOREIGN KEY (`idtipousuario`) REFERENCES `tipo_usuario` (`idtipousuario`),
   ADD CONSTRAINT `FK_REFERENCE_17` FOREIGN KEY (`id_opcion`) REFERENCES `opciones` (`id_opcion`);
+
+--
+-- Filtros para la tabla `reencauche`
+--
+ALTER TABLE `reencauche`
+  ADD CONSTRAINT `FK_REFERENCE_15` FOREIGN KEY (`idllanta`) REFERENCES `llanta` (`idllanta`);
 
 --
 -- Filtros para la tabla `ruta_lugar`
