@@ -85,8 +85,20 @@ class Wheel extends CI_Controller {
 	{
 		$nameWheel=$this->input->post("nameWheel",true);
 		//Jala de la base los campos del Llanta para llenar el formulario
-		$data="";
-		$this->load->view("Administrator/Wheel/searchWheel2",$data);		
+
+		$llantas =$this->buy_model->load_wheels_id($nameWheel);
+		//tabla
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="" >');
+		$this->table->set_heading(' Serie ', ' Marca ',' Tamaño ',' Estado ','Fecha de Compra',' Fecha Asignacion','Fecha de Desecho','Descripcion','Eliminar');
+
+		$this->table->add_row($llantas["serie_llanta"], $llantas["marca_llanta"],$llantas["tamanio_llanta"],$llantas["estado_llanta"],$llantas["fecha_compra"],$llantas["fecha_asignacion"],$llantas["fecha_desecho"],$llantas["descripcion_llanta"], ' <a id="student" style="color:#0D8CFB;font-weight: normal"  onclick="deletingWheel('.$llantas["idllanta"].');" href=# >'." X ".'</a>');
+		
+		$this->table->set_template($plantilla);
+
+		$info["tabla_loadWheels"] = $this->table->generate();
+
+		$this->load->view("Administrator/Wheel/searchWheel2",$info);		
 	}
 	public function storeNewWheel()
 	{
@@ -108,6 +120,7 @@ class Wheel extends CI_Controller {
 	}
 	public function storeEditWheel()
 	{
+		$idllanta    =$this->input->post("idllanta",true);
 		$noSerie=$this->input->post("noSerie",true);
 		$marca=$this->input->post("marca",true);
 		$size=$this->input->post("size",true);
@@ -116,7 +129,7 @@ class Wheel extends CI_Controller {
 		$descripcion=$this->input->post("descripcion",true);
 
 		//Se almacena en la base de datos
-		$this->buy_model->updating_wheel($noSerie,$marca,$size,$estado,$fechaCompra,$descripcion);
+		$this->buy_model->updating_wheel($idllanta,$noSerie,$marca,$size,$estado,$fechaCompra,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Llanta Editada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Wheel/editWheel",$data);
