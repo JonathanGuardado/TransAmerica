@@ -26,7 +26,9 @@ class Reencauche extends CI_Controller {
 	{
 		$nameReencauche=$this->input->post("nameReencauche",true);
 		//Jala de la base los campos del Reencauche para llenar el formulario
-		$data="";
+		$data=$this->reencauche_model->load_reencauche_id($nameReencauche);
+
+
 		$this->load->view("Administrator/Reencauche/editReencauche2",$data);		
 	}
 	public function deleteReencauche()
@@ -67,14 +69,32 @@ class Reencauche extends CI_Controller {
 	public function storeEditReencauche()
 	{
 		$fechaReencauche=$this->input->post("fechaReencauche",true);
-		$noWheel=$this->input->post("noWheel",true);
-		$descripcion=$this->input->post("descripcion",true);
+		$noWheel =$this->input->post("noWheel",true);
+		$descripcion =$this->input->post("descripcion",true);
+		$costo =$this->input->post("costo",true);
+		$lugar=$this->input->post("lugar",true);
+
 
 		//Se almacena en la base de datos
+
+		$data = $this->reencauche_model->updating_reencauche($noWheel,$fechaReencauche,$lugar,$costo,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Reencauche Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Reencauche/editReencauche",$data);
 	}
+
+	public function getDataReencauche()
+    {
+       // $this->load->model("chasis_model");
+		$sequential= $this->reencauche_model->load_Reencauche();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['idllanta']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 
 
 

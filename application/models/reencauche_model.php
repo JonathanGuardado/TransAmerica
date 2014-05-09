@@ -16,21 +16,18 @@ class Reencauche_model extends CI_Model
     $this->db->set('total_reencauche', $costo);
     $this->db->set('fecha_reencauche', $fecha_re);
     
-    
     $this->db->insert('reencauche');
  }
  public function load_Reencauche()
  {
-  $query=$this->db->query("SELECT nombre_conductor, apellido_conductor FROM llanta WHERE estado_conductor='T'");
+  $query=$this->db->get('reencauche');
   return $query->result_array();
  }
 
 
- public function updating_reencauche($id_reencauche,$idllanta,$fecha_re,$lugar,$costo,$observacion)
+ public function updating_reencauche($idllanta,$fecha_re,$lugar,$costo,$observacion)
  {
       $data = array(
-
-                 'id_reencauche' => $id_reencauche,
                  'fecha_reencauche' => $fecha_re,
                  'lugar_reencauche'=> $lugar,
                  'total_reencauche'=> $costo,
@@ -38,17 +35,19 @@ class Reencauche_model extends CI_Model
                  'idllanta'=> $idllanta
                );
 
-    $this->db->where('id_reencauche', $id_reencauche);
+    $this->db->where('idllanta', $idllanta);
     $this->db->update('reencauche', $data);
  }
 
  public function load_reencauche_id($id)
  {
 
-  $query= $this->db->where('id_reencauche',$id);
+  $query= $this->db->where('idllanta',$id);
   $query= $this->db->get("reencauche");
   return $query->row_array();
  }
+
+
  
 }	
 ?>
