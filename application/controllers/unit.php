@@ -35,7 +35,7 @@ class Unit extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="editable">');
+		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
 		$this->table->set_heading('Placa Chasis', 'No Contenedor','Identificador Cabezal','Nombre Chofer','Eliminar');
 		foreach ($data as $dato) 
 		{
@@ -83,12 +83,12 @@ class Unit extends CI_Controller {
 		$this->table->add_row($data["placa"], $data["tipo_contenedor"],$data["identificador"],$data["nombre_conductor"]);
 		$this->table->set_template($plantilla);
 		$info["tabla_searchUnit"] = $this->table->generate();
-		$this->load->view("Administrator/Unit/searchUnit2",$info);		
+		$this->load->view("Administrator/Unit/searchUnit2",$info);
+				
 	}
 	public function storeNewUnit()
 	{
 
-		$noUnidad=$this->input->post("noUnidad",true);
 		$noChasis=$this->input->post("noChasis",true);
 		$noContenedor=$this->input->post("noContenedor",true);
 		$noCabezal=$this->input->post("noCabezal",true);
@@ -99,7 +99,7 @@ class Unit extends CI_Controller {
 		$idContenedor=$this->unit_model->load_idContenedor($noContenedor);
 		$idCabezal=$this->unit_model->load_idCabezal($noCabezal);
 		$idChofer=$this->unit_model->load_idChofer($nameChofer);
-		$this->unit_model->agregar_unit($noUnidad, $idChasis["idchasis"],$idContenedor["idcontenedor"],$idCabezal["idcabezal"],$idChofer["idconductor"]);
+		$this->unit_model->agregar_unit($idChasis["idchasis"],$idContenedor["idcontenedor"],$idCabezal["idcabezal"],$idChofer["idconductor"]);
 
 		$data['message']="<div class='text-center'><h4>Unidad Agregada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Unit/newUnit",$data);
@@ -111,13 +111,17 @@ class Unit extends CI_Controller {
 		$noCabezal=$this->input->post("noCabezal",true);
 		$nameChofer=$this->input->post("nameChofer",true);
 		$idFlota=$this->input->post("idFlota",true);
-		
+		$idChasis=$this->input->post("idChasis",true);
+		$idContenedor=$this->input->post("idContenedor",true);
+		$idCabezal=$this->input->post("idCabezal",true);
+		$idChofer=$this->input->post("idConductor",true);
+		//Se almacena en la base de datos
+
 		$this->load->model("unit_model");
-		$idChasis=$this->unit_model->load_idChasis($noChasis);
-		$idContenedor=$this->unit_model->load_idContenedor($noContenedor);
-		$idCabezal=$this->unit_model->load_idCabezal($noCabezal);
-		$idChofer=$this->unit_model->load_idChofer($nameChofer);		
-		$this->unit_model->updating_unit($idFlota, $idChasis["idchasis"],$idContenedor["idcontenedor"],$idCabezal["idcabezal"],$idChofer["idconductor"]);
+		$this->unit_model->updating_unit_chasis($idChasis,$noChasis);
+		$this->unit_model->updating_unit_contenedor($idContenedor,$noContenedor);
+		$this->unit_model->updating_unit_cabezal($idCabezal,$noCabezal);
+		$this->unit_model->updating_unit_chofer($idChofer,$nameChofer);
 		$data['message']="<div class='text-center'><h4>Unidad Editada Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Unit/editUnit",$data);
 	}
