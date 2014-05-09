@@ -18,6 +18,14 @@ class Viaje_model extends CI_Model
 	       $query=$this->db->get();
 	      return $query->row_array();
 	}
+	public function buscar_cliente2()
+	{
+	    $this->db->select('*');
+	      $this->db->from('cliente');
+	      $this->db->where('estado_cliente',"T");
+	       $query=$this->db->get();
+	      return $query->result_array();
+	}
 	public function buscar_ruta($name)
 	{
 	    $this->db->select('id_ruta');
@@ -45,6 +53,30 @@ class Viaje_model extends CI_Model
 	       $query=$this->db->get();
 	      return $query->result_array();
 	}
+	public function buscar_viaje($name)
+   {   	
+      $this->db->select('*');
+	      $this->db->from('viaje');
+	      $this->db->where('idviaje', $name,'estado_viaje',"T");
+	       $query=$this->db->get();
+	      return $query->row_array();
+   }
+   public function routes()
+   {     
+       $this->db->select('*');
+       $this->db->from('ruta');
+       $this->db->where('estado_ruta',"T");
+       $query=$this->db->get();
+       return $query->result_array();
+   }
+   public function flotass()
+   {     
+       $this->db->select('*');
+       $this->db->from('flota');
+       $this->db->where('estado_flota',"T");
+       $query=$this->db->get();
+       return $query->result_array();
+   }
 }	
 
 ?>

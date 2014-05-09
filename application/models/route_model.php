@@ -51,7 +51,7 @@ class Route_model extends CI_Model
    {     
        $this->db->select('*');
        $this->db->from('ruta');
-       $this->db->where('descripcion', $nameRoute);
+       $this->db->where('descripcion', $nameRoute,'estado_ruta',"T");
        $query=$this->db->get();
        return $query->row_array();
    }

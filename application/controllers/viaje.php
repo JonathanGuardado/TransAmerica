@@ -18,9 +18,10 @@ class Viaje extends CI_Controller {
 	}
 	public function editViaje2()
 	{
-		$nameViaje=$this->input->post("nameViaje",true);
-		//Jala de la base los campos del Viaje para llenar el formulario
-		$data="";
+		$nameviaje=$this->input->post("nameViaje",true);
+		$this->load->model("viaje_model");
+		$data=$data=$this->viaje_model->buscar_viaje($nameviaje);
+		
 		$this->load->view("Administrator/Viaje/editViaje2",$data);		
 	}
 	public function deleteViaje()
@@ -81,5 +82,54 @@ class Viaje extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>Viaje Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Viaje/editViaje",$data);
 	}
+	public function getData()
+    {
+        $this->load->model("viaje_model");
+		$sequential=$this->viaje_model->viajes();
+		$array = array();
 
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['idviaje']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
+
+    public function getData2()
+    {
+        $this->load->model("viaje_model");
+		$sequential=$this->viaje_model->buscar_cliente2();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['nombre_empresa']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
+    public function getData3()
+    {
+        $this->load->model("viaje_model");
+		$sequential=$this->viaje_model->routes();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['descripcion']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
+    public function getData4()
+    {
+        $this->load->model("viaje_model");
+		$sequential=$this->viaje_model->flotas();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['idflota']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 }
+?>
