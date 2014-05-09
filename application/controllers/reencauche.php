@@ -61,8 +61,18 @@ class Reencauche extends CI_Controller {
 	{
 		$nameReencauche=$this->input->post("nameReencauche",true);
 		//Jala de la base los campos del Reencauche para llenar el formulario
-		$data="";
-		$this->load->view("Administrator/Reencauche/searchReencauche2",$data);		
+
+		$data= $this->reencauche_model->load_reencauche_id($nameReencauche);
+
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Id LLanta', 'Fecha de Reencauche','Lugar','Costo','Observaciones');
+		$this->table->add_row($data["idllanta"], $data["fecha_reencauche"],$data["lugar_reencauche"],$data["total_reencauche"],$data["observacion_re"]);
+		$this->table->set_template($plantilla);
+		$info["tabla_loadReencauche"] = $this->table->generate();	
+
+		
+		$this->load->view("Administrator/Reencauche/searchReencauche2",$info);		
 	}
 	public function storeNewReencauche()
 	{
