@@ -20,8 +20,8 @@ class Client extends CI_Controller {
 	public function editClient2()
 	{
 		$nameClient=$this->input->post("nameClient",true);
-		//Jala de la base los campos del cliente para llenar el formulario
-		$data="";
+		$this->load->model("cliente_model");
+		$data=$data=$this->cliente_model->buscar_cliente2($nameClient);
 		$this->load->view("Administrator/Client/editClient2",$data);		
 	}
 	public function deleteClient()
@@ -77,13 +77,26 @@ class Client extends CI_Controller {
 		$nameContact=$this->input->post("nameContact",true);
 		$phoneContact=$this->input->post("phoneContact",true);
 		$tarifa=$this->input->post("tarifa",true);
+		$idcliente=$this->input->post("idcliente",true);
 
-		//Se almacena en la base de datos
+		$this->load->model("cliente_model");
+		$this->cliente_model->updating_cliente($nameClient,$nameContact,$phoneContact,$tarifa,$idcliente);
 
 		$data['message']="<div class='text-center'><h4>Cliente Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Client/editClient",$data);
 	}
+	public function getData()
+    {
+        $this->load->model("cliente_model");
+		$sequential=$this->cliente_model->clientes();
+		$array = array();
 
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['nombre_empresa']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 
 
 }

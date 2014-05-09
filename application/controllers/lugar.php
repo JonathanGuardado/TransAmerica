@@ -47,7 +47,7 @@ class Lugar extends CI_Controller {
 	public function storeNewLugar()
 	{
 		$nombrelugar=$this->input->post("nombreLugar",true);
-		$ciudad=$this->input->post("Ciudad",true);
+		$ciudad=$this->input->post("ciudad",true);
 		$pais=$this->input->post("pais",true);
 		
 		$this->load->model("lugar_model");

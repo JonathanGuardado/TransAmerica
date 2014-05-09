@@ -114,7 +114,7 @@ class Chasis extends CI_Controller {
 		$placaChasis=$this->input->post("placa",true);
 		$idChasis= $this->input->post("idChasis",true);
 
-		//Se almacena en la base de datos
+		
 		$this->load->model("chasis_model");
 		$this->chasis_model->updating_chasis($idChasis,$marcaChasis,$descripcionChasis,$placaChasis);
 

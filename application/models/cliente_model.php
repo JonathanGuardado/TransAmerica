@@ -18,16 +18,29 @@ class Cliente_model extends CI_Model
           $query=$this->db->get();
          return $query->row_array();
 	}
+   public function buscar_cliente2($name)
+   {
+       $this->db->select('*');
+         $this->db->from('cliente');
+         $this->db->where('nombre_empresa', $name,'estado_cliente',"T");
+          $query=$this->db->get();
+         return $query->row_array();
+   }
    public function eliminar_cliente($idcliente)
    {
       $this->db->query('UPDATE `cliente` SET `estado_cliente`="F" WHERE `idcliente`='.$idcliente);
    }
    public function clientes()
    {
-      $this->db->select('*');
+      $this->db->select('nombre_empresa');
          $this->db->from('cliente');
+         $this->db->where('estado_cliente',"T");
           $query=$this->db->get();
          return $query->result_array();
+   }
+   public function updating_cliente($nameClient,$nameContact,$phoneContact,$tarifa,$idcliente)
+   {
+      $this->db->query('UPDATE `cliente` SET `nombre_empresa`="'.$nameClient.'",`nombre_contacto`="'.$nameContact.'",`telefono_contacto`="'.$phoneContact.'",`tarifa`="'.$tarifa.'" WHERE `idcliente`='.$idcliente);
    }
 }	
 
