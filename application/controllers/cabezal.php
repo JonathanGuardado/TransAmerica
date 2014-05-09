@@ -108,4 +108,16 @@ class Cabezal extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>Cabezal Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Cabezal/editCabezal",$data);
 	}
+	public function getData()
+        {
+	        $this->load->model("cabezal_model");
+			$sequential=$this->cabezal_model->load_cabezales();
+			$array = array();
+
+		    foreach($sequential as $row)
+		    {
+		        $array[] = $row['identificador']; // add each user id to the array
+		    }
+            echo json_encode($array);
+        }
 }

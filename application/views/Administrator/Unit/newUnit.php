@@ -13,7 +13,7 @@
         </div>
         <div class="row" style="margin-top: 10px;">
         <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"  style="text-align:right"><label>Identificador Cabezal</label></div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" required name="noContenedor" placeholder="No. Cabezal" />
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" class="form-control" required name="noCabezal" placeholder="No. Cabezal" />
         </div>
         </div>
         <div class="row" style="margin-top: 10px;">

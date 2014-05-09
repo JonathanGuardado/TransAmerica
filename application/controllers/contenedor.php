@@ -109,6 +109,18 @@ class Contenedor extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>Contenedor Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Contenedor/editContenedor",$data);
 	}
+	public function getData()
+        {
+	        $this->load->model("contenedor_model");
+			$sequential=$this->chasis_model->load_contenedores();
+			$array = array();
+
+		    foreach($sequential as $row)
+		    {
+		        $array[] = $row['idcontenedor']; // add each user id to the array
+		    }
+            echo json_encode($array);
+        }
 
 
 

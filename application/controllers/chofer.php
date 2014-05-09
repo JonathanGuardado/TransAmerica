@@ -120,6 +120,19 @@ class Chofer extends CI_Controller {
 		$this->load->view("Administrator/Chofer/editChofer",$data);
 	}
 
+	public function getData()
+        {
+	        $this->load->model("chofer_model");
+			$sequential=$this->chasis_model->load_choferes();
+			$array = array();
+
+		    foreach($sequential as $row)
+		    {
+		        $array[] = $row['nombre_conductor']; // add each user id to the array
+		    }
+            echo json_encode($array);
+        }
+
 
 
 }
