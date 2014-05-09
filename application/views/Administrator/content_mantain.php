@@ -1,7 +1,7 @@
 <div class="row">
 	<div id="listgroup" class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="margin-top:60px">
 		<div class="list-group accordion" id="accordion">
-			<div class="accordion-group">
+			<!--div class="accordion-group">
 				<div class="accordion-heading">
 		  		<a id="Wheel" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseWheel">Compra</a>
 				</div>
@@ -14,7 +14,7 @@
 						</div>
 			</div>
 				
-			</div>
+			</div-->
 			<div class="accordion-group">
 				<div class="accordion-heading">
 		  		<a id="Reencauche" class="list-group-item accordion-toogle" data-toggle="collapse" data-parent="#accordion" href="#collapseReencauche">Reencauche</a>
