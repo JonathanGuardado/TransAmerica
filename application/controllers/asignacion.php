@@ -21,4 +21,17 @@ class Asignacion extends CI_Controller {
 		$this->load->view("Administrator/Asignacion/asignacionWheel",$data);	
 		
 	}
+
+	public function getDataWheels()
+    {
+       // $this->load->model("chasis_model");
+		$sequential= $this->reencauche_model->load_Reencauche();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['idllanta']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
 }
