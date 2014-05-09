@@ -12,8 +12,8 @@ jQuery(document).ready(function() {
 });
 function configureDataTable() {
     jQuery("table").find("th").css({"background": "#428BCA", "color": "white"})
-    jQuery("table").addClass("display").dataTable({
-    });
+    jQuery("table").addClass("display").dataTable({});
+    jQuery('table.editable tbody td').editable(function (value){return value});
 }
 function configureAutocomplete() {
     jQuery(".autocomplete").each(function(i, input) {
