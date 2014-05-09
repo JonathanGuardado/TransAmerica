@@ -33,7 +33,7 @@ class Contenedor extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table border="2" cellpadding="5" cellspacing="5"  class="">');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
 		$this->table->set_heading('Descripcion Contenedor', 'Tipo contenedor','Eliminar');
 		foreach ($data as $dato) 
 		{

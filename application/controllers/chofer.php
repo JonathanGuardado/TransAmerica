@@ -35,7 +35,7 @@ class Chofer extends CI_Controller {
 
 		//tabla
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table  border="2" cellpadding="5" cellspacing="5"   class="">');
+		$plantilla = array ( 'table_open'  => '<table  class="table">');
 		$this->table->set_heading('Nombre Conductor', 'Apellido Conductor',' Dui ',' Nit ','Fecha Ingreso','Eliminar');
 		foreach ($data as $dato) 
 		{
