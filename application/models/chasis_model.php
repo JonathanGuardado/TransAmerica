@@ -45,7 +45,7 @@ public function updating_chasis($idChasis,$marcaChasis,$descripcionChasis,$placa
                  'estado_chasis'=> 'F'
                );
     $this->db->where('idchasis', $idChasis);
-    $this->db->update('chasis', $data);
+     $this->db->update('chasis', $data);
  }
 }	
 ?>
