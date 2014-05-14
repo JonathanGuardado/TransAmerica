@@ -29,6 +29,14 @@ class Reportes_model extends CI_Model
       return $query->result_array();
 
    }
+   public function costo_viaje()
+   {
+      $query=$this->db->query('SELECT viaje.marchamos, viaje.fecha_viaje, cliente.nombre_empresa, ruta.distancia_km, ruta.gasolina_estimada, Min(lugar.nombre) AS Origen, Max(lugar.nombre) AS Destino, [distancia_km]*[gasolina_estimada] AS costo
+FROM (((viaje INNER JOIN cliente ON viaje.idcliente = cliente.idcliente) INNER JOIN ruta ON viaje.id_ruta = ruta.id_ruta) INNER JOIN ruta_lugar ON ruta.id_ruta = ruta_lugar.id_ruta) INNER JOIN lugar ON ruta_lugar.idlugar = lugar.idlugar
+GROUP BY viaje.marchamos, viaje.fecha_viaje, cliente.nombre_empresa, ruta.distancia_km, ruta.gasolina_estimada, [distancia_km]*[gasolina_estimada];');
+      return $query->result_array();
+      
+   }
 } 
 ?>
 

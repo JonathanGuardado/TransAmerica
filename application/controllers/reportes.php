@@ -93,6 +93,49 @@ class Reportes extends CI_Controller {
         $this->mpdf->Output();	
 	
 	}
+	public function costoviaje()
+	{
+		//Especificamos algunos parametros del PDF
+        $this->mpdf->mPDF('utf-8','A4');
+        $stylesheet = file_get_contents('../bootstrap/css/bootstrap.css');
+        //cargamos el estilo CSS
+        $this->mpdf->WriteHTML($stylesheet,1);
+        //CONTENIDO DEL PDF
+
+
+        //SELECT viaje.marchamos, viaje.fecha_viaje, cliente.nombre_empresa, ruta.distancia_km, ruta.gasolina_estimada, First(lugar.nombre) AS Origen, Last(lugar.nombre) AS Destino, [distancia_km]*[gasolina_estimada] AS costo
+
+        $datos=$this->reportes_model->costo_viaje();
+        //tabla
+        /*
+		reencauche.fecha_reencauche, reencauche.total_reencauche, reencauche.lugar_reencauche, llanta.serie_llanta, flota_llanta.idflota, llanta.descripcion_llanta
+        */
+        $img="<div class='row text-center'>
+        	  <div class='col-lg-6'>
+        	  <img src='img/transamerica.jpg' class='img-thumbnail' />
+        	  </div>        	  
+        	  <div class='col-lg-6'>
+        	  <h2>Historial Reencauches</h2>
+        	  </div>
+        	  <br><br></div>";
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Marchamos ', 'Fecha Viaja ','Nombre Empresa','Distancia Km','Gasolina Estimada','Origen','Destino','Costo');
+		foreach ($datos as $data) {
+			$this->table->add_row($data["marchamos"], $data["fecha_viaje"],$data["nombre_empresa"],$data["distancia_km"],$data["gasolina_estimada"],$data["Origen"],$data["Destino"],$data["Costo"]);
+		}
+		
+		$this->table->set_template($plantilla);
+		//$info["tabla_searchUnit"] = $this->table->generate();
+		
+        $tabla = $this->table->generate();
+        //ESCRIBIMOS AL PDF
+        $html=$img." ".$tabla;
+        $this->mpdf->WriteHTML($html,2);
+        //SALIDA DE NUESTRO PDF
+        $this->mpdf->Output();	
+
+	}
 
 
 }
