@@ -120,7 +120,7 @@ class Reportes extends CI_Controller {
         	  <br><br></div>";
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table class="table">');
-		$this->table->set_heading('Unidad ', ' Nombre Empresa ',' Fecha ',' Origen ',' Destino ',' Kilometraje ',' Gasto Combustible ',' Costo ');
+		$this->table->set_heading('Unidad de la Flota', ' Nombre Empresa ',' Fecha del  Viaje ',' Origen del Viaje ',' Destino del Viaje',' Kilometraje ',' Combustible Gastado',' Costo del Viaje ');
 		foreach ($datos as $data) {
 			$this->table->add_row($data["unidad_flota"], $data["nombre_cliente"],$data["fecha_viaje"],$data["origen"],$data["destino"],$data["kilometraje"],$data["gasto_combustible"],$data["costo"]);
 		}
