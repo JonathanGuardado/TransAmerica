@@ -15,8 +15,15 @@ class Reencauche_model extends CI_Model
     $this->db->set('lugar_reencauche',$lugar);
     $this->db->set('total_reencauche', $costo);
     $this->db->set('fecha_reencauche', $fecha_re);
-    
     $this->db->insert('reencauche');
+
+$data = array(
+                 'estado_reencauche' => 'T'
+               );
+
+    $this->db->where('idllanta', $idllanta);
+    $this->db->update('llanta', $data);
+    
  }
  public function load_Reencauche()
  {

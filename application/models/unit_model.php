@@ -42,38 +42,6 @@ return $query->row_array();
     $this->db->where('idflota', $idFlota);
     $this->db->update('flota', $data);
  }
- /*public function updating_unit_chasis($idChasis,$noChasis)
- {
-      $data = array(
-               'placa' => $noChasis
-               );
-    $this->db->where('idchasis', $idChasis);
-    $this->db->update('chasis', $data);
- }
- public function updating_unit_contenedor($idContenedor,$noContenedor)
- {
-      $data = array(
-               'tipo_contenedor' => $noContenedor
-               );
-    $this->db->where('idcontenedor', $idContenedor);
-    $this->db->update('contenedor', $data);
- }
- public function updating_unit_cabezal($idCabezal,$noCabezal)
- {
-      $data = array(
-               'identificador' => $noCabezal
-               );
-    $this->db->where('idcabezal', $idCabezal);
-    $this->db->update('cabezal', $data);
- }
- public function updating_unit_chofer($idChofer,$nameChofer)
- {
-      $data = array(
-               'nombre_conductor' => $nameChofer
-               );
-    $this->db->where('idconductor', $idChofer);
-    $this->db->update('conductor', $data);
- }*/
  public function deleting_unit($idFlota)
  {
     $data = array(

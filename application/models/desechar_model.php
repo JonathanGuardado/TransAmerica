@@ -12,6 +12,7 @@ class Desechar_model extends CI_Model
     	$data = array(
                'fecha_desecho' => $fechaDesechar, 
                  'descripcion_llanta'=> $descripcion, // tantas descripciones q pense en sobre escribir la misma descripcion
+                 'estado_desecho'=>'T'
                  
                );
     $this->db->where('idllanta', $noWheel);

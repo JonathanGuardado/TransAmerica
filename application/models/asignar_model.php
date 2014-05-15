@@ -19,6 +19,7 @@ class Asignar_model extends CI_Model
     $data = array(
                'fecha_asignacion' => $fechaAsignacion,
                'descripcion_llanta'=> $descripcion,//actualizacion de la descripcion
+               'estado_asignacion'=>'T'
                );
     $this->db->where('idllanta', $noWheel);
     $this->db->update('llanta', $data);

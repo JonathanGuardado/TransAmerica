@@ -23,9 +23,20 @@ class Unit extends CI_Controller {
 	{
 		$nameUnit=$this->input->post("nameUnit",true);
 		//Jala de la base los campos del Unidad para llenar el formulario
-		$this->load->model("unit_model");
+		try
+		{
+			$this->load->model("unit_model");
+		$this->unit_model->load_unit($nameUnit);
 		$data=$this->unit_model->load_unit($nameUnit);
-		$this->load->view("Administrator/Unit/editUnit2",$data);		
+		$this->load->view("Administrator/Unit/editUnit2",$data);
+
+		}
+		catch(Exception $e)
+		{
+			$data['message']="<div class='text-center' style='color:red'><h4>Error!</h4></div>";
+			$this->load->view("Administrator/Unit/editUnit2",$data);
+		}
+				
 	}
 	public function deleteUnit()
 	{

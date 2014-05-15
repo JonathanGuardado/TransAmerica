@@ -3,6 +3,10 @@ $("#InventarioLlanta").click(function(){
 	window.open('reportes/inventarioLlantas','_blank');
 	$("#CostoViaje").removeClass("active");
 	$("#HistorialReencauche").removeClass("active");
+	$("#LlantasDesechadas").removeClass("active");
+	$("#AsignacionLlantas").removeClass("active");
+	$("#MovimientosLlantas").removeClass("active");
+	$("#ComprasLlantas").removeClass("active");
 	$("#InventarioLlanta").addClass("active");
 	
 });
@@ -11,11 +15,60 @@ $("#HistorialReencauche").click(function(){
 	window.open("reportes/historialReencauche","_blank");
 	$("#CostoViaje").removeClass("active");
 	$("#InventarioLlanta").removeClass("active");
+	$("#LlantasDesechadas").removeClass("active");
+	$("#AsignacionLlantas").removeClass("active");
+	$("#MovimientosLlantas").removeClass("active");
+	$("#ComprasLlantas").removeClass("active");
 	$("#HistorialReencauche").addClass("active");
+});
+$("#LlantasDesechadas").click(function(){
+	window.open("reportes/llantasDesechadas","_blank");
+	$("#CostoViaje").removeClass("active");
+	$("#HistorialReencauche").removeClass("active");
+	$("#InventarioLlanta").removeClass("active");
+	$("#AsignacionLlantas").removeClass("active");
+	$("#MovimientosLlantas").removeClass("active");
+	$("#ComprasLlantas").removeClass("active");
+	$("#LlantasDesechadas").addClass("active");
+});
+$("#AsignacionLlantas").click(function(){
+	window.open("reportes/asignacionLlantas","_blank");
+	$("#HistorialReencauche").removeClass("active");
+	$("#InventarioLlanta").removeClass("active");
+	$("#LlantasDesechadas").removeClass("active");
+	$("#CostoViaje").removeClass("active");
+	$("#MovimientosLlantas").removeClass("active");
+	$("#ComprasLlantas").removeClass("active");
+	$("#AsignacionLlantas").addClass("active");
+});
+$("#MovimientosLlantas").click(function(){
+	window.open("reportes/movimientosLlantas","_blank");
+	$("#HistorialReencauche").removeClass("active");
+	$("#InventarioLlanta").removeClass("active");
+	$("#LlantasDesechadas").removeClass("active");
+	$("#CostoViaje").removeClass("active");
+	$("#ComprasLlantas").removeClass("active");
+	$("#AsignacionLlantas").removeClass("active");
+	$("#MovimientosLlantas").addClass("active");
+});
+$("#ComprasLlantas").click(function(){
+	window.open("reportes/comprasLlantasxmarca","_blank");
+	$("#HistorialReencauche").removeClass("active");
+	$("#InventarioLlanta").removeClass("active");
+	$("#LlantasDesechadas").removeClass("active");
+	$("#CostoViaje").removeClass("active");
+	$("#MovimientosLlantas").removeClass("active");
+	$("#AsignacionLlantas").removeClass("active");
+	$("#ComprasLlantas").addClass("active");
 });
 $("#CostoViaje").click(function(){
 	window.open("reportes/costoviaje","_blank");
 	$("#HistorialReencauche").removeClass("active");
 	$("#InventarioLlanta").removeClass("active");
+	$("#LlantasDesechadas").removeClass("active");
+	$("#AsignacionLlantas").removeClass("active");
+	$("#MovimientosLlantas").removeClass("active");
+	$("#ComprasLlantas").removeClass("active");
 	$("#CostoViaje").addClass("active");
 });
+
