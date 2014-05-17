@@ -15,24 +15,18 @@ class Reencauche_model extends CI_Model
     $this->db->set('lugar_reencauche',$lugar);
     $this->db->set('total_reencauche', $costo);
     $this->db->set('fecha_reencauche', $fecha_re);
-    $this->db->insert('reencauche');
-
-$data = array(
-                 'estado_reencauche' => 'T'
-               );
-
-    $this->db->where('idllanta', $idllanta);
-    $this->db->update('llanta', $data);
-    
+    $this->db->set('estado_reencauche', 'T');
+    $this->db->insert('reencauche');      
  }
  public function load_Reencauche()
  {
+  $this->db->where('estado_reencauche','T');
   $query=$this->db->get('reencauche');
   return $query->result_array();
  }
 
 
- public function updating_reencauche($idllanta,$fecha_re,$lugar,$costo,$observacion)
+ public function updating_reencauche($idReencauche,$idllanta,$fecha_re,$lugar,$costo,$observacion)
  {
       $data = array(
                  'fecha_reencauche' => $fecha_re,
@@ -42,18 +36,26 @@ $data = array(
                  'idllanta'=> $idllanta
                );
 
-    $this->db->where('idllanta', $idllanta);
+    $this->db->where('id_reencauche', $idReencauche);
     $this->db->update('reencauche', $data);
  }
 
  public function load_reencauche_id($id)
  {
 
-  $query= $this->db->where('idllanta',$id);
+  $query= $this->db->where('id_reencauche',$id);
   $query= $this->db->get("reencauche");
   return $query->row_array();
  }
-
+public function deleting_reencauche($idReencauche)
+ {
+    $data = array(
+               
+                 'estado_reencauche'=> 'F'
+               );
+    $this->db->where('id_reencauche', $idReencauche);
+    $this->db->update('reencauche', $data);
+ }
 
  
 }	

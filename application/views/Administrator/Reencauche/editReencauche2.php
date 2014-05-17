@@ -26,7 +26,7 @@
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"  style="text-align:left"><input type="text" value="<?php echo $observacion_re;?>" class="form-control" name="descripcion" placeholder="Descripci&oacute;n" />
         </div>
         </div>
-        
+        <input type="hidden" value="<?php echo $id_reencauche; ?>" name="idReencauche" />
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px;">
             
             

@@ -21,21 +21,21 @@
 				</div>
 			<div class="accordion-body collapse" id="collapseReencauche">
 					  	<div class="list-group accordion-inner">
-						  <a id="addReencauche" class="list-group-item badge">Agregar Reencauche</a>
-						  <a id="editReencauche" class="list-group-item badge">Modificar Reencauche</a>
-						  <a id="searchReencauche" class="list-group-item badge">Buscar Reencauche</a>
-						  <a id="deleteReencauche" class="list-group-item badge">Eliminar Reencauche</a>
+						  <a id="addReencauche" class="list-group-item badge" data-controller="reencauche" data-method="newReencauche">Agregar Reencauche</a>
+						  <a id="editReencauche" class="list-group-item badge" data-controller="reencauche" data-method="editReencauche">Modificar Reencauche</a>
+						  <a id="searchReencauche" class="list-group-item badge" data-controller="reencauche" data-method="searchReencauche">Buscar Reencauche</a>
+						  <a id="deleteReencauche" class="list-group-item badge" data-controller="reencauche" data-method="deleteReencauche">Eliminar Reencauche</a>
 						</div>
 			</div>
 				
 			</div>
-			<a id="Asignacion" class="list-group-item" >Asignaci&oacute;n</a>
-			<a id="Desechar" class="list-group-item" >Desechar</a>
+			<a id="Asignacion" class="list-group-item" data-controller="asignacion" data-method="">Asignaci&oacute;n</a>
+			<a id="Desechar" class="list-group-item" data-controller="desechar" data-method="">Desechar</a>
 		  	
 		</div>
 	</div>
-	<div id="content_mantain" class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+	<div id="content2" class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
 		<h1>Mantenimiento Llantas</h1>
 	</div>
 </div>
-<script type="text/javascript" src="../js/menu_mantain_actions.js"></script>
+<script type="text/javascript" src="../js/submenusActions.js"></script>

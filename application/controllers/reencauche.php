@@ -38,10 +38,10 @@ class Reencauche extends CI_Controller {
 		//tabla
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table class="table">');
-		$this->table->set_heading('Id LLanta', 'Fecha de Reencauche','Lugar','Costo','Observaciones');
+		$this->table->set_heading('ID Reencauche','Id LLanta', 'Fecha de Reencauche','Lugar','Costo','Observaciones','Eliminar');
 		foreach ($data as $dato) 
 		{
-			$this->table->add_row($dato["idllanta"], $dato["fecha_reencauche"],$dato["lugar_reencauche"],$dato["total_reencauche"],$dato["observacion_re"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="" data-method="deletingCabezal" onclick="deleteData('.$dato["idllanta"].');" href=# >'." X ".'</a>');
+			$this->table->add_row($dato["id_reencauche"],$dato["idllanta"], $dato["fecha_reencauche"],$dato["lugar_reencauche"],$dato["total_reencauche"],$dato["observacion_re"],' <a style="color:#0D8CFB;font-weight: normal"  class="delete" data-controller="reencauche" data-method="deletingReencauche" onclick="deleteData('.$dato["id_reencauche"].');" href=# >'." X ".'</a>');
 
 		}
 		$this->table->set_template($plantilla);
@@ -51,6 +51,14 @@ class Reencauche extends CI_Controller {
 		//segui el formato de ever en sus controladores a la hora de eliminar
 		$this->load->view("Administrator/Reencauche/deleteReencauche",$info);		
 	}
+	public function deletingReencauche()
+	{
+		//obteniendo id del cabezal a borrar 
+		$idReencauche=$this->input->post("id",true);
+		$this->load->model("reencauche_model");
+		$data=$this->reencauche_model->deleting_reencauche($idReencauche);
+		$this->deleteReencauche();	
+	}
 	public function searchReencauche()
 	{
 		//Jala de la base todos los Reencauches para llenarlos en un autocomplete
@@ -59,15 +67,15 @@ class Reencauche extends CI_Controller {
 	}
 	public function searchReencauche2()
 	{
-		$nameReencauche=$this->input->post("nameReencauche",true);
+		$idReencauche=$this->input->post("nameReencauche",true);
 		//Jala de la base los campos del Reencauche para llenar el formulario
 
-		$data= $this->reencauche_model->load_reencauche_id($nameReencauche);
+		$data= $this->reencauche_model->load_reencauche_id($idReencauche);
 
 		$this->load->library('table');
 		$plantilla = array ( 'table_open'  => '<table class="table">');
-		$this->table->set_heading('Id LLanta', 'Fecha de Reencauche','Lugar','Costo','Observaciones');
-		$this->table->add_row($data["idllanta"], $data["fecha_reencauche"],$data["lugar_reencauche"],$data["total_reencauche"],$data["observacion_re"]);
+		$this->table->set_heading('ID Reencauche','Id LLanta', 'Fecha de Reencauche','Lugar','Costo','Observaciones');
+		$this->table->add_row($data["id_reencauche"], $data["idllanta"], $data["fecha_reencauche"],$data["lugar_reencauche"],$data["total_reencauche"],$data["observacion_re"]);
 		$this->table->set_template($plantilla);
 		$info["tabla_loadReencauche"] = $this->table->generate();	
 
@@ -95,12 +103,13 @@ class Reencauche extends CI_Controller {
 		$noWheel =$this->input->post("noWheel",true);
 		$descripcion =$this->input->post("descripcion",true);
 		$costo =$this->input->post("costo",true);
-		$lugar=$this->input->post("lugar",true);
+		$lugar=$this->input->post("place",true);
+		$idReencauche=$this->input->post("idReencauche",true);
 
 
 		//Se almacena en la base de datos
 
-		$data = $this->reencauche_model->updating_reencauche($noWheel,$fechaReencauche,$lugar,$costo,$descripcion);
+		$data = $this->reencauche_model->updating_reencauche($idReencauche,$noWheel,$fechaReencauche,$lugar,$costo,$descripcion);
 
 		$data['message']="<div class='text-center'><h4>Reencauche Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Reencauche/editReencauche",$data);
@@ -114,7 +123,7 @@ class Reencauche extends CI_Controller {
 
 	    foreach($sequential as $row)
 	    {
-	        $array[] = $row['idllanta']; // add each user id to the array
+	        $array[] = $row['id_reencauche']; // add each user id to the array
 	    }
         echo json_encode($array);
     }
