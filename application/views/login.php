@@ -9,9 +9,9 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>    
 </head>
 <body>
-    <div class="row">
+    <div class="row" style="margin-top:100px">
         <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
-    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">      
     <div class="row jumbotron text-center" style="font-size:16px;">
     <form method="post" action="index.php/login/checkUser">
     <fieldset>
@@ -34,11 +34,12 @@
         <input type="button" onclick="validar_usuario()" class="btn btn-primary" value="Sign In" name="signin"/>
 
             <br />            
-            
+                    
         </div>
         <div id="mensaje_error_form_login" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="visibility: hidden; color:red; font-size:15px;">
          Usuario o Contrase&ntilde;a Incorrecta
-          </div>
+        </div>
+
     </fieldset>
     </form>
         </div>
