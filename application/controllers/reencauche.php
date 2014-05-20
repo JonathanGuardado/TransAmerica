@@ -6,6 +6,7 @@ class Reencauche extends CI_Controller {
    {
       parent::__construct();
       $this->load->model("reencauche_model");
+      $this->load->model("buy_model");
    }
 
 	public function index()
@@ -93,6 +94,8 @@ class Reencauche extends CI_Controller {
 		//Se almacena en la base de datos
 
 		$this->reencauche_model->agregar_reencauche($idllanta,$fechaReencauche,$lugar,$costo,$observacion);
+		$this->buy_model->updating_wheel_reencauche($idllanta);
+
 
 		$data['message']="<div class='text-center'><h4>Reencauche Agregado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Reencauche/newReencauche",$data);
@@ -124,6 +127,19 @@ class Reencauche extends CI_Controller {
 	    foreach($sequential as $row)
 	    {
 	        $array[] = $row['id_reencauche']; // add each user id to the array
+	    }
+        echo json_encode($array);
+    }
+
+    public function getDataLlantas()
+    {
+       // $this->load->model("chasis_model");
+		$sequential= $this->reencauche_model->load_wheels();
+		$array = array();
+
+	    foreach($sequential as $row)
+	    {
+	        $array[] = $row['idllanta']; // add each user id to the array
 	    }
         echo json_encode($array);
     }

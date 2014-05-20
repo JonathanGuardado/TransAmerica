@@ -2,6 +2,13 @@
 
 class Asignacion extends CI_Controller {
 
+	public function __construct()
+   	{
+      parent::__construct();
+      $this->load->model("asignar_model");
+      $this->load->model("buy_model");
+   	}
+
 	public function index()
 	{
 		$this->load->view("Administrator/Asignacion/asignacionWheel");	
@@ -22,10 +29,10 @@ class Asignacion extends CI_Controller {
 		
 	}
 
-	public function getDataWheels()
+    public function getDataWheels()
     {
        // $this->load->model("chasis_model");
-		$sequential= $this->reencauche_model->load_Reencauche();
+		$sequential= $this->asignar_model->load_wheels();
 		$array = array();
 
 	    foreach($sequential as $row)

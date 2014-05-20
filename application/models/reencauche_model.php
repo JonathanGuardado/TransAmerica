@@ -15,12 +15,12 @@ class Reencauche_model extends CI_Model
     $this->db->set('lugar_reencauche',$lugar);
     $this->db->set('total_reencauche', $costo);
     $this->db->set('fecha_reencauche', $fecha_re);
-    $this->db->set('estado_reencauche', 'T');
+    //$this->db->set('estado_reencauche', 'T');
     $this->db->insert('reencauche');      
  }
  public function load_Reencauche()
  {
-  $this->db->where('estado_reencauche','T');
+  //$this->db->where('estado_reencauche','T');
   $query=$this->db->get('reencauche');
   return $query->result_array();
  }
@@ -47,14 +47,20 @@ class Reencauche_model extends CI_Model
   $query= $this->db->get("reencauche");
   return $query->row_array();
  }
+
+// funcion que selecciona solo las llantas ya asignadas.
+ public function load_wheels()
+ {
+
+      $this->db->where('estado_asignacion',"T");
+      $query = $this->db->get('llanta');
+  return $query->result_array();
+ }
+
+ 
 public function deleting_reencauche($idReencauche)
  {
-    $data = array(
-               
-                 'estado_reencauche'=> 'F'
-               );
-    $this->db->where('id_reencauche', $idReencauche);
-    $this->db->update('reencauche', $data);
+    
  }
 
  

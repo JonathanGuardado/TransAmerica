@@ -30,6 +30,14 @@ class Asignar_model extends CI_Model
    
    }
 
+   public function load_wheels()
+ {
+
+      $this->db->where('estado_asignacion',"");
+      $query = $this->db->get('llanta');
+  return $query->result_array();
+ }
+
    
  
 }

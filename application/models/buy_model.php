@@ -30,11 +30,11 @@ class Buy_model extends CI_Model
  //Funcion cargar llantas/llanta
  //----------------------------------------------------------------------------------//
 
-
+// funcion que selecciona todos los id de llantas.
  public function load_wheels()
  {
-  $query=$this->db->query("SELECT * FROM llanta ");
-  return $query->result_array();
+      $query = $this->db->get('llanta');
+      return $query->result_array();
  }
 
  public function load_wheel($idllanta)
@@ -65,6 +65,14 @@ class Buy_model extends CI_Model
                );
 
     $this->db->where('serie_llanta', $noSerie);
+    $this->db->update('llanta', $data);
+ }
+
+ public function updating_wheel_reencauche($idllanta)
+ {
+      $data = array('estado_reencauche'=> "T");
+
+    $this->db->where('idllanta',$idllanta);
     $this->db->update('llanta', $data);
  }
 
