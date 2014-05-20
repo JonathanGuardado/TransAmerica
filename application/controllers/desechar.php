@@ -18,7 +18,5 @@ class Desechar extends CI_Controller {
 		$data['message']="<div class='text-center'><h4>modificacion de llanta  Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Desechar/desecharWheel",$data);	
 
-		
-		
 	}
 }
