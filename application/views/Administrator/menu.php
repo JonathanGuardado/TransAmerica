@@ -6,6 +6,7 @@
   <li id="fact" data-controller="administrador" data-method="showFact"><a href="#">Facturaci&oacute;n</a></li>
   <li id="mantain" data-controller="administrador" data-method="showMantain"><a href="#">Mantenimiento Llantas</a></li>
   <li id="reports" data-controller="administrador" data-method="showReports"><a href="#">Reportes</a></li>
+  <li id="about" data-controller="administrador" data-method="showAbout"><a href="#">Acerca de</a></li>
   <li id="logOut" class="pull-right" ><a href="login/logout">Cerrar Sesi&oacute;n</a></li>
 </ul>
 <script type="text/javascript" src="../js/menu_actions.js"></script>
