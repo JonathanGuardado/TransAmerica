@@ -10,6 +10,7 @@ class Viaje extends CI_Controller {
 	{
 		$this->load->view("Administrator/Viaje/newViaje");		
 	}
+	
 	public function editViaje()
 	{
 		//Jala de la base todos los Viajes para llenarlos en un autocomplete
@@ -140,6 +141,37 @@ class Viaje extends CI_Controller {
 
 		$data['message']="<div class='text-center'><h4>Viaje Editado Exitosamente!</h4></div>";
 		$this->load->view("Administrator/Viaje/editViaje",$data);
+	}
+	public function finishViaje()
+	{
+		$this->load->model("viaje_model");
+		$data=$this->viaje_model->viajes();
+		
+		$this->load->library('table');
+		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$this->table->set_heading('Conductor', 'Flota','Cliente','ruta','Fecha Viaje','Tipo','Gasolina','Marchamos','Finalizar');
+		foreach ($data as $dato) 
+		{
+			$nameClient=$this->viaje_model->buscar_cliente3($dato["idcliente"]);
+			$nameRoute=$this->viaje_model->buscar_ruta2($dato["id_ruta"]);
+			$conductor=$this->viaje_model->buscar_conductor2($dato["idconductor"]);
+
+			$this->table->add_row($conductor["nombre_conductor"], $dato["idflota"],$nameClient["nombre_empresa"],$nameRoute["descripcion"],$dato["fecha_viaje"],$dato["tipo_viaje"],$dato["gasolina_asignada"],$dato["marchamos"],' <a style="color:#0D8CFB;font-weight: normal"  class="finish" data-controller="viaje" data-method="finishingViaje" onclick="finishData('.$dato["idviaje"].');" href=# >'." X ".'</a>');
+
+		}
+		$this->table->set_template($plantilla);
+		$info["tabla_finishViaje"] = $this->table->generate();
+
+		$this->load->view("Administrator/Viaje/finishViaje",$info);		
+	}
+	public function finishingViaje()
+	{
+		$idviaje=$this->input->post("id",true);
+		$this->load->model("viaje_model");	
+		$viaje=$this->viaje_model->buscar_viaje($idviaje);
+		$distanciaruta=$this->viaje_model->load_distancia_ruta($viaje["id_ruta"]);
+		$data=$this->viaje_model->finalizar_viaje($idviaje,$viaje["idflota"],$distanciaruta["distancia_km"]);
+		$this->finishViaje();
 	}
 	public function getData()
     {

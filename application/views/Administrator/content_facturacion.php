@@ -10,7 +10,8 @@
 						  <a id="addViaje" class="list-group-item badge" data-controller="viaje" data-method="newViaje">Agregar Viaje</a>
 						  <a id="editViaje" class="list-group-item badge"  data-controller="viaje" data-method="editViaje">Modificar Viaje</a>
 						  <a id="searchViaje" class="list-group-item badge"  data-controller="viaje" data-method="searchViaje">Buscar Viaje</a>
-						  <a id="deleteViaje" class="list-group-item badge"  data-controller="viaje" data-method="deleteViaje">Eliminar Viaje</a>
+						  <!--a id="deleteViaje" class="list-group-item badge"  data-controller="viaje" data-method="deleteViaje">Eliminar Viaje</a-->
+						  <a id="finishViaje" class="list-group-item badge"  data-controller="viaje" data-method="finishViaje">Finalizar Viaje</a>
 						</div>
 			</div>
 				

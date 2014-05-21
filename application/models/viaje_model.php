@@ -70,6 +70,21 @@ class Viaje_model extends CI_Model
 	{
 		$this->db->query('UPDATE `viaje` SET `estado_viaje`="F" WHERE `idviaje`='.$idviaje);
 	}
+	public function finalizar_viaje($idviaje,$unidad,$distancia)
+	{
+
+		$this->db->query('UPDATE `viaje` SET `estado_viaje`="F" WHERE `idviaje`='.$idviaje);
+		$llantas=$this->db->query("select * from flota_llanta 
+									inner join llanta on llanta.idllanta=flota_llanta.idllanta
+								where flota_llanta.idflota='".$unidad."'");
+
+       foreach ($llantas->result_array() as $row)
+   			{
+   				$this->db->query('UPDATE `llanta` SET `kilometraje`=`kilometraje`+'.$distancia.' WHERE `idllanta`="'.$row['idllanta'].'"');
+      			
+   			}
+
+	}
 	public function viajes()
 	{
 		$this->db->select('*');
@@ -115,6 +130,16 @@ class Viaje_model extends CI_Model
    		
    		$this->db->query('UPDATE `viaje` SET `idconductor`="'.$con.'",`idflota`="'.$Flota.'",`idcliente`="'.$Client.'",`id_ruta`="'.$Route.'",`fecha_viaje`="'.$fecha.'",`tipo_viaje`="'.$tipo.'",`gasolina_asignada`="'.$gas.'",`marchamos`="'.$marchamos.'" WHERE `idviaje`='.$idviaje);
    }
+   public function load_distancia_ruta($idruta)
+   {
+   	$this->db->select('*');
+	      $this->db->from('ruta');
+	      $this->db->where('id_ruta', $idruta);
+	       $query=$this->db->get();
+	      return $query->row_array();
+   }
+
+
 }	
 
 ?>
