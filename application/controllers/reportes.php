@@ -36,7 +36,7 @@ class Reportes extends CI_Controller {
         	  </div>
         	  <br><br></div>";
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$plantilla = array ( 'table_open'  => '<table class="table table-bordered">');
 		$this->table->set_heading('Fecha Asignacion', 'Descripcion','Serie','Tama&ntilde;o','Marca','Ultima Unidad');
 		foreach ($datos as $data) {
 			$this->table->add_row($data["FECHA_ASIGNACION"], $data["DESCRIPCION_LLANTA"],$data["SERIE_LLANTA"],$data["TAMANO_LLANTA"],$data["MARCA_LLANTA"],$data["ULTIMA_UNIDAD"]);
@@ -76,7 +76,7 @@ class Reportes extends CI_Controller {
         	  </div>
         	  <br><br></div>";
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$plantilla = array ( 'table_open'  => '<table class="table table-bordered">');
 		$this->table->set_heading('Fecha ', 'Total ','Lugar','Serie','Ultima Unidad','Descripcion');
 		foreach ($datos as $data) {
 			$this->table->add_row($data["fecha_reencauche"], $data["total_reencauche"],$data["lugar_reencauche"],$data["serie_llanta"],$data["idflota"],$data["descripcion_llanta"]);
@@ -119,7 +119,7 @@ class Reportes extends CI_Controller {
         	  </div>
         	  <br><br></div>";
 		$this->load->library('table');
-		$plantilla = array ( 'table_open'  => '<table class="table">');
+		$plantilla = array ( 'table_open'  => '<table class="table table-bordered">');
 		$this->table->set_heading('Unidad de la Flota', ' Nombre Empresa ',' Fecha del  Viaje ',' Origen del Viaje ',' Destino del Viaje',' Kilometraje ',' Combustible Gastado',' Costo del Viaje ');
 		foreach ($datos as $data) {
 			$this->table->add_row($data["unidad_flota"], $data["nombre_cliente"],$data["fecha_viaje"],$data["origen"],$data["destino"],$data["kilometraje"],$data["gasto_combustible"],$data["costo"]);
@@ -156,7 +156,7 @@ class Reportes extends CI_Controller {
               </div>
               <br><br></div>";
         $this->load->library('table');
-        $plantilla = array ( 'table_open'  => '<table class="table">');
+        $plantilla = array ( 'table_open'  => '<table class="table table-bordered">');
         $this->table->set_heading('Llanta ',' Serie ',' Marca ',' Fecha Asignaci&oacute;n ',' Fecha Desecho ',' Unidad ');
         foreach ($datos as $data) {
             $this->table->add_row($data["idllanta"], $data["serie_llanta"],$data["marca"],$data["fecha_asignacion"],$data["fecha_desecho"],$data["unidad"]);
@@ -193,7 +193,7 @@ class Reportes extends CI_Controller {
               </div>
               <br><br></div>";
         $this->load->library('table');
-        $plantilla = array ( 'table_open'  => '<table class="table">');
+        $plantilla = array ( 'table_open'  => '<table class="table table-bordered">');
         $this->table->set_heading('Fecha Asignaci&oacute;n ',' Unidad ',' Llanta ',' Serie ',' Marca ');
         foreach ($datos as $data) {
             $this->table->add_row($data["fecha_asignacion"], $data["unidad"],$data["llanta"],$data["serie"],$data["marca"]);
@@ -230,7 +230,7 @@ class Reportes extends CI_Controller {
               </div>
               <br><br></div>";
         $this->load->library('table');
-        $plantilla = array ( 'table_open'  => '<table class="table">');
+        $plantilla = array ( 'table_open'  => '<table class="table table-bordered" >');
         $this->table->set_heading('Unidad ',' Codigos Llantas ',' Movimientos Realizados ');
         foreach ($datos as $data) {
             $this->table->add_row($data["unidad"],$data["cod_llantas"],$data["movimientos"]);
@@ -267,7 +267,7 @@ class Reportes extends CI_Controller {
               </div>
               <br><br></div>";
         $this->load->library('table');
-        $plantilla = array ( 'table_open'  => '<table class="table">');
+        $plantilla = array ( 'table_open'  => '<table class="table table-bordered">');
         $this->table->set_heading('Fecha Compra ',' Cantidad ',' Marca ');
         foreach ($datos as $data) {
             $this->table->add_row($data["fecha"], $data["cantidad"],$data["marca"]);
