@@ -11,11 +11,19 @@
 	</div>
 	<br>
 	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align:right">
-		Tel&eacute;fono
+		Tel&eacute;fono:
 	</div>
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		75033405
 	</div>
+	<br>
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align:right">
+		Correo:
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		ever_1509@gmail.com
+	</div>
+	<br><br>
 	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align:right">
 		Contacto:
 	</div>
@@ -24,9 +32,16 @@
 	</div>
 	<br>
 	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align:right">
-		Tel&eacute;fono
+		Tel&eacute;fono:
 	</div>
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		77873782
+	</div>
+	<br>
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align:right">
+		Correo:
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		carlos.eztorres@gmail.com
 	</div>
 </div>
