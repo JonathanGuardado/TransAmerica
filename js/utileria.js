@@ -5,6 +5,8 @@ jQuery(document).ready(function() {
     configureCalendar();
     configureAutocomplete();
     configureDataTable();
+
+
 });
 function  configureMask(){
     jQuery(".tel").mask("0000-0000");
@@ -108,16 +110,9 @@ function deleteData(id){
         });    
 
 }
-function finishData(id)
-{
-    
-    var controller = $("a.finish").attr("data-controller");
-        var method = $("a.finish").attr("data-method");
-        
-        var url  = controller + "/" + method;
-        
-        var posting= $.post(url,{id:id});
-        posting.done(function(data){
-          $("#content_busqueda").html(data);
-        });  
+
+
+function pruebaEnvio(id,km){
+jQuery.post("Notificacion/sendNotificationLlanta/"+id+"/"+km).done(function(resp){alert(resp);});
+
 }
