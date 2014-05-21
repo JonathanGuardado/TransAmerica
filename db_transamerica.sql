@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-05-2014 a las 05:39:44
+-- Tiempo de generación: 21-05-2014 a las 03:29:52
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.12
 
@@ -252,6 +252,8 @@ CREATE TABLE IF NOT EXISTS `llanta` (
   `estado_asignacion` varchar(1) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `estado_reencauche` varchar(1) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `estado_desecho` varchar(1) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `kilometraje_max` float DEFAULT NULL,
+  `kilometraje` float DEFAULT NULL,
   PRIMARY KEY (`idllanta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -259,50 +261,50 @@ CREATE TABLE IF NOT EXISTS `llanta` (
 -- Volcado de datos para la tabla `llanta`
 --
 
-INSERT INTO `llanta` (`idllanta`, `descripcion_llanta`, `serie_llanta`, `tamanio_llanta`, `marca_llanta`, `estado_llanta`, `fecha_asignacion`, `fecha_compra`, `fecha_desecho`, `estado_asignacion`, `estado_reencauche`, `estado_desecho`) VALUES
-('06', 'Desc', '6', 22, 'FIRESTONE', 'T', '2014-05-08', '2014-05-09', '0000-00-00', 'T', 'T', 'T'),
-('07', 'Desc', '7', 22, 'FIRESTONE', 'T', '2014-05-06', '2014-05-09', '0000-00-00', 'T', '', 'T'),
-('10', 'Llantas 24 in', '10', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T'),
-('11', 'Llantas 24 in', '11', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T'),
-('12', 'Llantas 24 in', '12', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T'),
-('15', 'Llantas 24 in', '15', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T'),
-('2', 'Desc', '2', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T'),
-('20', 'Llanta', '20', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T'),
-('21', 'Llanta', '21', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', '', '', 'T'),
-('22', 'Llantas 24 in', '22', 22, 'Fire Stone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('23', 'Llantas 24 in', '23', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('24', 'Llantas 24 in', '24', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('25', 'Llantas 24 in', '25', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('26', 'Llantas 24 in', '26', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('27', 'Llantas 24 in', '27', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('28', 'Llantas 24 in', '28', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('29', 'Llantas 24 in', '29', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('3', 'Desc', '3', 22, 'FIRESTONE', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('30', 'Llantas 24 in', '30', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('31', 'Llantas 24 in', '31', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('32', 'Llantas 24 in', '32', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('33', 'Llantas 24 in', '33', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('34', 'Llantas 24 in', '34', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('35', 'Llantas 24 in', '35', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('36', 'Llantas 24 in', '36', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('37', 'Llantas 24 in', '37', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', ''),
-('38', 'Llantas 24 in', '38', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('39', 'Llantas 24 in', '39', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('4', 'Desc', '4', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('40', 'Llantas 24 in', '40', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('41', 'Llantas 24 in', '41', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('42', 'Llantas 24 in', '42', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('43', 'llantas de 30 in', '43', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('44', 'llantas de 30 in', '44', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('45', 'llantas de 30 in', '45', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('46', 'llantas de 30 in', '46', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('47', 'llantas de 30 in', '47', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('48', 'llantas de 30 in', '48', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('49', 'llantas de 30 in', '49', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('5', 'Desc', '5', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('50', 'llantas de 30 in', '50', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('51', 'llantas de 30 in', '51', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', ''),
-('52', 'llantas de 30 in', '52', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '');
+INSERT INTO `llanta` (`idllanta`, `descripcion_llanta`, `serie_llanta`, `tamanio_llanta`, `marca_llanta`, `estado_llanta`, `fecha_asignacion`, `fecha_compra`, `fecha_desecho`, `estado_asignacion`, `estado_reencauche`, `estado_desecho`, `kilometraje_max`, `kilometraje`) VALUES
+('06', 'Desc', '6', 22, 'FIRESTONE', 'T', '2014-05-08', '2014-05-09', '0000-00-00', 'T', 'T', 'T', 100000, 2000),
+('07', 'Desc', '7', 22, 'FIRESTONE', 'T', '2014-05-06', '2014-05-09', '0000-00-00', 'T', '', 'T', 0, 0),
+('10', 'Llantas 24 in', '10', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T', 0, 0),
+('11', 'Llantas 24 in', '11', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T', 0, 0),
+('12', 'Llantas 24 in', '12', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T', 0, 0),
+('15', 'Llantas 24 in', '15', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T', 100000, 2000),
+('2', 'Desc', '2', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T', 0, 0),
+('20', 'Llanta', '20', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', 'T', 'T', 'T', 100000, 2000),
+('21', 'Llanta', '21', 22, 'Fire Stone', 'T', NULL, '2014-05-09', '2014-05-09', '', '', 'T', 0, 0),
+('22', 'Llantas 24 in', '22', 22, 'Fire Stone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('23', 'Llantas 24 in', '23', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('24', 'Llantas 24 in', '24', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('25', 'Llantas 24 in', '25', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('26', 'Llantas 24 in', '26', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('27', 'Llantas 24 in', '27', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('28', 'Llantas 24 in', '28', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('29', 'Llantas 24 in', '29', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('3', 'Desc', '3', 22, 'FIRESTONE', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 100000, 22100),
+('30', 'Llantas 24 in', '30', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('31', 'Llantas 24 in', '31', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('32', 'Llantas 24 in', '32', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('33', 'Llantas 24 in', '33', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('34', 'Llantas 24 in', '34', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('35', 'Llantas 24 in', '35', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('36', 'Llantas 24 in', '36', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('37', 'Llantas 24 in', '37', 22, 'Firestone', 'T', '2014-05-09', '2014-05-09', NULL, '', '', '', 0, 0),
+('38', 'Llantas 24 in', '38', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('39', 'Llantas 24 in', '39', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('4', 'Desc', '4', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 10050),
+('40', 'Llantas 24 in', '40', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('41', 'Llantas 24 in', '41', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('42', 'Llantas 24 in', '42', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('43', 'llantas de 30 in', '43', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('44', 'llantas de 30 in', '44', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('45', 'llantas de 30 in', '45', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('46', 'llantas de 30 in', '46', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('47', 'llantas de 30 in', '47', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('48', 'llantas de 30 in', '48', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('49', 'llantas de 30 in', '49', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('5', 'Desc', '5', 22, 'FIRESTONE', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('50', 'llantas de 30 in', '50', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('51', 'llantas de 30 in', '51', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0),
+('52', 'llantas de 30 in', '52', 22, 'Firestone', 'T', NULL, '2014-05-09', NULL, '', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -442,7 +444,7 @@ CREATE TABLE IF NOT EXISTS `ruta` (
 --
 
 INSERT INTO `ruta` (`id_ruta`, `descripcion`, `tiempo_estimado`, `distancia_km`, `gasolina_estimada`, `estado_ruta`) VALUES
-(1, 'Cortez/antiguo Cuscatlan/ Lourdes', '00:00:48', 10000, 500, 'T'),
+(1, 'Cortez/antiguo Cuscatlan/ Lourdes', '00:00:48', 10050, 500, 'T'),
 (2, 'San Jose/ San Salvador/Cortez', '00:00:24', 1000, 250, 'T'),
 (3, 'San Miguel/Cuscatlan/ Honduras', '24:00:00', 500, 125, 'T'),
 (4, 'soyapango/San Miguel/Honduras', '28:00:00', 300, 123, 'T');
@@ -549,7 +551,7 @@ CREATE TABLE IF NOT EXISTS `viaje` (
   KEY `FK_RELATIONSHIP_11` (`id_ruta`),
   KEY `FK_RELATIONSHIP_12` (`idconductor`),
   KEY `FK_RELATIONSHIP_9` (`idflota`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `viaje`
@@ -559,7 +561,8 @@ INSERT INTO `viaje` (`idviaje`, `idconductor`, `idflota`, `idcliente`, `id_ruta`
 (1, 1, 'TAS-00002', 1, 1, '2014-02-04', 'Carga pesada', 34, '12323', 'T'),
 (2, 2, 'TAS-00002', 2, 2, '2012-05-01', 'Entrega Leche', 45, '3754', 'T'),
 (3, 3, 'TAS-00004', 3, 3, '2014-05-13', 'Carga Granos', 24, '3434', 'T'),
-(4, 4, 'TAS-00003', 4, 4, '2013-07-22', 'Entrega Comida', 36, '4646', 'T');
+(4, 4, 'TAS-00003', 4, 4, '2013-07-22', 'Entrega Comida', 36, '4646', 'T'),
+(5, 1, 'TAS-00001', 2, 2, '2014-05-20', 'A', 45, '3754', 'F');
 
 --
 -- Restricciones para tablas volcadas
