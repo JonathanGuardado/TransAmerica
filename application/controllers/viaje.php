@@ -171,8 +171,49 @@ class Viaje extends CI_Controller {
 		$viaje=$this->viaje_model->buscar_viaje($idviaje);
 		$distanciaruta=$this->viaje_model->load_distancia_ruta($viaje["id_ruta"]);
 		$data=$this->viaje_model->finalizar_viaje($idviaje,$viaje["idflota"],$distanciaruta["distancia_km"]);
+		$dataLlanta=$this->viaje_model->stateLlanta($viaje["idflota"]);
+		$flagNotification=false;
+		$llantas="";
+		foreach ($dataLlanta as $dato) 
+		{
+			if($dato["kilometraje_rest"]<500){
+			$flagNotification=true;
+			$llantas.=$dato["llanta"].",";
+			}
+		}
+		$llantas=substr($llantas, 0,-1);
+		$datosNotification["llantas"]=$llantas;
+		$datosNotification["unidad"]=$viaje["idflota"];
+		if ($flagNotification) {
+			try{
+			$this->sendEmailLlanta($datosNotification);	
+			}catch(Exception  $e){
+				echo $e;
+			}
+
+			
+		}
 		$this->finishViaje();
 	}
+
+	public function sendEmailLlanta($dato){
+		    	$stringMsj="Estimado Usuario : se le informa que en la Unidad  ".$dato["unidad"]." las llantas: ".$dato["llantas"]." Estan proximas a expirar";
+
+  	       		$this->load->library('email');
+        		$this->email->from("carlos.eztorres@gmail.com");
+               $this->email->to("jonathan.guardado11@gmail.com");
+               $this->email->subject("Notificaion expiracion de llantas");
+               $this->email->message($stringMsj);        
+               $this->email->send();
+			   $this->email->clear();
+			 
+         
+    }
+
+
+	
+
+
 	public function getData()
     {
         $this->load->model("viaje_model");

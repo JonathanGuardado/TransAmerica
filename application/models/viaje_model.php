@@ -85,6 +85,11 @@ class Viaje_model extends CI_Model
    			}
 
 	}
+
+
+
+
+
 	public function viajes()
 	{
 		$this->db->select('*');
@@ -139,6 +144,22 @@ class Viaje_model extends CI_Model
 	      return $query->row_array();
    }
 
+	public function getDatosN($idllanta){
+		$this->db->select('flota.idflota');
+	      $this->db->from('flota_llanta inner join flota on flota_llanta.idflota=flota.idflota inner join llanta on flota_llanta.idllanta=llanta.idllanta');
+	      $this->db->where(' llanta.idllanta', $idllanta);
+	       $query=$this->db->get();
+	      return $query->row_array();
+
+	}
+
+	public function stateLlanta($unidad) {
+		$llantas=$this->db->query("select llanta.idllanta as llanta, (kilometraje_max - kilometraje) as kilometraje_rest from flota_llanta 
+									inner join llanta on llanta.idllanta=flota_llanta.idllanta
+								where flota_llanta.idflota='".$unidad."'");
+		 return $llantas->result_array();
+	}
+//select flota.idflota from flota_llanta inner join flota on flota_llanta.idflota=flota.idflota inner join llanta on flota_llanta.idllanta=llanta.idllanta where llanta.idllanta='".$idllanta."'
 
 }	
 

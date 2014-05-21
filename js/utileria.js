@@ -116,3 +116,16 @@ function pruebaEnvio(id,km){
 jQuery.post("Notificacion/sendNotificationLlanta/"+id+"/"+km).done(function(resp){alert(resp);});
 
 }
+function finishData(id)
+{
+    
+    var controller = $("a.finish").attr("data-controller");
+        var method = $("a.finish").attr("data-method");
+        
+        var url = controller + "/" + method;
+        
+        var posting= $.post(url,{id:id});
+        posting.done(function(data){
+          $("#content_busqueda").html(data);
+        });
+}
