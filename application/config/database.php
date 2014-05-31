@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['hostname'] = 'transamerica-alexrember.rhcloud.com';
+$db['default']['username'] = 'adminkQfB4jp';
+$db['default']['password'] = 'zHsThCtyHKCa';
 $db['default']['database'] = 'db_transamerica';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
